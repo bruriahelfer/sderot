@@ -1,0 +1,143 @@
+.page-node-type-page{
+    background-color: $gray;
+    @include res(s-m-l){
+        background-color: initial;
+    }
+    main{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        @include res(s-m-l){
+            display: block;
+        }
+        .layout-content{
+            width: 69%;
+            background-color: #fff;
+            border-radius: 30px;
+            margin-top: 60px;
+            padding: 0 120px 40px;
+            box-sizing: border-box;
+            margin-bottom: 70px;
+            @include res(width){
+                padding: 0 6.5vw 2.1vw;
+                margin-top: 3.25vw;
+            }
+            @include res(s-m-l){
+                width: 100%;
+                padding: 0;
+                background-color: initial;
+                margin-top: 0;
+            }
+            h1.page-title{
+                margin-top: 0;
+                text-align: right;
+                @include res(s-m){
+                    margin-bottom: 0;
+                }
+            }
+            .field--name-body{
+                line-height: 1.4;
+                @include res(s){
+                    font-size: 18px;
+                }
+                p{
+                    margin-bottom: 0;
+                }
+                h2{
+                    margin-top: 22px;
+                    margin-bottom: 0px;
+                    line-height: 1.2;
+                    @include size-30;
+                }
+                a{
+                    text-decoration: underline;
+                }
+                strong{
+                    font-weight: 500;
+                }
+                ul{
+                    padding: 0;
+                    li{
+                        list-style: none;
+                        padding-right: 24px;
+                        position: relative;
+                        padding-bottom: 8px;
+                        &:before{
+                            content: "";
+                            width: 8px;
+                            height: 8px;
+                            background-color: $dark-orange;
+                            position: absolute;
+                            right: 0;
+                            border-radius: 50%;
+                            top: 10px;
+                        }
+                    }
+                }
+                table{
+                    width: 100%!important;
+                    border: none!important;
+                    text-align: right;
+                    @include res(s-m){
+                        font-size: 0.7em;
+                    }
+                    thead{
+                        color: #fff;
+                        tr{
+                            th{
+                                border: none;
+                                background-color: $dark-orange;
+                            }
+                            th:nth-child(1){
+                                border-radius: 0 30px 0 0;
+                            }
+                            th:last-child{
+                                border-radius: 30px 0 0 0;
+                            }
+                        }
+                    }
+                    th, td{
+                        padding: 24px;
+                        @include res(m){
+                            padding: 12px;
+                        }
+                        @include res(s){
+                            padding: 8px;
+                        }                       
+                    }
+                    tbody{
+                        border-right: 2px solid #f4f4f4;
+                        border-left: 2px solid #f4f4f4;
+                        td{
+                            border: none;
+                            border-bottom: 2px solid #f4f4f4;
+                        }
+                    }
+                }
+            }
+        }
+        .layout-sidebar-second{
+            width: 27.6%;
+            background-color: $orange;
+            border-radius: 30px;
+            margin-top: 60px;
+            margin-bottom: 70px;
+            padding: 40px 40px 25px;
+            box-sizing: border-box;
+            @include res(width){
+                padding: 2.1vw 2.1vw 1.3vw;
+                margin-top: 3.25vw;
+            }
+            @include res(s-m-l){
+                width: 100%;
+                padding: 30px 30px 20px;
+            }
+            @include res(s){
+                padding: 20px 10px 10px;
+            }
+            h2{
+                @include size-30;
+            }
+        }
+    }
+}

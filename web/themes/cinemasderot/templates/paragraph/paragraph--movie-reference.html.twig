@@ -1,0 +1,33 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'paragraph--id--' ~ paragraph.id(),
+  ]
+%}
+
+{# Check if there are any future screening dates #}
+{% set has_future_screening = false %}
+{% set current_date = "now"|date("Y-m-d") %}
+
+{# Loop through all referenced screening date paragraphs from the movie #}
+{% for screening_paragraph in paragraph.field_movie.entity.field_screening_date %}
+  {% if screening_paragraph.entity.field_date.value %}
+    {% set screening_date = screening_paragraph.entity.field_date.value|date("Y-m-d") %}
+    {% if screening_date >= current_date %}
+      {% set has_future_screening = true %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{# Only show the paragraph if there's at least one future screening date #}
+{% block paragraph %}
+    {% if has_future_screening %}
+        <div{{ attributes.addClass(classes) }}>
+            {% block content %}
+                {{ content }}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock paragraph %}

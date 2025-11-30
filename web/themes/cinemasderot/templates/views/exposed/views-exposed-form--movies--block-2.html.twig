@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Theme override for a views exposed form.
+ *
+ * Available variables:
+ * - form: A render element representing the form.
+ *
+ * @see template_preprocess_views_exposed_form()
+ */
+#}
+{% if q is not empty %}
+  {#
+    This ensures that, if clean URLs are off, the 'q' is added first,
+    as a hidden form element, so that it shows up first in the POST URL.
+  #}
+{{ q }}
+{% endif %}
+<div class="form--inline clearfix">
+  <div class="first-line">
+    <div class="wrapper">
+      {{ form.title }}
+  	  {{ form.actions }}
+    </div>
+  </div>
+  <div class="only-mobile filters"><div class="wrapper">{{ "More filters"|t }}</div></div>
+  <div class="mobile-wrapper">
+    <div class="only-mobile filters-label">{{ "More filters"|t }}</div>
+    <div class="close only-mobile"></div>
+    <div class="second-line">
+      <div class="wrapper">
+        <div class="date-range js-form-item">
+          <label>{{ "Date:"|t }}</label>
+          <div class="input">
+            <div class="all">{{ "All"|t }}</div>
+            <input type="text" name="daterange" value="" readonly="readonly" />
+            <div class="arrow"></div>
+            <div class="empty"></div>
+          </div>
+        </div>
+        {{ form|without('actions','title','field_subscribe_value','field_online_value_1') }}
+      </div>
+    </div>
+    <div class="third-line">
+      <div class="wrapper">
+        {{ form.field_subscribe_value }}
+        {{form.field_online_value_1 }}
+      </div>
+    </div>
+  </div>
+</div>

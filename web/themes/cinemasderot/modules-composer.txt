@@ -1,0 +1,31 @@
+admin_toolbar
+amswap
+block_content_permissions
+captcha
+ckeditor_media_embed
+entityconnect
+field_group
+extlink
+google_analytics
+honeypot
+linkit
+metatag
+pathauto
+roleassign
+simple_sitemap
+transliterate_filenames
+twig_tweak
+view_unpublished
+webform
+
+layout:
+layout_builder_restrictions
+layout_builder_ibqe
+
+layout & multilingual:
+layout_builder_st
+
+multilingual:
+custom nodule - lang link
+
+composer require drupal/admin_toolbar drupal/amswap drupal/block_content_permissions drupal/captcha drupal/ckeditor_media_embed drupal/entityconnect drupal/field_group drupal/extlink drupal/google_analytics drupal/honeypot drupal/linkit drupal/metatag drupal/pathauto drupal/roleassign drupal/simple_sitemap drupal/transliterate_filenames drupal/twig_tweak drupal/view_unpublished drupal/webform

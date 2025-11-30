@@ -1,0 +1,196 @@
+.page-node-type-advanced .field--name-field-paragraphs > .paragraph.paragraph--type--contact .in-the-grid{
+    width: 1518px;
+}
+
+.paragraph--type--contact{
+    &:after{
+        background: url(/themes/cinemasderot/images/bg.svg) repeat-x left bottom; 
+        content: "";
+        height: 100px;
+        width: 100%;
+        display: block;
+        background-size: auto 337px;
+        @include res(s-m){
+            background-size: 137px auto;
+        }
+    }
+    .in-the-grid{
+        display: -webkit-box;display: flex;
+        -webkit-box-pack: justify;justify-content: space-between;
+        @include res(s-m-l){
+            display: block;
+        }
+    }
+    .label{
+        font-weight: 900;
+        @include size-50;
+        margin-bottom: 37px;
+        display: block;
+        @include res(width){
+            margin-bottom: 2vw;
+        }
+        @include res(s-m-l){
+            margin-bottom: 15px;
+        }
+    }
+    .right-area{
+        width: 49%;
+        @include res(s-m-l){
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        .webform{
+            form{
+                .messages{
+                    display: none;
+                }
+                .form-item--error-message{
+                    &:before{
+                        display: none;
+                    }
+                    strong{
+                        color: red;
+                        font-weight: normal;
+                        font-size: 0.7em;
+                        display: block;
+                    }
+                }
+                .js-form-item{ 
+                    position: relative; 
+                    margin: 0 0 25px 0;
+                    @include res(width){
+                        margin: 0 0 1.3vw 0;
+                    }
+                    input, textarea{
+                        border: 2px solid rgba(13, 12, 12, 0.09);
+                        background-color: #ffffff;
+                        padding: 0 40px;
+                        box-sizing: border-box;
+                        width: 100%;
+                        @include res(width){
+                            padding: 0 2.2vw;
+                        }
+                        @include res(s-m-l){
+                            padding: 0 20px;
+                        }
+                    }
+                    input{
+                        height: 60px;
+                        border-radius: 41px;
+                        @include res(width){
+                            height: 3.2vw;
+                        }
+                        @include res(s-m-l){
+                            height: 45px;
+                        }
+                    }
+                    textarea{
+                        height: 148px;
+                        padding-top: 14px;
+                        border-radius: 20px;
+                        @include res(width){
+                            height: 8vw;
+                            padding-top: 0.8vw;
+                        }
+                        @include res(s-m-l){
+                            height: 100px;
+                            padding-top: 10px;
+                        }
+                    }
+                    label{
+                        color: $dark-black;
+                        @include size-25;
+                        font-weight: 400;
+                        position: absolute;
+                        padding: 14px 40px 0;
+                        transition: all 0.5s;
+                        top: 0;
+                        @include res(width){
+                            padding: 0.8vw 2.2vw 0;
+                        }
+                        @include res(s-m-l){
+                            padding: 10px 20px 0;
+                        }
+                        &.form-required::after {
+                            display: none;
+                        }
+                    }
+                    &.input-full{
+                        label{
+                            top: -34px;
+                            padding-right: 0;
+                            font-size: 0.8em;
+                            @include res(width){
+                                top: -1.8vw;
+                                font-size: 0.8vw;
+                            }
+                            @include res(s-m-l){
+                                top: -27px;
+                                font-size: 0.7em;
+                            }
+                        }
+                    }
+                }
+                .form-actions{
+                    input{
+                        @include button(1.25em,#fff,$dark-orange,$dark-orange);
+                        border-radius: 40px;
+                        @include res(width){
+                            font-size: 1.36vw;
+                        }
+                        @include res(s-m-l){
+                            font-size: 1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .left-area{
+        width: 46.5%;
+        @include res(s-m-l){
+            width: 100%;
+        }
+    }
+}
+
+.paragraph--type--contact-item{
+    display: flex;
+    @include size-25;
+    align-items: center;
+    margin-bottom: 30px;
+    @include res(width){
+        margin-bottom: 1.6vw;
+    }
+    @include res(s-m){
+        flex-wrap: wrap;
+    }
+    .field--name-field-icon{
+        width: 75px;
+        img{
+            @include res(xxl){
+                width: 30px;
+            }
+            @include res(xl){
+                width: 25px;
+            }
+        }
+        @include res(s){
+            width: 55px;
+        }
+    }
+    .field--name-field-title{
+        min-width: 96px;
+    }
+    .field--name-field-contact-content{
+        @include res(s-m){
+            width: 100%;
+        }
+        @include res(m){
+            margin-right: 75px;
+        }
+        @include res(s){
+            margin-right: 55px;
+        }
+    }
+}

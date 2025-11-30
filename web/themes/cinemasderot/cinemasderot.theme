@@ -1,0 +1,146 @@
+<?php
+use Drupal\block_content\BlockContentInterface;
+
+function cinemasderot_preprocess_html(&$variables) {
+  $account = \Drupal::currentUser();
+  $roles = $account->getRoles();
+  foreach ($roles as $role) {
+    $variables['attributes']['class'][] = 'role-' . $role;
+  }
+  $variables['language'] = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['attributes']['class'][] = 'lang-'.\Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['attributes']['class'][] = 'dir-'.\Drupal::languageManager()->getCurrentLanguage()->getDirection();
+  $path = \Drupal::service('path.current')->getPath();
+  $path_args = explode('/', $path);
+  if (isset($path_args[1]) && isset($path_args[2]) && ($path_args[1] == 'node') && (is_numeric($path_args[2]))) {
+    $variables['attributes']['class'][] = 'page-node-' . $path_args[2];
+  }
+  if (isset($path_args[1]) && isset($path_args[2]) && ($path_args[1] == 'node') && (is_numeric($path_args[2])) && isset($path_args[3]) && ($path_args[3] == 'layout')) {
+    $variables['attributes']['class'][] = 'page-node-layout-edit';
+  }
+}
+
+/**
+ * Implements tod_preprocess_page()
+ */
+function cinemasderot_preprocess_page(&$variables) {
+  $path = \Drupal::service('path.current')->getPath();
+  $path_args = explode('/', $path);
+  if (isset($path_args[1]) && ($path_args[1] == 'node') ) {
+    if(!empty($variables['node'])){
+      $node = $variables['node'];
+      $variables['content_type'] = $node->bundle();
+    }
+  }
+  $form = \Drupal::formBuilder()->getForm('Drupal\tickets_form\Form\TicketsForm');
+  $variables['tickets_form'] = $form;
+  $svg = file_get_contents(\Drupal::service('extension.list.theme')->getPath('cinemasderot') . '/images/clock.svg');
+  $variables['svg_clock'] = $svg;
+}
+
+function cinemasderot_preprocess_block(&$variables) {
+  // Add a class depending on the type of block content.
+  $content = $variables['elements']['content'];
+  if (isset($content['#block_content']) && $content['#block_content'] instanceof BlockContentInterface) {
+    $bundle = $content['#block_content']->bundle();
+    $variables['attributes']['class'][] = 'block-block-content-' . strtr($bundle, '_', '-');
+    $variables['bundle'] = true;
+  }
+  $variables['url'] = \Drupal::service('path.current')->getPath();
+  if (\Drupal::currentUser()->hasPermission('access contextual links')) {
+    $variables['has_contextual_permission'] = true;
+  }
+}
+
+/**
+ * Implements template_preprocess_node
+ *
+ * Add template suggestions and classes
+ */
+function cinemasderot_preprocess_paragraph(&$variables) {
+  $paragraph = $variables['paragraph'];
+  $paragraph_type = $paragraph->getType();
+  if ( ($paragraph_type == 'movie_date') ) {
+    $timezone = date_default_timezone_get();
+    $formatter = \Drupal::service('date.formatter');
+    $date = $paragraph->get('field_date')->getValue();
+    // Only use the first date field
+
+    $date_start = $date[0]['value'];
+    $time = strtotime($date_start.' UTC');
+    $day = $formatter->format($time, 'only_day', $timezone);
+    $dayNumber = $formatter->format($time, 'day_number', $timezone);
+    $short = $formatter->format($time, 'short_date', $timezone);
+    $time = $formatter->format($time, 'only_time', $timezone);
+
+
+    $variables['day'] = $day;
+    $variables['dayNumber'] = $dayNumber;
+    $variables['date'] = $short;
+    $variables['time'] = $time;
+
+  }
+  $form = \Drupal::formBuilder()->getForm('Drupal\tickets_form\Form\TicketsForm');
+  $variables['tickets_form'] = $form;
+}
+
+
+function cinemasderot_views_pre_render(Drupal\views\ViewExecutable $view) {
+  if ($view->id() == 'movies' && $view->getDisplay()->display['id'] != 'block_1' && $view->getDisplay()->display['id'] != 'block_7' && $view->getDisplay()->display['id'] != 'block_3' && $view->getDisplay()->display['id'] != 'block_4') {
+	  $profiles = [];
+    $new_result = [];
+	  $i=0;
+    foreach($view->result as $k => $row) {
+      $id = $row->_entity->id();
+      if (!in_array($id, $profiles)) {
+        $profiles[] = $id;
+		    $row->index = $i;
+        $new_result[] = $row;
+		    $i++;
+      }
+    }
+   $view->result = $new_result;
+  }
+  if ($view->id() == 'movies' && $view->getDisplay()->display['id'] == 'block_1') {
+	  $profiles = [];
+    $new_result = [];
+	  $i=0;
+    $numOfResults = 20;
+    foreach($view->result as $k => $row) {
+      $id = $row->_entity->id();
+      if (!in_array($id, $profiles)) {
+        $profiles[] = $id;
+		    $row->index = $i;
+        $new_result[] = $row;
+		    $i++;
+        $numOfResults = $numOfResults - 1;
+        if ($numOfResults == 0){
+          break;
+        }
+      }
+    }
+   $view->result = $new_result;
+  }
+  if ($view->id() == 'movies' && $view->getDisplay()->display['id'] == 'block_7') {
+	  $profiles = [];
+    $new_result = [];
+	  $i=0;
+    $numOfResults = 3;
+    foreach($view->result as $k => $row) {
+      $id = $row->_entity->id();
+      if (!in_array($id, $profiles)) {
+        $profiles[] = $id;
+		    $row->index = $i;
+        $new_result[] = $row;
+		    $i++;
+        $numOfResults = $numOfResults - 1;
+        if ($numOfResults == 0){
+          break;
+        }
+      }
+    }
+   $view->result = $new_result;
+  }
+}
+
+?>

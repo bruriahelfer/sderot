@@ -1,0 +1,19 @@
+base:
+  css:
+    theme:
+      stylesheets/seven.css: {}
+      https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css: {}
+  js:
+    js/seven.js: {}
+    https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupal.ajax
+    - core/jquery.ui.effects.core
+    - core/jquery.ui.effects.slide
+    - core/jquery.ui.effects.size
+
+
+

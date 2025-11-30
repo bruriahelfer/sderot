@@ -1,0 +1,12 @@
+<?php
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function admin_lib_page_attachments_alter(array &$attachments) {
+  // Check if we're on the admin theme.
+  if (\Drupal::service('router.admin_context')->isAdminRoute()) {
+    // Attach the library to the page.
+    $attachments['#attached']['library'][] = 'admin_lib/admin_lib';
+  }
+}

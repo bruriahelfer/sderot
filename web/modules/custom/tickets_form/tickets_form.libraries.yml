@@ -1,0 +1,13 @@
+
+
+tickets_form:
+  version: 1.x
+  css:
+    theme:
+  js:
+    js/tickets_form.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+    - core/drupal
+    - core/drupalSettings

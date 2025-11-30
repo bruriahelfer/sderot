@@ -1,0 +1,81 @@
+.paragraph--type--banner{
+    position: relative;
+    background-position: top right 23%!important;
+    @include res(m){
+        background-position: top left 72%!important;
+    }
+    @include res(s){
+        background-position: top left 73%!important;
+
+    }
+    .width-wrapper{
+        position: relative;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        @include res(l){
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        @include res(s-m){
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        .field{
+            width: 45%;
+            @include res(m){
+                width: 45%;
+                max-width: 280px;
+            }
+            @include res(s){
+                width: 66%;
+                max-width: 200px;
+            }
+            &.field--name-field-title{
+                font-size: 2.8em;
+                font-weight: bold;
+                color: #fff;
+                @include res(xl-xxl){
+                    font-size: 2.2em;
+                }
+                @include res(s-m-l){
+                    font-size: 1.7em;
+                }
+            }
+            &.field--name-field-editor{
+                font-size: 1.8em;
+                margin-top: 20px;
+                @include res(xl-xxl){
+                    font-size: 1.2em;
+                }
+                @include res(s-m-l){
+                    font-size: 1em;
+                }
+                p{
+                    margin: 8px 0;
+                }
+            }
+            &.field--name-field-link{
+                margin-top: 40px;
+                @include res(s-m-l){
+                    margin-top: 20px;
+                }
+                a{
+                    background-color: #000;
+                    color: #fff;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    font-weight: bold;
+                    display: inline-block;
+                    transition: all 0.5s;
+                    border-radius: 250px;
+                    @include res(s-m-l){
+                        font-size: 0.9em;
+                    }
+                    &:hover{
+                        background-color: lighten(#000, 30%);
+                    }
+                }
+            }
+        }
+    }
+}

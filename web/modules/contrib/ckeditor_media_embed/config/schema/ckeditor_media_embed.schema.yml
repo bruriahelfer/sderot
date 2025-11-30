@@ -1,0 +1,14 @@
+# Schema for the configuration files of the CKEditor media embed module.
+
+ckeditor_media_embed.settings:
+  type: config_object
+  mapping:
+    embed_provider:
+      type: string
+      label: 'Embed provider'
+    ckeditor_version:
+      type: string
+      label: 'CKeditor version'
+    plugins_version_installed:
+      type: string
+      label: 'Plugin installed version'

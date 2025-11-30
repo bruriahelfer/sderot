@@ -1,0 +1,32 @@
+@mixin res($media) {
+  @if $media == xs {
+    @media (max-width: 413px) { @content; }
+  }
+  @if $media == s {
+    @media (max-width: 480px) { @content; }
+  }
+  @else if $media == m {
+    @media (min-width: 481px) and (max-width: 768px) { @content; }
+  }
+  @if $media == s-m {
+    @media (max-width: 768px) { @content; }
+  }
+  @if $media == l {
+    @media (min-width: 769px) and (max-width: 1024px) { @content; }
+  }
+  @if $media == s-m-l {
+    @media (max-width: 1024px) { @content; }
+  }
+  @if $media == xl {
+    @media (min-width: 1025px) and (max-width: 1199px) { @content; }
+  }
+  @if $media == xxl {
+    @media (min-width: 1200px) and (max-width: 1350px) { @content; }
+  }
+  @if $media == xl-xxl {
+    @media (min-width: 1025px) and (max-width: 1350px) { @content; }
+  }
+  @if $media == width {
+    @media (min-width: 1025px) and (max-width: 1860px) { @content; }
+  }
+}

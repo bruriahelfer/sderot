@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+{% for row in rows %}
+    {%
+        set row_classes = [
+        default_row_class ? 'views-row',
+        ]
+    %}
+    <div{{ row.attributes.addClass(row_classes) }}>
+        <a href="/node/{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ nid }}'] }}">
+            <div class="field--name-field-image-verical">
+                {{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_image_verical }}'] }}
+            </div>
+            <div class="text">
+                <div class="title">{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</div>
+                {% if row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_online }}']==1 %}
+                    {{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_online }}'] }}
+                {% else %}
+                    {% set today='now'|date('Y-m-d') %}
+                    {% set screening = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_date }}'] %}
+                    {% if today in screening|slice(0, 10) %}
+                        <div class="today-label">{{ "Today"|t }}</div>
+                    {% endif %}
+                    <div class="time">{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_screening_date }}'] }}</div>
+                {% endif %}
+            </div>
+        </a>
+        <div class="overlay">
+            <a href="/node/{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ nid }}'] }}">
+                <div class="button">{{ "Order tickets"|t }}</div>
+            </a>
+        </div>
+    </div>
+{% endfor %}

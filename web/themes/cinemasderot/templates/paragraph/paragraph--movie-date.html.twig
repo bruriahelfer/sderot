@@ -1,0 +1,29 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+    {% set noshlaykes = paragraph.getParentEntity().field_noshlaykes.value %}
+        {% if dayNumber == 2 and noshlaykes != 1 %}<div class="tuesday day-{{ dayNumber }}">{{ "Tuesday at Shlakes - 10 NIS for retirees!"|t }}</div>{% endif %}
+        <div class="flex line">
+            <div class="day">{{ "day"|t }} {{ day }}</div>
+            /
+            <div class="date">{{ date }}</div>
+            <div class="second-slash">/</div>
+            <div class="time">{{ time }}</div>
+            /
+            {{ start_time }}
+            <div class="place">{{ content.field_place }}</div>
+            {% if content.field_remark1|render %}
+              <div class="remark">{{ content.field_remark1 }}</div>
+            {% endif %}
+        </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

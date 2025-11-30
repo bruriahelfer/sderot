@@ -1,0 +1,264 @@
+@import "base/quary";
+@import "base/colors";
+@import "base/mixin";
+@import "region/header.scss";
+@import "region/footer.scss";
+@import "content/movie.scss";
+@import "content/blocks.scss";
+@import "content/calendar.scss";
+@import "content/basicpage.scss";
+@import "view/movies.scss";
+@import "paragraphs/webform.scss";
+@import "paragraphs/screening-table.scss";
+@import "paragraphs/today-week-month.scss";
+@import "paragraphs/gallery.scss";
+@import "paragraphs/order-tickets.scss";
+@import "paragraphs/grid.scss";
+@import "paragraphs/gener.scss";
+@import "paragraphs/updates.scss";
+@import "paragraphs/banner.scss";
+
+
+a, a:link, a:visited{
+  text-decoration: none;
+  color: $default;
+}
+
+textarea:focus, input:focus, select:focus{
+  outline: none;
+}
+
+body{
+    color: $default;
+    line-height: 1.3;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    .dialog-off-canvas-main-canvas .layout-container{
+      font-size: 1em;
+    }
+    input, select, textarea{
+      font-family: 'Open Sans', sans-serif;
+      font-size: 1em;
+    }
+}
+
+
+img{
+  max-width: 100%;
+  height: auto;
+  margin-bottom: -5px;
+}
+
+.only-mobile{
+  display: none;
+  @include res(s-m-l){
+    display: block;
+  }
+}
+
+.only-desktop{
+  @include res(s-m-l){
+    display: none!important;
+  }
+}
+
+.only-menu{
+  display: none;
+  @include res(s-m-l){
+    display: block;
+  }
+}
+
+.role-editor:not(.role-administrator){
+  .toolbar-icon-system-admin-config{
+    display: none;
+  }
+}
+
+.toolbar-tray span, .toolbar-tray a {
+    color: #565656;
+    text-decoration: none;
+    display: block;
+}
+
+.width-wrapper{
+  @include width;
+}
+
+body:not(.page-node-type-advanced){
+  main{
+    @include width;
+  }
+}
+
+h1.page-title{
+  @include size-50;
+  font-weight: 800;
+  line-height: 1.1;
+  padding-top: 50px;
+  text-align: center;
+}
+.page-node-type-advanced{
+  h1{
+    @include width;
+  }
+  .field--name-field-paragraphs{
+    > .paragraph:not(.all-width):not(.paragraph--type--movies-gallery):not(.paragraph--type--order-tickets), .all-width .in-the-grid{
+      @include width;
+      padding-top: 74px;
+      @include res(width){
+        padding-top: 4vw;
+      }
+      @include res(s-m-l){
+        padding-top: 50px;
+      }
+      &:last-child{
+        padding-bottom: 74px;
+        @include res(width){
+          padding-bottom: 4vw;
+        }
+        @include res(s-m-l){
+          padding-bottom: 50px;
+        }
+      }
+      &.paragraph--type--screening-table{
+        @include res(s-m-l){
+          padding-left: 0;
+          padding-right: 0;
+        }
+      }
+      &.paragraph--type--movies-gallery{
+        width: 100%;
+      }
+    }
+  }
+}
+
+main{
+  padding-top: 96px;
+  @include res(s-m-l){
+    padding-top: 57px;
+  }
+}
+
+.block-local-tasks-block{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  background-color:#000;
+  z-index: 200;
+  a{
+      color: #fff;
+      font-size: 16px;
+  }
+  .tabs.primary{
+      margin: 0;
+      .is-active {
+          a{
+              color: $default;
+              pointer-events: none;
+          }
+      }
+      a:hover{
+          color: $default;
+      }
+  }
+}
+
+.ui-dialog{
+  z-index: 500;
+  .vertical-tabs{
+    display: none;
+  }
+  .button--danger{
+    display: none;
+  }
+}
+
+.region-message{
+  position: relative;
+  top: 130px;
+  @media (max-width:1200px){
+    top: 110px;
+  }
+}
+
+.toolbar-oriented .toolbar-bar{
+  z-index: 1001;
+}
+
+.box{
+  box-shadow: 0 5px 31px rgba(0, 0, 0, 0.1);
+  border-radius: 30px;
+  background-color: #ffffff;
+  padding: 60px 50px 30px;
+  @include res(width){
+    padding: 3.2vw 2.7vw 1.6vw;
+  }
+  @include res(s-m-l){
+    padding: 40px 30px 20px;
+  }
+}
+
+.flex{
+  display: -webkit-box;
+  display: flex;
+  &.vertical-center{
+    -webkit-box-align: center;
+            align-items: center;
+  }
+  &.horizontal-center{
+    -webkit-box-pack: center;
+            justify-content: center;
+  }
+  &.pointer-between{
+    > div{
+      position: relative;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+              align-items: center;
+      &:after{
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $pink;
+        display: inline-block;
+        margin: 4px 10px 0;
+        @include res(s-m){
+          margin: 0 7px;
+        }
+      }
+      &:last-child:after{
+        display: none;
+      }
+    }
+  }
+}
+
+.field--label-inline .field__label, .field--label-inline .field__items {
+  float: right;
+  font-weight: normal;
+}
+
+.ajax-progress{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0 !important;
+  padding: 0;
+  background: url(/themes/cinemasderot/images/loader.svg) no-repeat center center rgba(0,0,0,0.5);
+  background-size: 100px;
+  display: -webkit-box;display: flex;
+  -webkit-box-align: center;align-items: center;
+  -webkit-box-pack: center;justify-content: center;
+  z-index: 100;
+  .text{
+    color: #fff;
+    margin-top: 91px;
+  }
+}

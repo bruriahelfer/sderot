@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Theme override to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ */
+#}
+
+<div class="group">
+    {% if title %}
+    {{ title }}
+    {% endif %}
+    <div class="views-row-wrapper">
+        {% for row in rows %}
+        {%
+            set row_classes = [
+            default_row_class ? 'views-row',
+            ]
+        %}
+        <div{{ row.attributes.addClass(row_classes) }}>
+            {% set now = 'now'|date('Y-m-d\TH:i:s') %}
+            {% set movietime = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_date_2 }}'] %}
+            {{- row.content -}}
+            {#
+            {% if movietime == "PAST" %}
+                <div class="views-field-field-link-by-date past">{{ "tickets"|t }}</div>
+            {% else %}
+                <div class="views-field-field-link-by-date future">{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_link_by_date }}'] }}</div>
+            {% endif %}#}
+        </div>
+        {% endfor %}
+    </div>
+</div>

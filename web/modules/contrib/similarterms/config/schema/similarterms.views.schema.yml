@@ -1,0 +1,23 @@
+views.argument.similar_terms_arg:
+  type: views.argument.numeric
+  mapping:
+    vocabularies:
+      type: sequence
+      label: 'Limit similarity to terms within these vocabularies'
+      sequence:
+        type: string
+        label: 'Vocabulary'
+    include_args:
+      type: boolean
+      label: 'Include argument node(s) in results'
+
+views.field.similar_terms_field:
+  type: views_field
+  label: 'Similarity'
+  mapping:
+    count_type:
+      type: integer
+      label: 'Display type'
+    percent_suffix:
+      type: boolean
+      label: 'Append % when showing percentage'

@@ -1,0 +1,288 @@
+.view.movie-slide{
+    position: relative;
+    @include res(s-m){
+        position: relative;
+    }
+    .owl-controls{
+        position: absolute;
+        left: 0;
+        top: 0!important;
+        .owl-prev, .owl-next{
+            position: absolute;
+            top: 0;
+            background-color: #fff;
+            font-size: 0;
+        }
+    }
+    .owl-item > .views-row{
+        margin: 0 1px;
+    }
+    .owl-stage{
+        display: -webkit-box;
+        display: flex;
+        flex-wrap: wrap;
+        &:after{
+            display: none;
+        }
+        .owl-item{
+            display: -webkit-box;
+            display: flex;
+        }
+    }
+    > .view-content{
+        display: -webkit-box;
+        display: flex;
+        > .views-row{
+            margin-bottom: 40px;
+            margin-top: 40px;
+            width: calc(100%/4 - 34.5px);
+            display: none;
+            margin-left: 46px;
+            &:nth-child(4){
+                margin-left: 0;
+            }
+            &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4){
+                display: block;
+            }
+            @media (min-width: 769px) and (max-width: 1200px){
+                width: calc(100%/3 - 52px/3);
+                margin-left: 26px;
+                &:nth-child(3){
+                    margin-left: 0;
+                }
+                &:nth-child(4){
+                    display: none;
+                }
+            }
+            @include res(m){
+                width: 76%;
+                &:nth-child(2){
+                    margin-left: 0;
+                }
+                &:nth-child(3), &:nth-child(4){
+                    display: none;
+                }
+            }
+            @include res(s){
+                width: 100%;
+                margin-left: 0;
+                &:nth-child(2), &:nth-child(3), &:nth-child(4){
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.view.movies-cart{
+    > .view-content, > .view-content .views-infinite-scroll-content-wrapper{
+        .owl-item > .views-row, > .views-row{
+            box-shadow: 0 0px 31px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff;
+            border-radius: 30px;
+            position: relative;
+            a{
+                display: block;
+            }
+            .field--name-field-image-verical{
+                img{
+                    border-radius: 30px 30px 0 0;
+                }
+            }
+            .text{
+                padding: 20px 20px 10px;
+                display: -webkit-box;
+                display: flex;
+                flex-wrap: wrap;
+                @include res(width){
+                    padding: 1vw 1vw 0.8vw;
+                    font-size: 1.1vw;
+                }
+                @include res(s-m-l){
+                    padding: 10px 10px 20px;
+                }
+                @include res(s-m-l){
+                    font-size: 0.8em;
+                }
+                .screening-time-label{
+                    margin-left: 3px;
+                }
+                .title{
+                    font-size: 1.2em;
+                    font-weight: 700;
+                    padding-bottom: 10px;
+                    width: 100%;
+                    @include res(width){
+                        font-size: 1.2vw;
+                    }
+                    @include res(s-m-l){
+                        font-size: 1em;
+                    }
+                }
+            }
+            .overlay{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                right: 0;
+                background-color: rgba(0,0,0,0.76);
+                border-radius: 30px;
+                opacity: 0;
+                -webkit-transition: opacity 0.5s;
+                transition: opacity 0.5s;
+                @include res(s-m){
+                    display: none;
+                }
+                a{
+                    display: inline-block;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    display: -webkit-box;display: flex;
+                    -webkit-box-align: center;align-items: center;
+                    -webkit-box-pack: center;justify-content: center;
+                    .button{
+                        @include button(1.25em,#fff,$dark-orange,$dark-orange);
+                        border-radius: 40px;
+                        display: inline-block;
+                        font-weight: 700;
+                        @include res(width){
+                            font-size: 1.36vw;
+                        }
+                        @include res(l){
+                            font-size: 1em;
+                        }
+                    }
+                }
+                &:hover{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.view.movie-list{
+    > .view-content, > .view-content .views-infinite-scroll-content-wrapper{
+        display: -webkit-box;
+        display: flex;
+        flex-wrap: wrap;
+        > .views-row{
+            width: 18.1%;
+            margin-left: 2.3333%;
+            position: relative;
+            margin-bottom: 60px;
+            @include res(xl){
+                width: 23.3%;
+                margin-left: 2%;
+            }
+            @include res(l){
+                width: 31%;
+                margin-left: 3%;
+            }
+            @include res(m){
+                width: 49%;
+                margin-left: 2%;
+            }
+            @include res(s){
+                width: 100%;
+                margin-left: 0;
+            }
+            &:nth-child(5n){
+                margin-left: 0;
+                @include res(xl){
+                    margin-left: 3%;
+                }
+                @include res(l){
+                    margin-left: 3%;
+                }
+                @include res(m){
+                    margin-left: 2%;
+                }
+            }
+            &:nth-child(4n){
+                @include res(xl){
+                    margin-left: 0;
+                }
+            }
+            &:nth-child(3n){
+                @include res(l){
+                    margin-left: 0;
+                }
+            }
+            &:nth-child(2n){
+                @include res(m){
+                    margin-left: 0;
+                }
+            }
+            .field--name-field-image-verical img{
+                width: 100%;
+            }
+        }
+    }
+}
+
+.recomended-movie, .sliders .views-element-container, .paragraph--type--movies-gener .views-element-container{
+    @include res(l){
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    @include res(m){
+        padding: 0 58px;
+        overflow: hidden;
+    }
+    @include res(s){
+        padding: 0 25px;
+        overflow: hidden;
+    }
+}
+
+.view.movies-cart.movie-list.vertical{
+    > .view-content{
+        display: block;
+        @include res(l){
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: justify;
+                    justify-content: space-between;
+        }
+        @include res(m){
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-pack: justify;
+                    justify-content: space-between;
+        }
+        > .views-row {
+            width: 100%;
+            margin-left: 0;
+            box-shadow: 0 5px 31px rgba(0, 0, 0, 0.22);
+            @include res(l){
+                width: 49%;
+                display: none;
+                &:nth-child(1), &:nth-child(2){
+                    display: block;
+                }
+            }
+            @include res(m){
+                width: 49%;
+                display: none;
+                &:nth-child(1), &:nth-child(2){
+                    display: block;
+                }
+            }   
+            @include res(s){
+                margin-bottom: 30px;
+            } 
+            .text{
+                padding: 53px 30px 20px;
+                @include res(width){
+                    padding: 2.8vw 1.6vw 1.1vw;
+                }
+                @include res(s-m-l){
+                    padding: 28px 10px 20px;
+                }
+            }
+        }
+    }
+}

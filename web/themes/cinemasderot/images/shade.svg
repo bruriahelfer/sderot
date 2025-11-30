@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1920px" height="810px" viewBox="0 0 1920 810" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>shade</title>
+    <defs>
+        <radialGradient cx="39.390742%" cy="13.6284561%" fx="39.390742%" fy="13.6284561%" r="97.3841155%" gradientTransform="translate(0.393907,0.136285),scale(0.421875,1.000000),rotate(47.858355),scale(1.000000,1.732549),translate(-0.393907,-0.136285)" id="radialGradient-1">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+        </radialGradient>
+        <filter x="0.0%" y="0.0%" width="100.0%" height="100.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feGaussianBlur stdDeviation="0" in="SourceGraphic"></feGaussianBlur>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.650940668">
+        <g id="סינמטק-שדרות_בית2_גרסה2_מצבים" transform="translate(0.000000, -184.000000)" fill="url(#radialGradient-1)">
+            <g id="הירו" transform="translate(0.000000, 184.000000)">
+                <rect id="shade" filter="url(#filter-2)" x="0" y="0" width="1920" height="810" ></rect>
+            </g>
+        </g>
+    </g>
+</svg>

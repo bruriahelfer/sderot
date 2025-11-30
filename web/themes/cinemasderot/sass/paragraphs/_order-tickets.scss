@@ -1,0 +1,258 @@
+.paragraph--type--order-tickets{
+    @include width;
+    > div{
+        border-radius: 500px;
+        background: #FFF;
+        box-shadow: 0 2px 8.8px 0 rgba(0, 0, 0, 0.15);
+        @include res(s-m-l){
+            border-radius: 30px;
+        }
+    }
+    form{
+        display: flex;
+        padding: 40px 70px;
+        @include res(width){
+            padding: 2.2vw 2.8vw;
+        }       
+        @include res(xxl){
+            font-size: 0.85em;
+        }
+        @include res(xl){
+            font-size: 0.75em;
+        }
+        @include res(l){
+            margin: 0;
+            padding: 30px 15px;
+            border-radius: 76px;
+            display: block;
+        }
+        @include res(s-m){
+            padding: 30px 15px;
+            border-radius: 30px;
+            display: block;
+        }
+        > div{
+            width: 22%;
+            margin: 0  1.333% 0 0;
+            @include res(l){
+                margin-bottom: 30px;
+            }
+            @include res(s-m-l){
+                width: 100%;
+                margin: 0;
+                margin-bottom: 15px;
+            }
+            > label, .select2, .select2-selection__rendered, &.ticket-button a, &.ticket-button.disabled{
+                height: 56px;
+                box-sizing: border-box;
+                @include res(width){
+                    height: 3.85vw;
+                }
+                @include res(s){
+                    height: 40px;
+                }
+            }
+            .select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered{
+                @include res(width){
+                    height: 3.5vw;
+                }
+                @include res(m){
+                    height: 54px;
+                }
+                @include res(s){
+                    height: 34px;
+                }
+            }
+        }
+    }
+}
+
+.select2-container{
+    .select2-dropdown{
+        border: none;
+        padding: 28px;
+        border-radius: 30px!important;
+        box-shadow: 0 5px 31px rgba(0, 0, 0, 0.22);
+        min-width: 300px;
+        &.select2-dropdown--above{
+            margin-top: -16px;
+        }
+        &.select2-dropdown--below{
+            margin-top: 16px;
+        }
+        ul{
+            font-size: 0.85em;
+            &::-webkit-scrollbar {
+                width: 5px;
+                border-radius: 7px;
+            } 
+            &::-webkit-scrollbar-track {
+                border-radius: 50px;
+                background-color: rgba(13, 12, 12, 0.09);
+                border: 6px solid #fff;
+            }
+            &::-webkit-scrollbar-thumb {
+                background: $red;
+                border-radius: 10px;
+                padding: 0 10px;
+            }
+            li{
+                margin-left: 20px;
+                @include res(width){
+                    font-size: 1.1vw;
+                }
+                @include res(s-m){
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+    &.select2-container--default .select2-results > .select2-results__options {
+        max-height: 343px;
+    }
+    &.select2-container--default .select2-results__option--selected{
+        background-color: rgba(13, 12, 12, 0.09);
+    }
+    &.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+        background-color: $red;
+    }
+}
+
+form[id^=tickets-form-form]{
+    select{
+        display: none;
+    }
+    .js-form-item {
+        > label{
+            font-size: 1em;
+            font-weight: 500;
+            position: absolute;
+            color: #6A6A6A;
+            padding-right: 32px;
+            display: flex;
+            align-items: center;
+            @include res(s-m){
+                padding-right: 15px;
+            }
+            @include res(m){
+                font-size: 0.9em;
+            }
+            @include res(s){
+                font-size: 0.8em;
+            }
+            &:after{
+                display: none;
+            }
+        }
+        &.input-full{
+            > label{
+                display: none;
+            }
+        }
+        .select2{
+            width: 100%!important;
+            border-radius: 200px;
+            border: 1px solid #000;
+        }
+        &:not(.input-full){
+            .select2-selection__rendered{
+                opacity: 0;
+            }
+        }
+        .select2-selection__rendered{
+            box-sizing: border-box;
+        }
+        .select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered{
+            margin: 0px 32px 0 60px;
+            padding: 0;
+            width: calc(100% - 92px);
+            align-items: center;
+            display: flex;
+            @include res(s-m){
+                margin: 0px 15px 0 40px;
+                width: calc(100% - 55px);
+            }
+        }
+        .select2-selection__arrow{
+            b{
+                top: auto;
+                border: none;
+                @include arrow;
+            }
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow{
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+        .select2-container--open, &.input-full{
+            .select2-selection__arrow{
+                b{
+                    &:before{
+                        -webkit-transform: rotate(45deg);transform: rotate(45deg);
+                    }
+                    &:after{
+                        -webkit-transform: rotate(-45deg);transform: rotate(-45deg);
+                    }
+                }
+            }
+        }
+        .select2-selection__rendered{
+            background-color: transparent;
+            color: #6A6A6A;
+            @include res(m){
+                font-size: 0.9em;
+            }
+            @include res(s){
+                font-size: 0.8em;
+            }
+        }
+        .select2-container--default.select2-container--disabled .select2-selection--single,
+        .select2-container--default .select2-selection--single{
+            background-color: transparent;
+        }
+        .select2-container--default .select2-selection--single{
+            border: none;
+        }
+    }
+    .ticket-button{
+        margin-left: 0;
+        width: 20.5%;
+        margin-right: auto;
+        @include res(width){
+            width: 22%;
+        }
+        @include res(s-m-l){
+            width: 100%;
+            margin: 0;
+        }
+        @include res(s){
+            font-size: 0.8em;
+        }
+        &.disabled{
+            background-color: #fff;
+            color: $red;
+            border: 2px solid $red;
+            border-radius: 200px;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+        a{
+            background-color: $red;
+            border: 2px solid $red;
+            color: #fff;
+            border-radius: 200px;
+            font-weight: bold;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+    }
+    .form-disabled{
+        > label{
+            color: #999;
+        }
+    }
+}

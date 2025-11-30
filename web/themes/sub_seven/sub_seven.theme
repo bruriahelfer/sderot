@@ -1,0 +1,25 @@
+<?php
+function sub_seven_preprocess_html(&$variables) {
+  $account = \Drupal::currentUser();
+  $roles = $account->getRoles();
+  foreach ($roles as $role) {
+    $variables['attributes']['class'][] = 'role-' . $role;
+  }
+}
+/*
+function sub_seven_views_pre_render(Drupal\views\ViewExecutable $view) {
+  if ($view->id() == 'media_library' && $view->getDisplay()->display['id'] == 'widget') {
+    $profiles = [];
+    $new_result = [];
+    foreach($view->result as $k => $row) {
+      $id = $row->_entity->get('name')->value;
+      if (!in_array($id, $profiles)) {
+        $profiles[] = $id;   
+        $new_result[] = $row;
+      }
+    }
+   $view->result = $new_result;
+  }
+}
+*/
+?>

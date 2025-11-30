@@ -1,0 +1,19 @@
+.paragraph--type--today-week-month{
+    margin-top: 100px;
+    overflow: hidden;
+    @include res(s-m-l){
+        margin-top: 80px;
+    }
+    h2{
+        @include size-50;
+        font-weight: 800;
+        @include width;
+    }
+    .view-empty{
+        background: url(/themes/cinemasderot/images/empty.png) no-repeat center top;
+        text-align: center;
+        font-size: 1.5em;
+        margin: 50px 0 20px;
+        padding-top: 117px;
+    }
+}

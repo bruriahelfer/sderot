@@ -1,0 +1,100 @@
+.fixed-area-wrapper{
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 100;
+    width: 246px;
+    text-align: center;
+    display: none;
+    @include res(s-m){
+        z-index: 10;
+    }
+    &.show{
+        display: block;
+    }
+    @include res(width){
+        bottom: 3.5vw;
+        left: 4.8vw;
+        z-index: 10;
+        width: 13.2vw;
+    }
+    @include res(s-m-l){
+        left: 10px;
+        bottom: 20px;
+        width: 135px;
+    }
+    .view-content{
+        border-radius: 30px;
+        background-color: rgba(256,256,256,0.9);
+        position: relative;
+        padding: 35px 14px 26px;
+        @include res(width){
+            padding: 1.9vw 0.75vw 1.4vw;
+        }
+        @include res(s-m-l){
+            padding: 19px 7px 14px 7px;
+        }
+        .views-field-field-title{
+            @include size-30;
+            font-weight: 700;
+            padding-bottom: 15px;
+            @include res(width){
+                padding-bottom: 0.8vw;
+            }
+            @include res(s-m-l){
+                padding-bottom: 8px;
+                font-size: 0.8em;
+            }
+        }
+        .views-field-field-content{
+            line-height: 1.4;
+            padding-bottom: 15px;
+            @include size-20;
+            @include res(width){
+                padding-bottom: 0.8vw;
+            }
+            @include res(s-m-l){
+                padding-bottom: 8px;
+                font-size: 0.6em;
+            }
+        }
+        .views-field-field-link a{
+            @include button(1em,#fff,$dark-orange,$dark-orange);
+            font-weight: 700;
+            display: inline-block;
+            @include res(width){
+                font-size: 1.1vw;
+            }
+            @include res(s-m-l){
+                font-size: 12px;
+            }
+        }
+    }
+    .close{
+        @include close;
+        z-index: 10;
+        @include res(s-m-l){
+            width: 10px;
+            height: 10px;
+            top: 11px;
+            right: 11px;
+            &:after, &:before {
+                width: 10px;
+                height: 1px;
+                top: 5px;
+                left: 0;
+            }
+        }
+    }
+    &:before{
+        content: "";
+        position: absolute;
+        top: -3px;
+        right: -7px;
+        width: 100%;
+        height: 104%;
+        transform: rotate(5deg);
+        border-radius: 30px;
+        background-color: $orange;
+    }
+}

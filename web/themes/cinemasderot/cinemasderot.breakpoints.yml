@@ -1,0 +1,29 @@
+ct_slug.default.small:
+  label: Small
+  mediaQuery: '(max-width: 480px)'
+  weight: 1
+  group: Default
+
+ct_slug.default.medium:
+  label: Medium
+  mediaQuery: '(min-width: 481px) and (max-width:768px)'
+  weight: 1
+  group: Default
+
+ct_slug.default.large:
+  label: Large
+  mediaQuery: '(min-width: 769px) and (max-width:1024px)'
+  weight: 1
+  group: Default
+
+ct_slug.default.xlarge:
+  label: x-Large
+  mediaQuery: '(min-width: 1025px) and (max-width:1400px)'
+  weight: 1
+  group: Default
+
+ct_slug.default.xxlarge:
+  label: xx-Large
+  mediaQuery: '(min-width: 1401px)'
+  weight: 1
+  group: Default

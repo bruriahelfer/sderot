@@ -1,0 +1,6 @@
+admin_lib:
+  css:
+    theme:
+      css/admin-custom.css: {}
+  js:
+    js/admin-custom.js: {}

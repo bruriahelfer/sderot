@@ -1,0 +1,18 @@
+
+<a href="{{ url }}">
+    <div class="image">
+        <img src="{{ node.field_image_horizontal.entity.field_media_image.entity.uri.value | image_style('grid_wide') }}">
+    </div>
+    <div class="text">
+        <div class="content">
+            {% if content.field_event|render %}
+                <div class="event-tag">{{ content.field_event }}</div>
+            {% endif %}
+            {% set text = label|render|striptags|truncate(75, true, '...') %}
+            <div class="title">{{ text|raw }}</div>
+            {% set text = content.body|render|striptags %}
+            <div class="body">{{ text|length > 90 ? text|truncate(90, '...') ~ '...' : text|raw }}</div>
+            <div class="link"><div class="link-text">{{ "For more details and to purchase tickets"|t }}</div></div>
+        </div>
+    </div>
+</a>

@@ -1,0 +1,25 @@
+.select2{
+    min-width: 200px;
+}
+
+.select2-results{
+    ul{
+        margin: 0;
+    }
+}
+
+.field--label-inline .field__label, .field--label-inline .field__items {
+    float: right;
+}
+
+.role-editor:not(.role-administrator){
+    .toolbar-icon-system-admin-config{
+      display: none;
+    }
+    &.path-block .js-form-type-vertical-tabs{
+        display: none!important;
+    }
+    .taxonomy-term-form #edit-relations{
+        display: none;
+    }
+}

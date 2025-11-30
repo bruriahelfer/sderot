@@ -1,0 +1,13 @@
+name: Similar By Terms
+type: module
+description: Use Views to show similar content based on taxonomy terms
+core_version_requirement: ^8 || ^9 || ^10 || ^11
+
+dependencies:
+  - drupal:taxonomy
+  - drupal:views
+
+# Information added by Drupal.org packaging script on 2024-08-05
+version: '8.x-1.9'
+project: 'similarterms'
+datestamp: 1722872730

@@ -1,0 +1,203 @@
+@mixin width(){
+  width: 1860px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 60px;
+  padding-right: 60px;
+  box-sizing: border-box;
+  @include res(xxl){
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  @include res(xl){
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @include res(l){
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  @include res(s-m){
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+@mixin button($fontsize,$textcolor,$backgroundcolor,$bordercolor){
+  color: $textcolor;
+  font-weight: 700;
+  border-radius: 30px;
+  padding: 9px 22px;
+  transition: all 0.7s;
+  -webkit-transition: all 0.7s;
+  border: 2px solid $bordercolor;
+  font-size: $fontsize;
+  background-color: $backgroundcolor;
+  @include res(width){
+    padding: 0.5vw 1.2vw;
+  }
+  @include res(s-m-l){
+    padding: 5px 18px;
+  }
+  &:hover{
+    box-shadow: 0 5px 31px rgba(0,0,0,0.3);
+  }
+}
+
+@mixin size-25{
+  font-size: 1.25em;
+  @include res(width){
+      font-size: 1.36vw;
+  }
+  @include res(s-m-l){
+      font-size: 1em;
+  }
+}
+
+@mixin size-20{
+  font-size: 1em;
+  @include res(width){
+    font-size: 1.1vw;
+  }
+  @include res(s-m){
+    font-size: 0.9em;
+  }
+}
+
+@mixin size-30{
+  font-size: 1.5em;
+  @include res(width){
+      font-size: 1.6vw;
+  }
+  @include res(s-m-l){
+      font-size: 1em;
+  }
+}
+
+@mixin size-50{
+  font-size: 2.5em;
+  @include res(xl-xxl){
+    font-size:2em;
+  }
+  @include res(s-m-l){
+      font-size: 1.85em;
+  }
+}
+
+@mixin arrow{
+  &:before, &:after{
+    content: "";
+    position: absolute;
+    background-color: $red;
+    width: 9px;
+    height: 2px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    border-radius: 20px;
+    @include res(width){
+        width: 0.55vw;
+        height: 0.17vw;
+    }
+    @include res(l){
+        width: 10px;
+        height: 3px;
+    }
+    @include res(s-m){
+        width: 9px;
+        height: 2px; 
+    }
+  }
+  &:before{
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg);
+      left: 30px;
+      @include res(width){
+          left: 1.4vw;
+      }
+      @include res(l){
+          left: 24px;
+      }
+      @include res(s-m){
+          left: 19px;
+      }
+  }
+  &:after{
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+      left: 24px;
+      @include res(width){
+          left: 1.1vw;
+      }
+      @include res(l){
+          left: 18px;
+      }
+      @include res(s-m){
+          left: 13px;
+      }
+  }
+}
+
+@mixin close{
+  width: 18px;
+  height: 17px;
+  top: 19px;
+  right: 20px;
+  position: absolute;
+  cursor: pointer;
+  @include res(width){
+      width: 1vw;
+      height: 1vw;
+      top: 1.1vw;
+      right: 1.1vw;
+  }
+  &:after, &:before{
+      content: "";
+      width: 22px;
+      height: 2px;
+      background-color: #c2bfb8;
+      display: block;
+      position: absolute;
+      top: 7px;
+      left: -1px;
+      @include res(width){
+          width: 1vw;
+          height: 0.1vw;
+          top: 0.5vw;
+          left: 0;
+      }
+  }
+  &:after{
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+  }
+  &:before{
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+  }
+}
+
+@mixin simple-button(){
+  background-color: $red;
+  border-radius: 250px;
+  padding: 0 25px;
+  color: #fff;
+  text-align: center;
+  font-weight: 700;
+  transition: all 0.5s;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  &:hover{
+    background-color: $dark-red;
+  }
+}
+
+.simple-button{
+  height: 50px;
+  .field--name-field-button{
+    height: 100%;
+  }
+  a, a:visited, a:link{
+    @include simple-button()
+  }
+}

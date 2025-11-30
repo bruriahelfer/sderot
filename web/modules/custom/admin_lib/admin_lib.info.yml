@@ -1,0 +1,8 @@
+name: 'Admin Lib'
+type: module
+description: 'Adds custom CSS and JS to the admin theme.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:system (optional)
+version: 1.0

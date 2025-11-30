@@ -1,0 +1,230 @@
+.paragraph--type--movies-grid, .paragraph--type--only-image{
+    .field--name-field-title{
+        @include size-50;
+        font-weight: 800;
+        padding-bottom: 15px;
+    }
+    .field--name-field-grid-items{
+        display: flex;
+        flex-wrap: wrap;
+        @include res(s-m-l){
+            display: block;
+        }
+        > .paragraph{
+            width: calc(33.3333% - 24px);
+            margin-left: 36px;
+            margin-bottom: 90px;
+            @include res(s-m-l){
+                width: 100%;
+                margin: 0 0 90px;
+             }
+            .text{
+                height: 100%;
+                .content{
+                    height: 100%;
+                    margin-top: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    @include res(s-m-l){
+                        margin-top: 20px;
+                    }
+                    .event-tag{
+                        color: $red;
+                        font-weight: bold;
+                    }    
+                    .title{
+                        font-size: 1.4em;
+                        font-weight: bold;
+                        @include res(xl-xxl){
+                            font-size: 1.2em;   
+                        }
+                    }
+                    .body{
+                        font-weight: 300;
+                        margin-top: 12px;
+                        @include res(s-m-l){
+                            font-size: 0.9em;
+                        }
+                    }
+                    .link{
+                        margin-top: auto;
+                        @include res(s-m-l){
+                            margin-top: 30px;
+                            font-size: 0.9em;
+                        }
+                        .link-text{
+                            font-weight: bold;
+                            border: 2px solid;
+                            border-radius: 250px;
+                            padding: 14px 36px;
+                            display: inline-block;
+                            transition: all 0.5s;
+                            height: auto;
+                            &:hover{
+                                background-color: #fff;
+                                color: $default;
+                                border-color: #fff;
+                            }
+                            @include res(xl-xxl){
+                                font-size: 0.8em;
+                                padding: 14px 24px;
+                            }
+                        }
+                    }
+                }
+            }
+            > div{
+                height: 100%;
+                > .field__item{
+                    height: 100%;
+                    a{
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                }
+            }
+            &:nth-child(1){
+                width: 100%;
+                > div > .field__item a{
+                    display: flex;
+                    justify-content: space-between;
+                    flex-direction: row;
+                    @include res(s-m-l){
+                        display: block;
+                    }
+                    > .image{
+                        width: 44%;
+                        @include res(s-m-l){    
+                            width: 100%;
+                        }
+                    }
+                    > .text{
+                        width: calc(56% - 50px);
+                        @include res(s-m-l){
+                            width: 100%;
+                        }
+                        > .content{
+                            max-width: 623px;
+                            margin-top: 0;
+                            @include res(s-m-l){
+                                margin-top: 20px;
+                                max-width: 100%;
+                            }
+                            .title{
+                                font-size: 2.2em;
+                                @include res(xl-xxl){
+                                    font-size: 1.5em;   
+                                }
+                                @include res(s-m-l){
+                                    font-size: 1.4em;
+                                }
+                            }
+                            .body{
+                                margin-top: 25px;
+                            }
+                            .link {
+                                margin-top: 30px;
+                                .link-text{
+                                    border-color: $red;
+                                    background-color: $red;
+                                    color: #fff;
+                                    &:hover{
+                                        background-color: transparent;
+                                        border-color: $red;
+                                        color: $red;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-child(3n+1){
+                margin-left: 0;
+            }
+        }
+    }
+    .field--name-field-grid-link {
+        text-align: center;
+        a{
+            font-weight: bold;
+            border: 2px solid $red;
+            border-radius: 250px;
+            padding: 14px 36px;
+            display: inline-block;
+            transition: all 0.5s;
+            background-color: $red;
+            color: #fff;
+            &:hover{
+                background-color: transparent;
+                color: $red;
+            }
+        }
+    }
+    &.black_red{
+        background: url(/themes/cinemasderot/images/grid-black-bg.svg) repeat-y left top #000;
+        padding: 70px 0 40px!important;
+        width: 100% !important;
+        @include res(xl-xxl){
+            background-size: 100px;
+        }
+        @include res(s-m-l){
+            background-size: 35px;
+        }
+        .wrapper{
+            padding-left: 60px;
+            @media(max-width: 1950px){
+                padding-left: 90px;
+                @include res(l){
+                    padding-left: 20px;
+                }
+                @include res(s-m){
+                    padding-left: 40px;
+                }
+            }
+        }
+        .field--name-field-title{
+            color: #fff;
+        }
+        .content{
+            color: #fff;
+            a{
+                color: #fff;
+            }
+        }
+    }
+}
+
+.paragraph--type--paragraph{
+    .paragraph--type--movies-grid.black_red{
+        background: none;
+        padding: 0 !important;
+        width: auto !important;
+        .field--name-field-title{
+            display: none;
+        }
+        .field--name-field-grid-items{
+            padding: 0;
+            .paragraph{
+                .text{
+                    .content{
+                        color: $default;
+                        a{
+                            color: $default;
+                        }
+                        .link .link-text:hover{
+                            border-color: $default;
+                            background-color: $default;
+                            color: #fff;
+                        }
+                    }
+
+                }
+            }
+        }
+        .field--name-field-grid-link{
+            display: none;
+        }
+    }
+}

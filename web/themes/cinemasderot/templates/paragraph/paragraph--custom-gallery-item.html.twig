@@ -1,0 +1,27 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'paragraph--id--' ~ paragraph.id(),
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="right">
+        <div class="subtitle">{{ content.field_subtitle }}</div>
+        <div class="title">{{ content.field_title_gallery }}</div>
+        <div class="link simple-button">{{ content.field_button }}</div>
+    </div>
+    <div class="left">
+      {% if content.field_button|render %}
+        <a href="{{ content.field_button[0]['#url'] }}">
+      {% endif %}
+      {{ content.field_background }}
+      {% if content.field_button|render %}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+{% endblock paragraph %}

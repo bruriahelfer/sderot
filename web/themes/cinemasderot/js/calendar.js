@@ -1,0 +1,95 @@
+(function ($, Drupal) {
+
+  'use strict';
+
+  Drupal.behaviors.calendar_behavior = {
+    attach: function (context, settings) {
+
+      
+$(".view-full-calendar td").unbind('click').bind('click', function (e) {
+  $("#views-exposed-form-calendar-block-2 [id^=edit-field-date-value-min]").val($(this).attr("data-date"));
+  var today = new Date($(this).attr("data-date"));
+  var tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate()+1);
+  var day = `${tomorrow.getDate()}`.padStart(2, '0');
+  var month = `${tomorrow.getMonth()+1}`.padStart(2, '0');
+  var year = tomorrow.getFullYear();
+  var tomorrow_formatted = year+"-"+month+"-"+day;  // FIXED: declared variable and fixed typo
+  $("#views-exposed-form-calendar-block-2 [id^=edit-field-date-value-max]").val(tomorrow_formatted);
+  $("#views-exposed-form-calendar-block-2 input.js-form-submit").click();
+  $("td.active").removeClass("active");
+  $(this).addClass("active");
+});
+if ($(window).width()<1025){
+$("#views-exposed-form-calendar-block-2 input.js-form-submit").click(function() {
+  $([document.documentElement, document.body]).animate({
+      scrollTop: ($(".view-footer").offset().top - 60)
+  }, 2000);
+});
+}
+
+$("#views-exposed-form-calendar-block-23 input.js-form-submit").click(function() {
+  var newdate = $("td.today").attr("value");
+  alert (newdate);
+  var newdate = "hihi";
+  $(".view-calendar h3").replaceWith(newdate);
+  
+});
+
+if ($("body").hasClass("path-calendar")){
+  window.onload = function() {
+    if (window.location.search === '') {
+      if (document.readyState == 'complete') {
+        $(".date-box.today").click();
+      }
+    } else {
+      var urlParams = new URLSearchParams(window.location.search);
+      var dateParam = urlParams.get('date');
+      if (dateParam) {
+        var $td = $('td[date-date="' + dateParam + '"]');
+        if ($td.length) {
+          $td.click();
+          $td.addClass('active');
+          console.log("td-"+$td);
+        }
+      }
+    }
+  };
+
+}
+
+
+
+$( document).ajaxComplete(function() {
+  if ($("body").hasClass("path-calendar")){
+    var newdate = $(".date-box.today").attr("date-date");
+    var date = new Date(newdate);
+    var year = date.getFullYear();
+
+    var month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : '0' + month;
+
+    var day = date.getDate().toString();
+    day = day.length > 1 ? day : '0' + day;
+  
+    var newdate = day + '/' + month + '/' + year;
+
+    var dateheader = $(".date-box.today").attr("headers");
+    var text = " אירועים ביום "+dateheader+" - "+newdate;
+    $(".text-empty h3").replaceWith(text);
+    if ($(".js-form-item-field-date-value-min input").attr("value")==""){
+      $.each($('td.date-box'), function(i, val) { 
+        if ((!$(this).hasClass("no-entry"))  && (!$(this).hasClass("empty"))) {
+          $(this).click();
+          return false;
+        }
+    });
+  }
+  }
+}); 
+
+
+     }
+  };
+
+})(jQuery, Drupal);

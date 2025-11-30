@@ -1,0 +1,22 @@
+.paragraph--type--updates{
+    .field--name-field-updates{
+        display: flex;
+        flex-direction: column-reverse;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .paragraph--type--update{
+        display: flex;
+        margin-bottom: 30px;
+        @include res(s-m){
+            display: block;
+        }
+        .field--name-field-date-update{
+            min-width: 150px;
+            font-weight: 700;
+            @include res(s-m){
+                margin-bottom: 5px;
+            }
+        }
+    }
+}
