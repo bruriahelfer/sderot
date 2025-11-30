@@ -122,14 +122,24 @@
     </div>
     <div class="footer-menu">
       <div class="width-wrapper">
-        {{ page.logo }}
-        {{ page.footer }}
+      <div class="flex">
+        <div class="logo only-mobile">{{ page.logo }}</div>
+        <div class="footer-column column-1"> 
+          <div class="logo only-desktop">{{ page.logo }}</div>
+          {{ page.footer_1 }}
+        </div>
+        <div class="footer-column column-2">
+          {{ page.footer_2 }}
+        </div>
+        <div class="footer-column column-3">
+          {{ page.footer_3 }}
+        </div>
       </div>
     </div>
     <div class="bottom-footer">
       <div class="width-wrapper">
         {{ page.bottom_footer }}
-        <div class="credit"><a href="http://reasonhat.com">{{ "Developed & Design" |t }}</a> - ReasonHat</div>
+        <div class="credit"><a href="https://www.comrax.com">{{ "Developed by "|t }}<img width="50" src="/themes/cinemasderot/images/LOGO-COMRAX.png"></a></div>
       </div>
     </div>
   </footer>

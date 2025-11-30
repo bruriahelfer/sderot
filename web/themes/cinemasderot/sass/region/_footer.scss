@@ -1,184 +1,190 @@
 footer{
     .footer-menu{
-        background-color: $orange;
-        padding: 73px 0 50px;
-        @include res(s-m-l){
-            padding: 50px 0 10px ;
-        }
-        .width-wrapper{
-            display: flex;
+        padding: 50px 0 0;
+        .flex{
+            justify-content: space-between;
+            align-items: center;
+            @include res(xl-xxl){
+                font-size: 0.8em;
+            }
             @include res(s-m-l){
-                flex-wrap: wrap;
-            }
-            .region-logo{
-                margin-left: 20px;
-                @include res(s-m-l){
-                    width: 100%;
-                }
-                .block-system-branding-block{
-                    -webkit-transition: width 0.5s;
-                    transition: width 0.5s;
-                    width: 257px;
-                    @include res(width){
-                        width: 14vw;
-                    }
-                    @include res(s-m-l){
-                        margin: 0 auto;
-                        max-width: 36%;
-                    }
+                flex-direction: column;
+                align-items: flex-start;
+                .logo{
+                    order:1;
                 }
             }
-            .region-footer{
-                padding-top: 56px;
-                margin-right: 30px;
-                @include res(width){
-                    padding-top: 3vw;
-                }
-                @include res(s-m-l){
-                    width: 100%;
-                    margin-right: 0px;
-                }
-                @include res(s-m){
-                    padding-top: 20px;
-                }
-                .menu--footer > ul{
-                    margin: 0;
-                    padding: 0;
-                    display: flex;
-                    @include res(s-m-l){
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        text-align: center;
+            .footer-column{
+                &.column-1{
+                    width: 300px;
+                    font-size: 0.9em;
+                    @include res(xl-xxl){
+                        width: 250px;
                     }
-                    > li{
-                        margin-left: 125px;
-                        list-style: none;
-                        display: none;
-                        &:nth-child(1), &:nth-child(2),&:nth-child(3), &:nth-child(4){
-                            display: block;
-                        }
-                        @include res(width){
-                            margin-left: 6.3vw;
-                        }
-                        @include res(xxl){
-                            margin-left: 5vw;
-                        }
-                        @include res(xl){
-                            margin-left: 5vw;
-                        }
-                        @include res(s-m-l){
-                            width: 40%;
-                            margin-left: 0;
-                            padding-bottom: 60px;
-                            @include res(s){
-                                width: 100%;
-                            }
-                            @include res(s-m){
-                                padding-bottom: 30px;
-                            }
-                        }
-                        &:last-child{
-                            margin-left: 0;
-                        }
-                        > a, > span{
-                            font-size: 1.25em;
-                            font-weight: 700;
-                            margin-bottom: 15px;
-                            display: block;
-                            @include res(width){
-                                font-size: 1.36vw;
-                            }
-                            @include res(s-m){
-                                margin-bottom: 0;
-                            }
-                            @include res(s){
-                                font-size: 1em;
-                            }
-                        }
+                    @include res(s-m-l){
+                        order: 4;
+                    }
+                    .block-menu-item-fieldsbottomfooter{
                         ul{
                             padding: 0;
                             margin: 0;
-                            line-height: 1.7;
-                            @include res(width){
-                                font-size: 1.1vw;
-                            }
-                            @include res(s-m-l){
-                                text-align: center;
+                            li{
+                                padding: 0;
                             }
                         }
+                        > ul{
+                            margin: 30px 0 0;
+                            > li{
+                                padding: 5px 0;
+                            }
+                        }
+                        li{
+                            list-style: none;
+                            &.email{
+                                .field--name-link{
+                                    display: none;
+                                }
+                            }
+                            &.phones{
+                                > div > .field--name-link{
+                                    display: none;
+                                }
+                                ul{
+                                    display: flex;
+                                    li:first-child{
+                                        border-left: 1px solid;
+                                        padding-left: 10px;
+                                        margin-left: 10px;
+                                    }
+                                    li > div{
+                                        display: flex;
+                                    }
+                                    .field--name-link{
+                                        margin-left: 5px;
+                                    }
+                                }
+                            }
+                            &.social{
+                                margin-top: 10px;
+                                > div > .field--name-link{
+                                    display: none;
+                                }
+                                ul{
+                                    display: flex;
+                                    li{
+                                        margin-left: 12px;
+                                        a{
+                                            width: 32px;
+                                            height: 32px;
+                                            background: url(/themes/cinemasderot/images/facebook.svg) no-repeat center;
+                                            text-indent: -9999px;
+                                            display: block;
+                                        }
+                                    }
+                                    .facebook{
+                                        a{
+                                            background: url(/themes/cinemasderot/images/facebook.svg) no-repeat center;
+                                        }
+                                    }
+                                    .instagram{
+                                        a{
+                                            background: url(/themes/cinemasderot/images/instegram.svg) no-repeat center;
+                                        }
+                                    }
+                                    .youtube{
+                                        a{
+                                            background: url(/themes/cinemasderot/images/youtube.svg) no-repeat center;
+                                        }
+                                    }
+                                }                                
+                            }
+                        }
+                    }
+                }
+                &.column-2{
+                    width: calc(100% - 620px);
+                    @include res(xl-xxl){
+                        width: calc(100% - 520px);
+                    }
+                    @include res(s-m-l){
+                        order: 2;
+                        width: 100%;
+                        margin: 40px 0 10px;
+                    }
+                    .menu--footer{
+                        > ul{
+                            display: flex;
+                            justify-content: center;
+                            margin: 0;
+                            @include res(s-m-l){
+                                flex-wrap: wrap;
+                                justify-content: space-between;
+                            }
+                            > li{
+                                margin: 0 6%;
+                                @include res(s-m-l){
+                                    margin: 0 0 30px;
+                                }
+                                @include res(l){
+                                    width: 33%;
+                                }
+                                @include res(m){
+                                    width: 50%;
+                                }
+                                @include res(s){
+                                    width: 100%;
+                                }
+                                > a, > span{
+                                    font-size: 1.1em;
+                                    font-weight: bold;
+                                }
+                            }
+                            li{
+                                list-style: none;
+                                ul{
+                                    padding: 0;
+                                    margin: 12px 0 0;
+                                    li{
+                                        padding: 8px 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &.column-3{
+                    width: 300px;
+                    @include res(xl-xxl){
+                        width: 250px;
+                    }
+                    @include res(s-m-l){
+                        order:3;
+                    }
+                    h2{
+                        margin: 0 0 5px;
+                        font-size: 1.2em;
+                        color: $red;
+                    }
+                    p{
+                        margin: 0;
+                        font-size: 0.9em;
+                    }
+                    img{
+                        margin-top: 15px;
                     }
                 }
             }
         }
     }
     .bottom-footer{
-        padding: 40px 0 30px;
-        font-size: 0.9em;
-        @include res(width){
-            font-size: 0.98vw;
-        }
-        .width-wrapper{
-            display: flex;
-            justify-content: space-between;
-            @include res(s-m-l){
-                display: block;
-            }
-            .block-menu-item-fieldsbottomfooter{
-                > ul{
-                    display: flex;
-                    margin: 0;
-                    padding: 0;
-                    @include res(s-m-l){
-                        flex-wrap: wrap;
-                        justify-content: center;
-                        @include res(s){
-                            display: block;
-                        }
-                    }
-                    li{
-                        list-style: none;
-                        display: flex;
-                        padding: 0;
-                        @include res(s-m-l){
-                            margin-bottom: 10px;
-                            @include res(s){
-                                margin-bottom: 5px;
-                            }
-                        }
-                        &:after{
-                            content: "/";
-                            margin: 0 10px;
-                            @include res(s-m-l){
-                                margin: 0 15px;
-                                @include res(s){
-                                    display: none;
-                                }
-                            }
-                        }
-                        &:last-child{
-                            &:after{
-                                display: none;
-                            }
-                        }
-                        > div{
-                            display: flex;
-                            @include res(s){
-                                width: 100%;
-                                justify-content: center;
-                            }
-                        }
-                        .field--name-field-email, .field--name-field-text, .field--name-field-phone{
-                            font-weight: 500;
-                            margin-right: 10px;
-                        }
-                    }
-                }
-            }
-            .credit{
-                @include res(s-m-l){
-                    text-align: center;
-                    margin-top: 25px;
-                }
+        .credit{
+            direction: ltr;
+            font-size: 0.7em;
+            padding-bottom: 30px;
+            img{
+                position: relative;
+                top: 8px;
+                margin-left: 2px;
             }
         }
     }

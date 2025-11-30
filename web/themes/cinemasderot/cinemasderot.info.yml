@@ -21,6 +21,7 @@ regions:
   sidebar_first: First sidebar
   sidebar_second: Second sidebar
   top_footer: Top Footer
-  footer: Footer
-  bottom_footer: Bottom Footer
+  footer_1: Footer 1 column
+  footer_2: Footer 2 column
+  footer_3: Footer 3 column
   fixed_area: Fixed area

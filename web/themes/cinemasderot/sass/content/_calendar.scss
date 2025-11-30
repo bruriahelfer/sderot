@@ -38,45 +38,41 @@
         height: initial!important;
     }
     .owl-prev, .owl-next{
+        width: 24px;
+        height: 24px;
+        font-size: 0;
+        transition: all 0.5s;
         position: absolute;
         top: 14px;
         font-size: 0;
-        width: 20px;
-        height: 30px;
-        &:before, &:after{
-            content: "";
-            background-color: $dark-orange;
-            width: 12px;
-            height: 5px;
-            border-radius: 20px;
-            position: absolute;
-            left: 3px;
-        }
         &.disabled{
-            opacity: 0.4;
-            cursor: default!important;
+            cursor: default;
         }
     }
     .owl-prev{
+        background: url(/themes/cinemasderot/images/right-arrow.svg) no-repeat center center;
+        background-size: 24px 24px;
         right: 15px;
-        &:before{
-            transform: rotate(45deg);
-            top: 10px;
+        &:not(.disabled):hover{
+            background: url(/themes/cinemasderot/images/right-arrow-black.svg) no-repeat center center;
+            background-size: 24px 24px;
         }
-        &:after{
-            transform: rotate(-45deg);
-            top: 16px;
+        &.disabled{
+            background: url(/themes/cinemasderot/images/right-arrow-disable-white.svg) no-repeat center center;
+            background-size: 24px 24px;
         }
     }
     .owl-next{
+        background: url(/themes/cinemasderot/images/left-arrow.svg) no-repeat center center;
+        background-size: 24px 24px;
         left: 15px;
-        &:before{
-            transform: rotate(45deg);
-            top: 16px;
-        }
-        &:after{
-            transform: rotate(-45deg);
-            top: 10px;
+        &:not(.disabled):hover{
+            background: url(/themes/cinemasderot/images/left-arrow-black.svg) no-repeat center center;
+            background-size: 24px 24px;
+            &.disabled{
+                background: url(/themes/cinemasderot/images/left-arrow-disable-white.svg) no-repeat center center;
+                background-size: 24px 24px;
+            }
         }
     }
     .animated  {
