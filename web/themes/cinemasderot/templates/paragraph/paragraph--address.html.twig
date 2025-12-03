@@ -1,0 +1,17 @@
+
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'paragraph--id--' ~ paragraph.id(),
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+    <A href="https://www.google.com/maps?q={{ content.field_gmap_adress|render|striptags }}">{{ content.field_address|render|striptags }}</a>
+    {% endblock content %}
+  </div>
+{% endblock paragraph %}

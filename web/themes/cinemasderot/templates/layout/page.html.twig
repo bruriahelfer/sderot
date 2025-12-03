@@ -100,7 +100,7 @@
     {% endif %}
 
     <div class="layout-content">
-      {% if node.field_hide_title.value != "1"  and content_type!="movie" %}
+      {% if content_type!="movie" and content_type!="page" and content_type!="advanced" and not is_front %}
         <h1 class="page-title">{{ drupal_title() }}</h1>
       {% endif %}
       {{ page.content_top }}

@@ -1,9 +1,10 @@
 .page-node-type-movie{
     article.node--view-mode-full{
-        padding-top: 60px;
+        @include width;
+        padding-top: 40px;
         padding-bottom: 100px;
         @include res(s-m-l){
-            padding-top: 50px;
+            padding-top: 0px;
         }
         h1.page-title{
             text-align: right;
@@ -16,7 +17,7 @@
                 display: block;
             }
             .right-area{
-                width: 58.5%;
+                width: 48%;
                 @include res(s-m-l){
                     width: 100%;
                 }
@@ -24,7 +25,10 @@
                     padding-bottom: 35px;
                     iframe, img{
                         max-width: 100%;
-                        border-radius: 30px;
+                        border-radius: 0 0 0 200px;
+                        @include res(s-m){
+                            border-radius: 0 0 0 130px;
+                        }
                     }
                     .withtrailer{
                         position: relative;
@@ -73,42 +77,44 @@
                                 display: none;
                             }
                         }
-                        .field--name-field-trailer{
-                            iframe{
-                                border-radius: 32px;
-                            }
-                        }
                     }
                 }
             }
             .left-area{
-                width: 39.5%;
-                background-color: $gray;
-                border-radius: 30px;
-                padding: 18px 35px;
+                width: 46%;
                 box-sizing: border-box;
                 @include res(s-m-l){
                     width: 100%;
-                    text-align: center;
                     margin-bottom: 30px;
                     .paragraph--type--movie-date{
                         text-align: right;
                     }
                 }
                 @include res(s-m){
-                    padding: 18px;
+                    padding: 18px 0;
+                }
+                .last-screening .views-row{
+                    border-radius: 50px;
+                    border: 1px solid $red;
+                    font-size: 1.2em;
+                    display: inline-block;
+                    color: $red;
+                    padding: 10px 21px;
+                    @include res(s-m-l){
+                        font-size: 0.9em;
+                    }
+                }
+                h1{
+                    margin: 15px 0 30px;
                 }
                 .price{
                     font-weight: 500;
-                    font-size: 0.9em;
-                    @include res(width){
-                        font-size: 1.1vw;
+                    font-size: 1.5em;
+                    @include res(xl-xxl){
+                        font-size: 1em;
                     }
                     @include res(s-m-l){
-                        justify-content: center;
-                    }
-                    @include res(m){
-                        font-size: 0.8em;
+                        font-size: 1em;
                     }
                     @include res(s){
                         display: block;
@@ -142,15 +148,46 @@
                             margin-bottom: 5px;
                         }
                     }
+                    .field, .subscribe, .online{
+                        &:after{
+                            background-color: $red
+                        }
+                    }
+                    .subscribe, .online{
+                        .field{
+                            background: none;
+                            padding: 0;
+                            border-radius: 0;
+                            color: $red;
+                        }
+                    }
+                }
+                .tab-free{
+                    font-size: 1.5em;
+                    display: flex;
+                    margin-top: 10px;
+                    @include res(xl-xxl){
+                        font-size: 1em;
+                    }
+                    @include res(s-m-l){
+                        font-size: 1em;
+                    }
+                    &:before{
+                        content: "*";
+                        margin-left: 5px;
+                    }
                 }
                 .linkbuy{
-                    padding: 20px 0 30px;
+                    padding: 30px 0 60px;
+                    @include res(s){
+                        text-align: center;
+                    }
                     a{
-                        @include button(1.25em,#fff,$dark-orange,$dark-orange);
+                        @include button(1em,#fff,$red,$dark-red);
                         border-radius: 40px;
                         display: inline-block;
                         font-weight: 700;
-                        padding: 13px 75px;
+                        padding: 13px 30px;
                         @include res(width){
                             font-size: 1.36vw;
                             padding: 0.7vw 3.5vw;
@@ -176,10 +213,8 @@
                     font-weight: 700;
                 }
                 .screening{
-                    .view-header{
-                        font-weight: 500;
-                        margin-bottom: 20px;
-                    }
+                    border-top: 2px solid #EAE8E8;
+                    padding-top: 50px;
                     .views-row .remark{
                         color: $red;
                         width: 100%;
@@ -190,23 +225,22 @@
                         }
                     }
                     .views-row .line{
-                        background-color: #fff;
-                        border-radius: 30px;
+                        border-radius: 50px;
+                        border: 1px solid #000;
+                        margin-bottom: 20px;
                         position: relative;
                         justify-content: space-between;
-                        margin-bottom: 10px;
                         padding: 18px 38px;
                         flex-wrap: wrap;
-                        @include res(width){
-                            font-size: 1.1vw;
-                            padding: 18px;
-                        }
                         @include res(s-m){
                             padding: 18px;
                             font-size: 0.8em;
                         }
                         @include res(s){
                             flex-wrap: wrap;
+                        }
+                        .slash{
+                            font-size: 0.9em
                         }
                         > div{
                             text-align: center;
@@ -267,6 +301,8 @@
             .tags{
                 font-weight: 500;
                 flex-wrap: wrap;
+                color: $red;
+                font-size: 1.1em;
                 @include res(s-m){
                     font-size: 0.8em;
                 }
@@ -292,6 +328,13 @@
                         padding-bottom: 15px;
                     }
                 }
+                > div{
+                    &:after{
+                        background-color: $red;
+                        width: 6px;
+                        height: 6px;
+                    }
+                }
             }
             .field--name-body{
                 line-height: 1.4;
@@ -300,14 +343,15 @@
             .field--name-field-actors, .field--name-field-directedby{
                 padding-top: 10px;
                 display: flex;
-            }
-        }
-        .content-area{
-            @include res(l){
-                padding: 0 47px;
-            }
-            @include res(s-m){
-                padding: 0 25px;
+                @include res(s){
+                    display: block;
+                }
+                .field__label{
+                    width: 90px;
+                    @include res(s){
+                        width: 100%;
+                    }
+                }
             }
         }
     }
@@ -315,8 +359,7 @@
         margin-bottom: 100px;
         .recomended-label{
             @include size-50;
-            font-weight: 900;
-            text-align: center;
+            font-weight: 700;
         }
     }
 }

@@ -8,7 +8,8 @@
     transition: .5s ease-in-out;
     cursor: pointer;
     z-index: 100;
-    @include res(s){
+    @include res(s-m-l){
+        margin-left: 67px;
         width: 30px;
         height: 27px;
     }
@@ -25,12 +26,12 @@
         transition: .25s ease-in-out;
         &:nth-child(even) {
             left: 50%;
-            border-radius: 0 50% 50% 0;
+            border-radius: 0 20px 20px 0;
         }
 
         &:nth-child(odd) {
             left:0px;
-            border-radius: 50% 0 0 50%;
+            border-radius: 20px 0 0 20px;
         }
         &:nth-child(1), &:nth-child(2) {
             top: 0px;
@@ -47,12 +48,13 @@
 header{
     position: fixed;
     width: 100%;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
     -webkit-transition: all 0.5s;
     transition: all 0.5s;
     padding: 16px 0;
     z-index: 100;
+    transition: all 0.5s;
+    box-shadow: 0 4px 22px 0 rgba(0, 0, 0, 0.05);
     @include res(s-m-l){
         padding: 10px 0;
     }
@@ -86,17 +88,16 @@ header{
             width: 75%;
             height: 100%;
             background-color: $default;
-            left: -75%;
+            right: -75%;
             top: 0;
             overflow: auto;
-            -webkit-transition: left 0.5s;
-            transition: left 0.5s;
+            transition: right 0.5s;
             padding: 140px 4% 10px;
             box-sizing: border-box;
             z-index: 10;
             @include res(s){
                 padding-top: 100px;
-                left: -100%;
+                right: -100%;
                 width: 100%;
             }
         }
@@ -301,6 +302,9 @@ header{
             &:hover{
                 background-color: $dark-red;
             }
+            @include res(s-m-l){
+                margin-right: 0;
+            }
             img{
                 margin-right: 15px;
                 @include res(xl){
@@ -308,7 +312,7 @@ header{
                     width: 20px;
                 }
                 @include res(s-m-l){
-                    margin-right: 5px;
+                    margin-right: 1px;
                     width: 15px;
                 }
             }
@@ -321,23 +325,23 @@ header{
                 font-size: 0.8em;
             }
             @include res(s-m-l){
-                font-size: 0.85em;
-                width: 106px;
-                padding: 7px;
+                font-size: 0.8em;
+                width: 90px;
+                padding: 7px 4px;
             }
         }
     }
 }
 
-.open-menu{
+body.open-menu{
     overflow: hidden;
     .region-menu{
-        left: 0;
+        right: 0;
     }
     .nav-icon{
         position: fixed;
         top: 23px;
-        left: 20px;
+        right: 20px;
     }
     .nav-icon span{
         background: #fff;
@@ -367,15 +371,13 @@ header{
         }
         &:nth-child(5){
             left: 5px;
-            top: 23px;
-            @include res(s){
+            @include res(s-m-l){
                 top: 12px;
             }
         }
         &:nth-child(6){
             left: calc(50% - 5px);
-            top: 23px;
-            @include res(s){
+            @include res(s-m-l){
                 top: 12px;
             }
         }
@@ -400,7 +402,7 @@ header{
         .calendar-icon, .calend-icon a{
             padding: 10px 18px;
             @include res(s-m-l){
-                padding: 7px;
+                padding: 7px 4px;
             }
         }
     }

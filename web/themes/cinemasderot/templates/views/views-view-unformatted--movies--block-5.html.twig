@@ -35,7 +35,7 @@
                 {% if row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_online }}']==1 %}
                     {{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_online }}'] }}
                 {% else %}
-                    <div class="tags flex pointer-between">{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_minutes }}'] }}</div>
+                    <div class="tags">{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_genre }}'] }}</div>
                 {% endif %}
             </div>
         </a>

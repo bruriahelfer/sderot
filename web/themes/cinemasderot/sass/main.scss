@@ -86,7 +86,7 @@ img{
   @include width;
 }
 
-body:not(.page-node-type-advanced){
+body:not(.page-node-type-advanced):not(.page-node-type-movie){
   main{
     @include width;
   }
@@ -104,7 +104,7 @@ h1.page-title{
     @include width;
   }
   .field--name-field-paragraphs{
-    > .paragraph:not(.all-width):not(.paragraph--type--movies-gallery):not(.paragraph--type--order-tickets), .all-width .in-the-grid{
+    > .paragraph:not(.all-width):not(.paragraph--type--movies-gallery):not(.paragraph--type--order-tickets):not(.paragraph--type--contact), .all-width .in-the-grid{
       @include width;
       padding-top: 74px;
       @include res(width){

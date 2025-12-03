@@ -1,16 +1,16 @@
-.paragraph--type--movies-grid, .paragraph--type--only-image{
+.paragraph--type--movies-grid, .paragraph--type--only-image, .event-slide{
     .field--name-field-title{
         @include size-50;
         font-weight: 800;
         padding-bottom: 15px;
     }
-    .field--name-field-grid-items{
+    .field--name-field-grid-items, > .view-content{
         display: flex;
         flex-wrap: wrap;
         @include res(s-m-l){
             display: block;
         }
-        > .paragraph{
+        > .paragraph, > .views-row{
             width: calc(33.3333% - 24px);
             margin-left: 36px;
             margin-bottom: 90px;
@@ -18,6 +18,10 @@
                 width: 100%;
                 margin: 0 0 90px;
              }
+             .field--name-field-event, .event-tag{
+                color: $red;
+                font-weight: bold;
+            }  
             .text{
                 height: 100%;
                 .content{
@@ -27,11 +31,7 @@
                     flex-direction: column;
                     @include res(s-m-l){
                         margin-top: 20px;
-                    }
-                    .event-tag{
-                        color: $red;
-                        font-weight: bold;
-                    }    
+                    }  
                     .title{
                         font-size: 1.4em;
                         font-weight: bold;
@@ -84,7 +84,8 @@
                     }
                 }
             }
-            &:nth-child(1){
+        }
+        > .paragraph:nth-child(1){
                 width: 100%;
                 > div > .field__item a{
                     display: flex;
@@ -139,10 +140,9 @@
                         }
                     }
                 }
-            }
-            &:nth-child(3n+1){
-                margin-left: 0;
-            }
+                &:nth-child(3n+1){
+                    margin-left: 0;
+                }
         }
     }
     .field--name-field-grid-link {

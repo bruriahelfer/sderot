@@ -1,7 +1,11 @@
-.view.movie-slide{
+.view.movie-slide, .view.event-slide{
     position: relative;
+    padding-bottom: 40px;
+    padding-top: 40px;
     @include res(s-m){
         position: relative;
+        padding-bottom: 20px;
+        padding-top: 20px;
     }
     .owl-stage{
         padding-right: calc(50% - 870px) !important;
@@ -27,7 +31,7 @@
             justify-content: space-between;
             position: absolute;
             left: calc(50% - 870px);
-            top: -53px;
+            top: -93px;
             width: 118px;
             height: 52px;
             @media (max-width: 1860px){
@@ -46,10 +50,18 @@
                 }
             }
             @include res(xl-xxl){
-                top: -45px;
+                top: -85px;
             }
-            @include res(s-m-l){
-                top: -40px;
+            @include res(l){
+                top: -87px;
+                width: 90px;
+            }
+            @include res(m){
+                top: -47px;
+                width: 90px;
+            }
+            @include res(s){
+                top: -68px;
                 width: 90px;
             }
             .owl-prev, .owl-next{
@@ -121,8 +133,7 @@
         }
     }
     .owl-stage-outer{
-        padding-bottom: 40px;
-        padding-top: 40px;
+        width: 100%;
         @include res(m){
             overflow: visible;
         }
@@ -130,12 +141,19 @@
     > .view-content{
         display: -webkit-box;
         display: flex;
+        &:not(.owl-carousel){
+            @include width;
+        }
+    }
+}
+
+.view.movie-slide .view-content{
         > .views-row{
             margin-bottom: 40px;
             margin-top: 40px;
-            width: calc(100%/4 - 34.5px);
+            width: calc(25% - 75px);
             display: none;
-            margin-left: 46px;
+            margin-left: 40px;
             &:nth-child(4){
                 margin-left: 0;
             }
@@ -152,8 +170,10 @@
                     display: none;
                 }
             }
-            @include res(m){
-                width: 76%;
+            @include res(s-m){
+               width: 100%;
+                max-width: 363px;
+                margin: 0 auto;
                 &:nth-child(2){
                     margin-left: 0;
                 }
@@ -161,15 +181,7 @@
                     display: none;
                 }
             }
-            @include res(s){
-                width: 100%;
-                margin-left: 0;
-                &:nth-child(2), &:nth-child(3), &:nth-child(4){
-                    display: none;
-                }
-            }
         }
-    }
 }
 
 .view.movies-cart{
@@ -179,7 +191,7 @@
             a{
                 display: block;
             }
-            .field--name-field-image-verical{
+            .field--name-field-image-verical, .image{
                 overflow: hidden;
                 position: relative;
                 img{
@@ -194,6 +206,7 @@
                 flex-wrap: wrap;
                 @include res(s-m-l){
                     font-size: 0.8em;
+                    padding-top: 10px;
                 }
                 .screening-time-label{
                     margin-left: 3px;
@@ -204,21 +217,22 @@
                 .title{
                     font-size: 1.2em;
                     font-weight: 700;
-                    padding-bottom: 10px;
                     width: 100%;
-                    @include res(width){
-                        font-size: 1.6vw;
-                    }
                     @include res(s-m-l){
                         font-size: 1em;
                     }
                 }
                 .tags{
-                    display: flex;
-                    flex-wrap: wrap;
                     color: $red;
-                    &.flex.pointer-between > div::after{
-                        background-color: $red;
+                    font-size: 0.9em;
+                    .field--name-field-genre{
+                        display: flex;
+                        > .field__item{
+                            &:not(:last-child):after{
+                                content: ",";
+                                margin-left: 5px;
+                            }
+                        }
                     }
                 }
             }
@@ -259,49 +273,57 @@
         display: flex;
         flex-wrap: wrap;
         > .views-row{
-            width: 23.25%;
-            margin-left: 2.3333%;
+            width: calc(20% - 32px);
+            margin-left: 40px;
             position: relative;
             margin-bottom: 60px;
+            &:nth-child(5n){
+                margin-left: 0;
+                @include res(xl-xxl){
+                    margin-left: 40px;
+                } 
+                @include res(l){
+                    margin-left: 40px;
+                }   
+                @include res(m){
+                    margin-left: 40px;
+                } 
+            }
+            @include res(xxl){
+                width: calc(25% - 30px);
+                &:nth-child(4n){
+                    margin-left: 0;
+                }
+            }
             @include res(xl){
-                width: 31%;
-                margin-left: 3%;
+                width: calc(33.3333% - 26.6667px);
+                &:nth-child(3n){
+                    margin-left: 0;
+                }
             }
             @include res(l){
-                width: 31%;
-                margin-left: 3%;
+                width: calc(33.3333% - 26.6667px);
+                &:nth-child(3n){
+                    margin-left: 0;
+                }
             }
             @include res(m){
-                width: 49%;
-                margin-left: 2%;
+                width: calc(50% - 20px);
+                &:nth-child(2n){
+                    margin-left: 0;
+                }
             }
             @include res(s){
                 width: 100%;
                 margin-left: 0;
             }
-            &:nth-child(4n){
-                margin-left: 0;
-                @include res(xl){
-                    margin-left: 3%;
-                }
-                @include res(l){
-                    margin-left: 3%;
-                }
-                @include res(m){
-                    margin-left: 2%;
-                }
-            }
-            &:nth-child(3n){
-                @include res(xl){
-                    margin-left: 0;
-                }
-                @include res(l){
-                    margin-left: 0;
-                }
-            }
-            &:nth-child(2n){
-                @include res(m){
-                    margin-left: 0;
+            .flex{
+                align-items: flex-start;
+                > div{
+                    align-items: flex-start;
+                    &:after{
+                        margin-top: 11px;
+                    }
                 }
             }
             .field--name-field-image-verical img{
@@ -311,7 +333,7 @@
     }
 }
 
-.recomended-movie, .sliders .views-element-container, .paragraph--type--movies-gener .views-element-container{
+.sliders .views-element-container, .paragraph--type--movies-gener .views-element-container{
     @include res(l){
         max-width: 90%;
         margin: 0 auto;
@@ -364,9 +386,6 @@
             } 
             .text{
                 padding: 53px 30px 20px;
-                @include res(width){
-                    padding: 2.8vw 1.6vw 1.1vw;
-                }
                 @include res(s-m-l){
                     padding: 28px 10px 20px;
                 }

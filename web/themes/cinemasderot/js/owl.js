@@ -21,12 +21,12 @@ $(".view.movie-slide").each(function(){
       autoHeight: true,
       navRewind: false,
       responsive: {
-        0: {
+        0:{
           items: 1,
           margin:26,
           stagePadding:80,
         },
-        769: {
+        769:{
           items: 3,
           margin:26,
           stagePadding:80,
@@ -36,14 +36,50 @@ $(".view.movie-slide").each(function(){
           margin:36,
           stagePadding:70,
         },
-        1201: {
+        1201:{
           items: 4,
-          margin:46,
+          margin:40,
           stagePadding:70,
         },
-        1351: {
+        1351:{
           items: 4,
-          margin:46,
+          margin:40,
+          stagePadding:170,
+        }
+      }
+    });
+  }
+});
+
+$(".view.event-slide").each(function(){ 
+  if ($(this).children(".view-content").children(".views-row").length != '1') {
+    $(this).children(".view-content").owlCarousel({
+      rtl: true,
+      autoplay:false,
+      loop:false,
+      nav: true,
+      dots: false,
+      autoHeight: true,
+      navRewind: false,
+      responsive: {
+        0:{
+          items: 1,
+          margin:26,
+          stagePadding:80,
+        },
+        769:{
+          items: 2,
+          margin:26,
+          stagePadding:80,
+        },
+        1201:{
+          items: 3,
+          margin:40,
+          stagePadding:70,
+        },
+        1351:{
+          items: 3,
+          margin:40,
           stagePadding:170,
         }
       }

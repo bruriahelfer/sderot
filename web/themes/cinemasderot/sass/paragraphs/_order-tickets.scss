@@ -98,9 +98,6 @@
             }
             li{
                 margin-left: 20px;
-                @include res(width){
-                    font-size: 1.1vw;
-                }
                 @include res(s-m){
                     font-size: 0.9em;
                 }

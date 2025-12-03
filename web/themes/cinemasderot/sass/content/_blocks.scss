@@ -62,9 +62,6 @@
             @include button(1em,#fff,$dark-orange,$dark-orange);
             font-weight: 700;
             display: inline-block;
-            @include res(width){
-                font-size: 1.1vw;
-            }
             @include res(s-m-l){
                 font-size: 12px;
             }

@@ -1,41 +1,38 @@
-.page-node-type-page{
-    background-color: $gray;
-    @include res(s-m-l){
-        background-color: initial;
-    }
-    main{
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        @include res(s-m-l){
-            display: block;
+.page-node-type-page, .page-node-type-advanced{
+    .node-banner{
+        position: relative;
+        margin-bottom: 50px;
+        img{
+            width: 100%;
+            border-radius: 0 0 0 200px;
+            object-fit: cover;
+            @include res(s-m){
+                border-radius: 0 0 0 130px;
+            }
         }
-        .layout-content{
-            width: 69%;
-            background-color: #fff;
-            border-radius: 30px;
-            margin-top: 60px;
-            padding: 0 120px 40px;
+        h1{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            padding: 0 30px;
+            margin: 0;
             box-sizing: border-box;
-            margin-bottom: 70px;
-            @include res(width){
-                padding: 0 6.5vw 2.1vw;
-                margin-top: 3.25vw;
-            }
-            @include res(s-m-l){
-                width: 100%;
-                padding: 0;
-                background-color: initial;
-                margin-top: 0;
-            }
-            h1.page-title{
-                margin-top: 0;
-                text-align: right;
-                @include res(s-m){
-                    margin-bottom: 0;
-                }
-            }
+        }
+    }
+}
+
+.page-node-type-page{
+    main{
+        .layout-content{
             .field--name-body{
+                max-width: 922px;
+                margin: 0 auto;
                 line-height: 1.4;
                 @include res(s){
                     font-size: 18px;

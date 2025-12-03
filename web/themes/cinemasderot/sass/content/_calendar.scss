@@ -3,19 +3,13 @@
     z-index: 1000;
 }
 .calendar-inner{
+    overflow: hidden;
     position: absolute;
     left: 0;
-    width: 400px;
+    width: 670px;
     opacity: 0;
-    margin-top: 57px;
     top: -1000px;
     transition: opacity 0.5s;
-    @include res(width){
-        margin-top: calc(2.7vw + 10px);
-    }
-    @include res(l){
-        margin-top: 48px;
-    }
     @include res(s-m){
         margin: 0;
         width: 100%;
@@ -24,11 +18,10 @@
         left: 0;
         background: rgba(0,0,0,0.2);
         justify-content: center;
-        padding-top: 18%;
         display: flex;
         .views-element-container{
             width: 90%;
-            height: 60%;
+            height: 80%;
         }
     }
     .view-calendar{
@@ -111,34 +104,51 @@
             }
         }
         .views-row-wrapper{
-            max-height: calc(100vh - 140px);
+            max-height: calc(100vh - 160px);
             overflow: auto;
-            background-color: #fff;
-            border-radius: 0 0 20px 20px;
+            padding: 16px 14px 6px;
+            background-color: #F9F9F9;
+            border-radius: 0 0 27px 27px;
             @include res(s-m){
                 max-height: calc(100vh - 190px);
+                padding: 10px 4px 6px;
             }
         }
         .views-row{
             display: flex;
             justify-content: space-between;
-            font-size: 0.7em;
+            font-size: 0.8em;
             border-bottom: 1px solid #ccc;
-            padding: 12px 16px;
+            padding: 12px 50px;
             align-items: center;
+            border-radius: 250px;
+            border: 1px solid rgba(239, 64, 86, 0.15);
+            background: #FFF;
+            margin-bottom: 10px;
+            min-height: 90px;
+            box-sizing: border-box;
+            @include res(s-m-l){
+                font-size: 0.7em;
+                padding: 12px 10px;
+                border-radius: 20px;
+            }
             &:last-child{
                 border-bottom: none;
             }
             .views-field-field-link-by-date{
                 white-space: nowrap;
                 a{
-                    background-color: orange;
-                    color: #fff;
-                    padding: 3px 10px;
+                    color: $red;
+                    border: 1px solid $red;
+                    padding: 5px 15px;
                     border-radius: 15px;
                     font-size: 1em;
                     display: block;
                     font-weight: 700;
+                    @include res(s-m){
+                        padding: 5px 10px;
+                        font-size: 0.9em;
+                    }
                 }
                 &.past{
                     background-color: #ada9a9;
@@ -152,6 +162,11 @@
             }
             .views-field-title{
                 padding-left: 20px;
+                max-width: calc(100% - 105px);
+                @include res(s-m){
+                    padding-left: 10px;
+                    max-width: calc(100% - 72px);
+                }
                 .time{
                     padding-bottom: 5px;
                 }
@@ -159,10 +174,20 @@
                     font-weight: bold;
                 }
                 .title{
-                    font-size: 1.2em;
+                    font-size: 1.1em;
                 }
-                .last{
-                    color: $red;
+                .tags{
+                    display: flex;
+                    flex-wrap: wrap;
+                    margin-top: 5px;
+                    .last{
+                        color: $red;
+                        background: #FEECEF;
+                        margin-left: 10px;
+                        border-radius: 5px;
+                        padding: 5px 10px;
+                        font-size: 0.8em;
+                    }
                 }
             }
         }
@@ -177,8 +202,14 @@
         -webkit-transform: rotate(-45deg);transform: rotate(-45deg);
     }
     .calendar-inner{
-        top: 0;
+        top: 60px;
         opacity: 1;
+        @include res(s-m){
+            top: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 }
 
@@ -200,8 +231,23 @@
     .flex{
         flex-wrap:wrap;
         align-items: flex-start;
+        .right-area{
+            width: 40%;
+            min-width: 535px;
+            @include res(xl){
+                min-width: 460px;
+            }
+            @include res(s-m-l){
+                width: 100%;
+                min-width: 100%;
+                @include res(s){
+                    font-size: 0.8em;
+                }
+            }
+        }
     }
     .view-footer {
+        width: 60%;
         max-width: calc(100% - 430px);
         h3{
             margin-top: 32px;
@@ -431,18 +477,7 @@
 }
 
     .view-full-calendar{
-        width: 40%;
-        min-width: 535px;
-        @include res(xl){
-            min-width: 460px;
-        }
-        @include res(s-m-l){
-            width: 100%;
-            min-width: 100%;
-            @include res(s){
-                font-size: 0.8em;
-            }
-        }
+        width: 100%;
         .js-drupal-fullcalendar{
             box-shadow: 2px -1px 12px 0px rgba(0, 0, 0, 0.10);
             padding: 30px;

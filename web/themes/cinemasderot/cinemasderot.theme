@@ -20,6 +20,11 @@ function cinemasderot_preprocess_html(&$variables) {
   }
 }
 
+
+function cinemasderot_preprocess_node(&$variables) {
+  $variables['is_front'] = \Drupal::service('path.matcher')->isFrontPage();
+}
+
 /**
  * Implements tod_preprocess_page()
  */

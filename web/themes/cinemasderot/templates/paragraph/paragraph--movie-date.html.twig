@@ -13,11 +13,11 @@
         {% if dayNumber == 2 and noshlaykes != 1 %}<div class="tuesday day-{{ dayNumber }}">{{ "Tuesday at Shlakes - 10 NIS for retirees!"|t }}</div>{% endif %}
         <div class="flex line">
             <div class="day">{{ "day"|t }} {{ day }}</div>
-            /
+            <div class="slash">●</div>
             <div class="date">{{ date }}</div>
-            <div class="second-slash">/</div>
+            <div class="second-slash slash">●</div>
             <div class="time">{{ time }}</div>
-            /
+            <div class="slash">●</div>
             {{ start_time }}
             <div class="place">{{ content.field_place }}</div>
             {% if content.field_remark1|render %}

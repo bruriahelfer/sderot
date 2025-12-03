@@ -1,8 +1,5 @@
 .paragraph--type--screening-table{
     padding-top: 50px;
-    @include res(width){
-      padding-top: 2.7vw;
-    }
     @include res(s-m-l){
       padding-top: 40px;
     }
@@ -20,124 +17,59 @@
                     border: none;
                     height: 48px;
                     border-radius: 40px;
-                    @include res(width){
-                        height: 3.2vw;
-                    }
                 }
                 label{
                     font-weight: 700;
                 }
             }
             .first-line{
-                margin-bottom: 50px;
+                margin-bottom: 30px;
                 width: 100%;
-                @include res(width){
-                    margin-bottom: 2.7vw;
-                }
                 @include res(s){
-                    margin-bottom: 20px;
+                    margin-bottom: 40px;
                 }
                 .wrapper{
-                    display: -webkit-inline-box;
                     display: inline-flex;
-                    border-radius: 40px;
-                    @include res(l){
-                        width: 100%;
-                        box-sizing: border-box;
-                        .js-form-item{
-                            width: 100%;
-                        }
-                    }
+                    position: relative;
                     @include res(s-m){
                         width: 100%;
-                        box-sizing: border-box;
-                        .js-form-item{
+                        .js-form-type-textfield{
                             width: 100%;
                         }
                     }
                 }
                 .js-form-item input{
-                    padding: 0 40px;
-                    background-color: #fff;
-                    border-radius: 0 40px 40px 0;
-                    @include res(width){
-                        padding: 0 2.2vw;
-                    }
-                    @include res(s-m-l){
+                    border-radius: 200px;
+                    border: 1px solid $red;
+                    padding: 0 20px;
+                    box-sizing: border-box;
+                    width: 400px;
+                    @include res(s-m){
                         width: 100%;
-                        box-sizing: border-box;
-                    }
-                    @include res(s){
-                        padding: 0 20px;
-                        height: 40px;
-                    }
-                    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-                        opacity: 1; /* Firefox */
-                    }
-                    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
-                        opacity: 1;
-                    }
-                    &::-ms-input-placeholder { /* Microsoft Edge */
-                        opacity: 1;
                     }
                 }
                 .form-actions{
-                    margin: 0 -20px 0 0;
-                    display: -webkit-box;
-                    display: flex;
-                    input{
-                        font-weight: 700;
-                        height: 48px;
-                        box-sizing: border-box;
-                        @include res(width){
-                            height: 3.2vw;
-                        }
-                        @include res(s){
-                            height: 40px;
-                        }
-                    }
+                    margin: 0;
                     input[id^=edit-submit-movies]{
-                        @include button(1em,#fff,$dark-orange,$dark-orange);
-                        padding-left: 60px;
-                        background: url(/themes/cinemasderot/images/search.svg) no-repeat left 5px center $dark-orange;
-                        @include res(width){
-                            padding-left: 3vw;
-                            background-size: 3vw;
-                            background-position:left 0.3vw center;
-                        }
-                        @include res(s-m-l){
-                            padding: 5px 18px 5px 54px;
-                        }
-                        @include res(s-m){
-                            font-size: 0;
-                            padding: 0;
-                            width: 40px;
-                            height: 100%;
-                            margin: 0;
-                            border-radius: 30px 0 0 30px;
-                            background-position: center center;
-                        }
-                        &:hover{
-                            box-shadow: none;
-                            border-color: #e8911f;
-                            background-color: #e8911f;
-                        }
+                        background: url(/themes/cinemasderot/images/search-red.svg) no-repeat center center;
+                        border: none;
+                        text-indent: -9999px;
+                        width: 40px;
+                        height: 40px;
+                        padding: 10px;
+                        position: absolute;
+                        top: 6px;
+                        left: 10px;
                     }
                     input[id^=edit-reset]{
-                        @include button(1em,$default,#e1e1e1,#e1e1e1);
-                        margin: 0 15px 0 0;
-                        @include res(width){
-                            margin: 0 0.7vw 0 0;
-                        }
-                        @include res(s-m-l){
-                            padding: 5px 18px;
-                            margin: 0 8px 0 0;
-                        }
-                        &:hover{
-                            box-shadow: none;
-                            border-color: #cccaca;
-                            background-color: #cccaca;
-                        }
+                        position: absolute;
+                        left: -50px;
+                        text-decoration: underline;
+                        margin: 0;
+                        background: none;
+                        border: none;
+                        font-size: 0.8em;
+                        top: 14px;
                     }
                     &.no-need-reset{
                         input[id^=edit-reset]{
@@ -166,57 +98,19 @@
                 }
 
             }
-            .mobile-wrapper{
-                @include res(s-m-l){
-                    opacity: 0;
-                    z-index: -1;
-                    position: fixed;
-                    width: 100%;
-                    height: 100%;
-                    overflow: auto;
-                    top: 0;
-                    right: 0;
-                    background-color: $dark-black;
-                    color: #fff;
-                    padding: 40px;
-                    box-sizing: border-box;
-                    -webkit-transition: opacity 0.5s;transition: opacity 0.5s;
-                    @include res(s){
-                        padding: 20px;
-                    }
-                    .filters-label{
-                        font-size: 1.2em;
-                        font-weight: 700;
-                        margin-bottom: 20px;
-                    }
-                    .close{
-                        @include close;
-                    }
-                    .close-button{
-                        @include button(1em,#000,#fff,#fff);
-                        display: inline-block;
-                        margin-top: 50px;
-                        cursor: pointer;
-                    }
-                    &.open{
-                        opacity: 1;
-                        z-index: 100;
-                    }
-                }
-            }
             .second-line{
                 width: 100%;
                 .wrapper{
                     display: -webkit-inline-box;display: inline-flex;
+                    justify-content: center;
                     background-color: #fff;
                     border-radius: 40px;
                     -webkit-box-align: center;align-items: center;
                     padding: 6px 30px 6px 10px;
                     width: 100%;
                     box-sizing: border-box;
-                    @include res(s-m-l){
+                    @include res(s-m){
                         display: block;
-                        background-color: $dark-black;
                         padding: 0;
                     }
                 }
@@ -224,13 +118,26 @@
                     padding: 0 10px;
                 }
                 .date-range{
-                    display: -webkit-box;
                     display: flex;
-                    -webkit-box-align: center;
-                            align-items: center;
-                    @include res(s-m-l){
+                    align-items: center;
+                    border-radius: 200px;
+                    border: 1px solid #000;
+                    height: 48px;
+                    margin-left: 12px;
+                    position: relative;
+                    @include res(s-m){
+                        margin: 0 0 15px;
+                    }
+                    > label{
+                        position: absolute;
+                        right: 20px;
                         display: flex;
-                        justify-content: space-between;
+                        align-items: center;
+                        color: #6A6A6A;
+                        font-weight: 700;
+                        svg{
+                            margin-left: 5px;
+                        }
                     }
                     .empty{
                         display: none;
@@ -239,10 +146,6 @@
                         right: auto;
                         margin-top: 4px;
                         top: 15px;
-                        @include res(width){
-                            top: 0.9vw;
-                            left: -1vw;
-                        }
                         &:before, &:after{
                             width: 11px;
                         }
@@ -252,25 +155,17 @@
                         background-color: transparent;
                         z-index: 20;
                         cursor: pointer;
-                        width: 278px;
-                        @include res(width){
-                            width: 15vw;
-                        }
-                        @include res(s-m-l){
-                            width: 100%;
-                        }
+                        width: 212px;
+                        padding: 0 105px 0 20px;
                     }
                     .all{
                         position: absolute;
-                        right: 10px;
+                        right: 105px;
                     }
                     .input{
                         display: -webkit-box;display: flex;
                         -webkit-box-align: center;align-items: center;
                         position: relative;
-                        @include res(s-m-l){
-                            width: 100%;
-                        }
                         &.input-full{
                             .all{
                                 display: none
@@ -280,26 +175,11 @@
                             @include arrow;
                             position: absolute;
                             left: 12px;
-                            @include res(width){
-                                left: 0.5vw;
-                            }
                             &:before{
                                 left: 16px;
-                                @include res(width){
-                                    left: 1.45vw;
-                                }
-                                @include res(s-m-l){
-                                    left: 13px;
-                                }
                             }
                             &:after{
                                 left: 10px;
-                                @include res(width){
-                                    left: 1.1vw;
-                                }
-                                @include res(s-m-l){
-                                    left: 7px;
-                                }
                             }
                         }
                     }
@@ -308,102 +188,61 @@
                     position: relative;
                     display: -webkit-box;display: flex;
                     -webkit-box-align: center;align-items: center;
-                    width: calc(25% - 90px);
+                    border: 1px solid;
+                    border-radius: 50px;
+                    height: 48px;
                     overflow: hidden;
-                    @include res(width){
-                        width: calc(25% - 4.8vw);
-                    }
-                    @include res(s-m-l){
+                    width: 334px;  
+                    @include res(s-m){
                         width: 100%;
-                        margin-bottom: 20px;
-                        display: flex;
-                        justify-content: space-between;
-                    }   
+                    }
                     &:before{
                         left: 40px;
-                        @include res(width){
-                            left: 2.1vw;
-                        }
                     }
                     &:after{
                         left: 34px;
-                        @include res(width){
-                            left: 1.8vw;
-                        }
                     }
                     label{
-                        display: -webkit-box;
                         display: flex;
-                        -webkit-box-align: center;
-                                align-items: center;
-                        &:before{
-                            content: "/";
-                            font-weight: 300;
-                            font-size: 1rem;
-                            margin-left: 30px;
-                            @include res(s-m-l){
-                                display: none;
-                            }
-                        }
+                        align-items: center;
                     }
                     .select2{
                         width: 100%!important;
                         text-align: right;
-                        max-width: calc(100% - 84px);
-                        @include res(width){
-                            max-width: calc(100% - 6.5vw);
-                        }
+
                     }
                     .select2-selection__arrow{
                         b{
+                            display: none;
                             top: auto;
                             border: none;
                             left: 0;
                             @include arrow;
                             &:before{
                                 left: 16px;
-                                @include res(width){
-                                    left: 0.9vw;
-                                }
                             }
                             &:after{
                                 left: 10px;
-                                @include res(width){
-                                    left: 0.55vw;
-                                }
                             }
                         }
                     }
                     .select2-container{
-                        @include res(s-m-l){
-                            width: 100%!important;
-                            text-align: right;
-                        }
                     }
                     .select2-container--default .select2-selection--single .select2-selection__rendered{
                         padding-left: 40px;
-                        @include res(width){
-                            padding-left: 1.5vw;
-                        }
-                        @include res(s-m-l){
-                            color: #fff;
-                        }
                     }
                     .select2-container--default .select2-selection--single .select2-selection__arrow{
                         left: 18px;
                         height: 100%;
                         display: -webkit-box;display: flex;
                         -webkit-box-align: center;align-items: center;
-                        @include res(width){
-                            left: 0;
-                        }
                     }
                     .select2-container--default .select2-selection--single{
                         border: none;
                         background-color: transparent;
-                        @include res(s-m-l){
-                            color: #fff;
-                        }
+                        padding-right: 95px;
+                        box-sizing: border-box;
+                        width: 100%;
                     }
                     .select2-container--open{
                         .select2-selection__arrow{
@@ -417,6 +256,13 @@
                             }
                         }
                     }
+                    &.js-form-item-field-genre-target-id label{
+                        background: url(/themes/cinemasderot/images/genre.svg) no-repeat center right;
+                        position: absolute;
+                        right: 20px;
+                        padding: 5px 32px 5px 0;
+                        color: #6A6A6A;
+                    }
                 }
                 select{
                     appearance: none;
@@ -425,22 +271,11 @@
                     margin-left: 30px;
                     padding-left: 20px;
                     cursor: pointer;
-                    @include res(width){
-                        margin-left: 1.6vw;
-                        padding-left: 1.1vw;
-                    }
-                    @include res(s-m-l){
-                        width: 100%;
-                        background-color: $dark-black;
-                    }
                 }
             }
             .third-line{
                 width: 100%;
                 margin: 50px 0;
-                @include res(width){
-                    margin: 2.7vw 0;
-                }
                 .wrapper{
                     display: -webkit-inline-box;
                     display: inline-flex;
@@ -467,16 +302,9 @@
                         label{
                             background: url(/themes/cinemasderot/images/unchecked.svg) no-repeat right center;
                             padding-right: 30px;
-                            @include res(width){
-                                padding-right: 2vw;
-                                background-size: 1.5vw;
-                            }
                         }
                         input:checked + label, input[checked="checked"] + label{
                             background: url(/themes/cinemasderot/images/checked.svg) no-repeat right center;
-                            @include res(width){
-                                background-size: 1.5vw;
-                            }
                         }
                     }
                 }
@@ -486,9 +314,6 @@
     .movies-cart > .view-content{
         background-color: #fff;
         padding-top: 50px;
-        @include res(width){
-            padding-top: 2.7vw;
-        }
         .view-content-wrapper{
             @include width;
         }
@@ -518,6 +343,15 @@ body .daterangepicker{
     text-align: right;
     border: none;
     border-radius: 30px;
+    box-shadow: 1px -2px 7px rgba(0,0,0,0.1);
+    &.opensleft{
+        &:before{
+            right: 60px;
+        }
+        &:after{
+            right: 61px;
+        }
+    }
     .drp-calendar.left{
         float: right;
     }
@@ -538,6 +372,9 @@ body .daterangepicker{
             float: none;
             padding: 8px 20px;
         }
+    }
+    .calendar-table{
+        background-color: transparent;
     }
     .calendar-table .next span {
         transform: rotate(135deg);

@@ -26,11 +26,11 @@
             $("body").addClass("close-menu");
         });
 
-        $(document).unbind('click').bind('click', function (e) {
+        $("body").unbind('click').bind('click', function (e) {
           if(!$(e.target).closest($(".region-menu")).length) {
             if(!$(e.target).closest($(".hamburger")).length) {       
-              $( "body" ).removeClass( "open-menu" );
-              $( "body" ).addClass( "close-menu" );
+              $("body").removeClass( "open-menu" );
+              $("body").addClass( "close-menu" );
             }
           }
         });
