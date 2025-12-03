@@ -27,6 +27,10 @@ class ComposerStaticInit58e27df2a6a08c7d937da189fcef81c2
     );
 
     public static $prefixLengthsPsr4 = array (
+        'e' => 
+        array (
+            'enshrined\\svgSanitize\\' => 22,
+        ),
         'T' => 
         array (
             'Twig\\' => 5,
@@ -110,6 +114,10 @@ class ComposerStaticInit58e27df2a6a08c7d937da189fcef81c2
     );
 
     public static $prefixDirsPsr4 = array (
+        'enshrined\\svgSanitize\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/enshrined/svg-sanitize/src',
+        ),
         'Twig\\' => 
         array (
             0 => __DIR__ . '/..' . '/twig/twig/src',
