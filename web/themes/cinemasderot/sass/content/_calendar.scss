@@ -110,7 +110,7 @@
             background-color: #F9F9F9;
             border-radius: 0 0 27px 27px;
             @include res(s-m){
-                max-height: calc(100vh - 210px);
+                max-height: calc(100vh - 240px);
                 padding: 10px 4px 6px;
             }
         }
