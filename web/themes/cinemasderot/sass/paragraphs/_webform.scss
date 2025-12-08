@@ -92,7 +92,7 @@
                     width: calc(25% - 11.25px);
                     margin-left: 15px;
                     position: relative;
-                    &:nth-child(4n+1){
+                    &:nth-child(4n){
                         margin-left: 0;
                         @include res(l){
                             margin-left: 20px;
