@@ -55,16 +55,17 @@
             scroll_pos = $(this).scrollTop();
             if(scroll_pos > 0) {
               $("body").addClass('scroll');
-              if ($("#toolbar-administration").length > 0){
+              /*if ($("#toolbar-administration").length > 0){
                 $("header").css("top",$('body').css('padding-top'));
-              }
+              }*/
               $("body").removeClass('not-scroll');
             }
             else {
               $("body").removeClass('scroll');
+              /*
               if ($("#toolbar-administration").length > 0){
                 $("header").css("top","initial");
-              }
+              }*/
               $("body").addClass('not-scroll');
             }
         });
@@ -72,9 +73,10 @@
         var screenTop = $(document).scrollTop();
         if (screenTop > 0){
               $("body").addClass('scroll');
+              /*
               if ($("#toolbar-administration").length > 0){
                 $("header").css("top",$('body').css('padding-top'));
-              }
+              }*/
         } else{
               $("body").addClass('not-scroll');
         }
