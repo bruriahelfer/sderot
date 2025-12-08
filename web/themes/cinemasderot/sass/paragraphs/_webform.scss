@@ -105,7 +105,7 @@
                     width: calc(25% - 11.25px);
                     margin-left: 15px;
                     position: relative;
-                    &:nth-child(4n){
+                    &.form-item-message{
                         margin-left: 0;
                         @include res(l){
                             margin-left: 20px;
@@ -114,7 +114,7 @@
                     @include res(l){
                         width: calc(50% - 10px);
                         margin-left: 20px;
-                        &:nth-child(2n+1){
+                        &.form-item-phone, &.form-item-message{
                             margin-left: 0;
                         }
                     }
