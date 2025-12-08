@@ -185,7 +185,7 @@
 }
 
 .view.movies-cart{
-    > .view-content, > .view-content .view-content-wrapper{
+    > .view-content, > .view-content .view-content-wrapper, > .view-content > .view-grouping > .view-grouping-content{
         .owl-item > .views-row, > .views-row{
             position: relative;
             a{

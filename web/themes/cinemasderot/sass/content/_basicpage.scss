@@ -6,6 +6,7 @@
             width: 100%;
             border-radius: 0 0 0 200px;
             object-fit: cover;
+            min-height: 200px;
             @include res(s-m){
                 border-radius: 0 0 0 130px;
             }

@@ -55,6 +55,7 @@ header{
     z-index: 100;
     transition: all 0.5s;
     box-shadow: 0 4px 22px 0 rgba(0, 0, 0, 0.05);
+    right: 0;
     @include res(s-m-l){
         padding: 10px 0;
     }

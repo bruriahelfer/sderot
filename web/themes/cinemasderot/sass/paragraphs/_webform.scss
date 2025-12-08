@@ -7,8 +7,11 @@
         @include width;
         display: flex;
         flex-wrap: wrap;
+        @include res(xl){
+            font-size: 0.8em;
+        }
         > .field__item{
-            width: calc(25% - 67.5px);
+            width: calc(25% - 33.75px);
             margin-left: 45px;
             padding: 45px;
             margin-bottom: 50px;
@@ -18,10 +21,40 @@
             &:nth-child(4n){
                 margin-left: 0;
                 border-left: none;
+                @include res(xl){
+                    margin-left: 25px;
+                }
+                @include res(l){
+                 margin-left: 20px;
+                }
+            }
+            @include res(xl){
+                padding: 25px;
+                margin-left: 25px;
+                width: calc(25% - 18.75);
+            }
+            @include res(l){
+                width: calc(50% - 10px);
+                margin-left: 20px;
+                padding: 20px;
+                &:nth-child(2n){
+                    margin-left: 0;
+                    border: none;
+                }
+            }
+            @include res(s-m){
+                width: 100%;
+                border: none;
+                border-bottom: 1px solid #ccc;
+                margin: 0;
+                &:last-child{
+                    border-bottom: none;
+                }
             }
         }
     }
     .gmap{
+        margin-bottom: -5px;
         iframe{
             width: 100%;
             height: 540px;
@@ -30,14 +63,23 @@
     .webform-wrapper{
         padding: 120px 0;
         background-color: #f4f4f4;
+        @include res(s-m){
+            padding: 60px 0;
+        }
         .field--name-field-title{
             font-size: 3em;
             font-weight: bold;
             text-align: center;
+            @include res(s-m){
+                font-size: 2em;
+            }
         }
         .field--name-field-subtitle{
             text-align: center;
             font-size: 1.5em;
+            @include res(s-m){
+                font-size: 1.2em;
+            }
         }
         .field--name-field-webform{
             margin-top: 20px;
@@ -49,21 +91,69 @@
                 .js-form-item{
                     width: calc(25% - 11.25px);
                     margin-left: 15px;
+                    position: relative;
                     &:nth-child(4n+1){
                         margin-left: 0;
+                        @include res(l){
+                            margin-left: 20px;
+                        }
+                    }
+                    @include res(l){
+                        width: calc(50% - 10px);
+                        margin-left: 20px;
+                        &:nth-child(2n+1){
+                            margin-left: 0;
+                        }
+                    }
+                    @include res(s-m){
+                        width: 100%;
+                        margin: 0 auto 25px!important;
+                        max-width: 350px;
+                    }
+                    label{
+                        position: absolute;
+                        top: 15px;
+                        color: #727272;
+                        right: 20px;
+                        transition: all 0.5s;
+                        &.form-required:after{
+                            color: #727272;
+                            content: "*";
+                            background: none;
+                            font-size: 12px;
+                        }
                     }
                     input, textarea{
                         width: 100%;
                         height: 56px;
-                        padding: 16px 29px;
                         border-radius: 50px;
                         box-sizing: border-box;
                         border: 1px solid #000;
                         resize: none;
                     }
+                    input{
+                        padding: 0 20px;
+                    }
+                    textarea{
+                        padding: 12px 20px 0;
+                    }
+                    &.input-full label{
+                        top: -19px;
+                        font-size: 0.75em;
+                    }
                 }
                 .form-actions{
                     width: 100%;
+                    text-align: center;
+                    input{
+                        background-color: #000;
+                        color: #fff;
+                        border-radius: 50px;
+                        height: 48px;
+                        padding: 0 47px;
+                        font-weight: bold;
+                        border: none;
+                    }
                 }
             }
         }
@@ -74,6 +164,10 @@
     .field--name-field-icon{
         height: 55px;
         margin-bottom: 35px;
+        @include res(xl){
+            height: 40px;
+            margin-bottom: 20px;
+        }
         img{
             max-height: 100%;
             width: auto;
@@ -106,6 +200,12 @@
         }
         > .field__item:last-child:nth-child(2){
             width: 100%;
+        }
+    }
+    .paragraph--type--icon{
+        img{
+            width: 80%;
+            height: auto;
         }
     }
 }

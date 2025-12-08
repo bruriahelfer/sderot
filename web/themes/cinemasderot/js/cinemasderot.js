@@ -6,6 +6,16 @@
     attach: function (context, settings) {
 
 
+// Tabs
+
+      $(".paragraph--type--tabs .tabs-titles .tab").unbind('click').bind('click', function (e) {
+        $(".tabs-titles .active").removeClass("active");
+        $(this).addClass("active");
+        var tabid = $(this).children().attr("class");
+        $(".tabs-content .active").removeClass("active");
+        $(".tabs-content ."+tabid).addClass("active");
+      });
+
 
 //// MENU
 

@@ -1,0 +1,37 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'paragraph--id--' ~ paragraph.id(),
+  ]
+%}
+{% block paragraph %}
+  <div{{ attributes.addClass(classes) }}>
+    {% block content %}
+    <div class="wrapper">
+        <div class="tabs-titles">
+            {% for item in content.field_tabs['#items'] %}
+                {% set paragraph = item.entity %}
+                {% set paragraph_id = paragraph.id() %}
+                <div class="tab {% if loop.index == 1 %} active{% endif %}">
+                    <div class="tab-id-{{ paragraph_id }}">
+                        {{ drupal_entity('paragraph', paragraph_id, 'title') }}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="tabs-content">
+            {% for item in content.field_tabs['#items'] %}
+                {% set paragraph = item.entity %}
+                {% set paragraph_id = paragraph.id() %}
+                <div class="tab-id-{{ paragraph_id }} {% if loop.index == 1 %} active{% endif %}">
+                    {{ drupal_entity('paragraph', paragraph_id, 'default') }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

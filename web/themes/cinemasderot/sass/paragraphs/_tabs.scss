@@ -1,0 +1,140 @@
+.paragraph--type--tabs{
+    .wrapper{
+        width: 1400px;
+        max-width: 100%;
+        margin: 0 auto 100px;
+        border-radius: 30px;
+        box-shadow: 0 5px 38px 0 rgba(0, 0, 0, 0.10);
+        display: flex;
+        justify-content: space-between;
+        padding: 80px 0 80px 70px;
+        @include res(xl){
+            font-size: 0.8em;
+        }
+        @include res(l){
+            font-size: 0.8em;
+            display: block;
+            padding: 40px 0 40px 50px;
+        }
+        @include res(s-m){
+            font-size: 1em;
+            display: block;
+            padding: 40px 0 40px 10px;
+        }
+        .tabs-titles{
+            width: 430px;
+            @include res(xl){
+                width: 300px;
+            }
+            @include res(s-m-l){
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                svg{
+                    max-height: 25px;
+                    @include res(s){
+                        max-height: 20px;}
+                }
+            }
+            .tab{
+                margin-bottom: 25px;
+                border-radius: 40px 0 0 40px;
+                color: #999;
+                cursor: pointer;
+                &.active{
+                    cursor: default;
+                    background: #FEECEF;
+                    color: $red;
+                    svg{
+                        path{
+                            fill: $red;
+                        }
+                    }
+                }
+            }
+            .paragraph--type--tab{
+                display: flex;
+                align-items: center;
+                font-size: 1.5em;
+                padding: 16px 45px 16px 0;
+                @include res(l){
+                    padding: 12px 9px 12px 34px;
+                }
+                @include res(m){
+                    font-size: 0.9em;
+                    padding: 11px 5px 11px 19px;
+                }
+                @include res(s){
+                    font-size: 0.7em;
+                    padding: 11px 0px 11px 8px;
+                }
+                .field--name-field-icon-link{
+                    margin-left: 25px;
+                    display: flex;
+                    align-items: center;
+                    @include res(s-m-l){
+                        margin-left: 10px;
+                        @include res(s){
+                            margin-left: 5px;
+                        }
+                    }
+                }
+            }
+        }
+        .tabs-content{
+            width: calc(100% - 500px);
+            max-width: 690px;
+            box-sizing: border-box;
+            @include res(xl){
+                width: calc(100% - 350px);
+            }
+            @include res(l){
+                padding-right: 50px;
+                width: 100%;
+                margin: 10px auto 0;
+            }
+            @include res(s-m){
+                padding-right: 10px;
+                width: 100%;
+                margin: 10px auto 0;
+            }
+            > div{
+                display: none;
+                &.active{
+                    display: block;
+                }
+                table{
+                    width: 100%;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    font-size: 1.2em;
+                    @include res(s-m){
+                        font-size: 0.9em;
+                    }
+                    tr{
+                        td, th{
+                            padding: 20px;
+                            font-weight: normal;
+                        }
+                    }
+                    thead{
+                        background-color: #FEECEF;
+                    }
+                    tbody{
+                        tr{
+                            &:nth-child(odd){
+                                background: #F3F3F3;
+                            }
+                            td{
+                                text-align: center;
+                                &:first-child{
+                                    text-align: right;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -17,7 +17,7 @@
 @import "paragraphs/gener.scss";
 @import "paragraphs/updates.scss";
 @import "paragraphs/banner.scss";
-
+@import "paragraphs/tabs.scss";
 
 a, a:link, a:visited{
   text-decoration: none;
@@ -104,7 +104,7 @@ h1.page-title{
     @include width;
   }
   .field--name-field-paragraphs{
-    > .paragraph:not(.all-width):not(.paragraph--type--movies-gallery):not(.paragraph--type--order-tickets):not(.paragraph--type--contact), .all-width .in-the-grid{
+    > .paragraph:not(.all-width):not(.paragraph--type--movies-gallery):not(.paragraph--type--order-tickets):not(.paragraph--type--contact):not(.paragraph--type--banner), .all-width .in-the-grid{
       @include width;
       padding-top: 74px;
       @include res(width){
