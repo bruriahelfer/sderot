@@ -48,6 +48,7 @@
                     }
                     .link{
                         margin-top: auto;
+                        padding-top: 15px;
                         @include res(s-m-l){
                             margin-top: 30px;
                             font-size: 0.9em;
