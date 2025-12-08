@@ -140,9 +140,9 @@
                         }
                     }
                 }
-                &:nth-child(3n+1){
-                    margin-left: 0;
-                }
+        }
+        > .paragraph:nth-child(3n+1){
+            margin-left: 0;
         }
     }
     .field--name-field-grid-link {
