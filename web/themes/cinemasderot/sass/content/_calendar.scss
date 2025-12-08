@@ -104,13 +104,13 @@
             }
         }
         .views-row-wrapper{
-            max-height: calc(100vh - 160px);
+            max-height: calc(100vh - 200px);
             overflow: auto;
             padding: 16px 14px 6px;
             background-color: #F9F9F9;
             border-radius: 0 0 27px 27px;
             @include res(s-m){
-                max-height: calc(100vh - 190px);
+                max-height: calc(100vh - 210px);
                 padding: 10px 4px 6px;
             }
         }
