@@ -88,6 +88,19 @@
                 flex-wrap: wrap;
                 max-width: 1333px;
                 margin: 0 auto;
+                div[data-drupal-messages]{
+                    display: none;
+                }
+                .form-item--error-message{
+                    &:before{
+                        display: none;
+                    }
+                    strong{
+                        font-weight: normal;
+                        color: red;
+                        font-size: 0.8em;
+                    }
+                }
                 .js-form-item{
                     width: calc(25% - 11.25px);
                     margin-left: 15px;
