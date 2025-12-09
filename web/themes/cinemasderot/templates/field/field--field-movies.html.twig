@@ -1,0 +1,23 @@
+{%
+  set classes = [
+    'field',
+    'field--name-' ~ field_name|clean_class,
+    'field--type-' ~ field_type|clean_class,
+    'field--label-' ~ label_display,
+    label_display == 'inline' ? 'clearfix',
+  ]
+%}
+{%
+  set title_classes = [
+    'field__label',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+
+<div class="view movie-list">
+    <div{{ attributes.addClass(classes, 'view-content') }}>
+      {% for item in items %}
+        <div{{ item.attributes.addClass('views-row') }}>{{ item.content }}</div>
+      {% endfor %}
+    </div>
+</div>
