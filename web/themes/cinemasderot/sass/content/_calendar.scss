@@ -78,6 +78,9 @@
             display: block;
         }
     }
+    .view-grouping{
+        box-shadow: 0 0 5.8px 0 rgba(0, 0, 0, 0.25);
+    }
     .view-grouping-header{
             background-color: #000;
             color: #fff;
@@ -195,11 +198,10 @@
 }
 
 .calendar.open{
-    .calendar-icon:before {
-        -webkit-transform: rotate(45deg);transform: rotate(45deg);
-    }
-    .calendar-icon:after {
-        -webkit-transform: rotate(-45deg);transform: rotate(-45deg);
+    .calendar-icon {
+        img{
+            rotate: 180deg;
+        }
     }
     .calendar-inner{
         top: 60px;
