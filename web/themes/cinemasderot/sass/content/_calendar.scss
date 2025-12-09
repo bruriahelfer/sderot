@@ -47,7 +47,7 @@
         background-size: 24px 24px;
         right: 15px;
         &:not(.disabled):hover{
-            background: url(/themes/cinemasderot/images/right-arrow-black.svg) no-repeat center center;
+            background: url(/themes/cinemasderot/images/right-arrow-hover.svg) no-repeat center center;
             background-size: 24px 24px;
         }
         &.disabled{
@@ -60,7 +60,7 @@
         background-size: 24px 24px;
         left: 15px;
         &:not(.disabled):hover{
-            background: url(/themes/cinemasderot/images/left-arrow-black.svg) no-repeat center center;
+            background: url(/themes/cinemasderot/images/left-arrow-hover.svg) no-repeat center center;
             background-size: 24px 24px;
             &.disabled{
                 background: url(/themes/cinemasderot/images/left-arrow-disable-white.svg) no-repeat center center;
