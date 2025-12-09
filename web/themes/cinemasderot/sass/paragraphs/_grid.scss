@@ -63,7 +63,7 @@
                             height: auto;
                             &:hover{
                                 background-color: #fff;
-                                color: $default;
+                                color: #fff;
                                 border-color: #fff;
                             }
                             @include res(xl-xxl){
