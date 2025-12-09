@@ -8,8 +8,7 @@
             {% if content.field_event|render %}
                 <div class="event-tag">{{ content.field_event }}</div>
             {% endif %}
-            {% set text = label|render|striptags|truncate(75, true, '...') %}
-            <div class="title">{{ text|raw }}</div>
+            <div class="title">{{ label }}</div>
             {% set text = content.body|render|striptags %}
             <div class="body">{{ text|length > 90 ? text|truncate(90, '...') ~ '...' : text|raw }}</div>
             <div class="link"><div class="link-text">{{ "For more details and to purchase tickets"|t }}</div></div>
