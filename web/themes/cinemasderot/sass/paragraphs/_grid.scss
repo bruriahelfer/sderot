@@ -18,6 +18,16 @@
                 width: 100%;
                 margin: 0 0 90px;
              }
+             > a{
+                > div{
+                    height: 100%;
+                    > .field__item{
+                        display: flex;
+                        flex-direction: column;
+                        height: 100%;
+                    }
+                }
+             }
              .field--name-field-event, .event-tag{
                 color: $red;
                 font-weight: bold;
