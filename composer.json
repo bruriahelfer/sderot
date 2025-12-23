@@ -46,6 +46,7 @@
         "drupal/jquery_ui_slider": "^2.1",
         "drupal/jquery_ui_touch_punch": "^1.1",
         "drupal/linkit": "^7.0",
+        "drupal/media_library_edit": "^3.0",
         "drupal/menu_admin_per_menu": "^1.7",
         "drupal/menu_item_fields": "^1.11",
         "drupal/menu_link_attributes": "^1.5",
