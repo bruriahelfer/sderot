@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '68297e3175be4c22696b6ee6333b7bd2fc7e80c9',
+        'reference' => 'bd5498f00c4b128b74ba4766b1490ecc56c19dab',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -451,6 +451,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/image_widget_crop' => array(
+            'pretty_version' => '3.0.0',
+            'version' => '3.0.0.0',
+            'reference' => '3.0.0',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/image_widget_crop',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/jquery_ui' => array(
             'pretty_version' => '1.8.0',
             'version' => '1.8.0.0',
@@ -607,7 +616,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '68297e3175be4c22696b6ee6333b7bd2fc7e80c9',
+            'reference' => 'bd5498f00c4b128b74ba4766b1490ecc56c19dab',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
