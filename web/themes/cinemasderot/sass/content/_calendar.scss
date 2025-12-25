@@ -144,8 +144,11 @@
                 border-bottom: none;
             }
             .no-activities{
-                .views-field-field-date-2{
-                    display: none;
+                width: 100%;
+                .views-field-title{
+                    .date{
+                        display: none;
+                    }
                 }
             }
             .views-field-field-link-by-date{
