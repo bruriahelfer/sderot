@@ -34,6 +34,7 @@
                 {% if type=="movie" %}
                     {{- row.content -}}
                 {% else %}
+                    {{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}
                 {% endif %}
             </div>
         {% endfor %}
