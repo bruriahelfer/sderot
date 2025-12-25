@@ -21,23 +21,20 @@
     {{ title }}
     {% endif %}
     <div class="views-row-wrapper">
-        {% for row in rows %}
-        {%
-            set row_classes = [
-            default_row_class ? 'views-row',
-            ]
-        %}
-        <div{{ row.attributes.addClass(row_classes) }}>
-            {% set now = 'now'|date('Y-m-d\TH:i:s') %}
-            {% set movietime = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_date_2 }}'] %}
-            {{- row.content -}}
-            {#
-            {% if movietime == "PAST" %}
-                <div class="views-field-field-link-by-date past">{{ "tickets"|t }}</div>
-            {% else %}
-                <div class="views-field-field-link-by-date future">{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_link_by_date }}'] }}</div>
-            {% endif %}#}
-        </div>
+            {% for row in rows %}
+            {%
+                set row_classes = [
+                default_row_class ? 'views-row',
+                ]
+            %}
+            <div{{ row.attributes.addClass(row_classes) }}>
+                {% set now = 'now'|date('Y-m-d\TH:i:s') %}
+                {% set movietime = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_date_2 }}'] %}
+                {% set type = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ type }}'] %}
+                {% if type=="movie" %}
+                    {{- row.content -}}
+                {% endif %}
+            </div>
         {% endfor %}
     </div>
 </div>
