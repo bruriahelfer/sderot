@@ -31,7 +31,6 @@
                 {% set now = 'now'|date('Y-m-d\TH:i:s') %}
                 {% set movietime = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_date_2 }}'] %}
                 {% set type = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ type }}'] %}
-                {{ type }}
                 {% if type=="movie" %}
                     {{- row.content -}}
                 {% endif %}
