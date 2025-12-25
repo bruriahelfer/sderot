@@ -29,11 +29,12 @@
             %}
             <div{{ row.attributes.addClass(row_classes) }}>
                 {% set now = 'now'|date('Y-m-d\TH:i:s') %}
-                {% set movietime = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_date_2 }}'] %}
-                                {% set type = row.content['#row']._entity.type.0.target_id %}
-{{ type }}
+                {% set movietime = row.content['#view'].style_plugin.render_tokens[  ]['{{ field_date_2 }}'] %}
+                {% set type = row.content['#row']._entity.type.0.target_id %}
                 {% if type=="movie" %}
                     {{- row.content -}}
+                {% else %}
+                    {{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}
                 {% endif %}
             </div>
         {% endfor %}
