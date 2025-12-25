@@ -31,10 +31,12 @@
                 {% set now = 'now'|date('Y-m-d\TH:i:s') %}
                 {% set movietime = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_date_2 }}'] %}
                 {% set type = row.content['#row']._entity.type.0.target_id %}
-                {% if type=="movie" %}
-                    {{- row.content -}}
-                {% else %}
-                    {{ row.content['#row']._entity.title.0.target_id }}
+                {% if type!="movie" %}
+                    <div class="no-activities">
+                {% endif %}
+                {{- row.content -}}
+                {% if type!="movie" %}
+                    </div>>
                 {% endif %}
             </div>
         {% endfor %}
