@@ -21,7 +21,7 @@
     {{ title }}
     {% endif %}
     <div class="views-row-wrapper">
-            {% for row in rows %}
+        {% for row in rows %}
             {%
                 set row_classes = [
                 default_row_class ? 'views-row',
@@ -30,7 +30,8 @@
             <div{{ row.attributes.addClass(row_classes) }}>
                 {% set now = 'now'|date('Y-m-d\TH:i:s') %}
                 {% set movietime = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_date_2 }}'] %}
-                {% set type = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ type }}'] %}
+                                {% set type = row.content['#row']._entity.type.0.target_id %}
+{{ type }}
                 {% if type=="movie" %}
                     {{- row.content -}}
                 {% endif %}
