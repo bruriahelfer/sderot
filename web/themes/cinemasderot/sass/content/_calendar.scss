@@ -143,6 +143,11 @@
             &:last-child{
                 border-bottom: none;
             }
+            .no-activities{
+                .views-field-field-date-2{
+                    display: none;
+                }
+            }
             .views-field-field-link-by-date{
                 white-space: nowrap;
                 a{
