@@ -78,7 +78,7 @@ if ($("body").hasClass("path-calendar")){
 $(document).ajaxComplete(function() {
   $(".fc-day-top[data-date="+$(".js-form-item-field-date-value-min input").attr("value")+"]").addClass("active")
   if ($("body").hasClass("path-calendar")){
-    var newdate = $(".date-box.today").attr("date-date");
+    var newdate = $(".fc-day-top.active").attr("data-date");
     var date = new Date(newdate);
     var year = date.getFullYear();
     var month = (1 + date.getMonth()).toString();
