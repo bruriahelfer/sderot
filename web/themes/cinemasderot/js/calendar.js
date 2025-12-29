@@ -87,8 +87,8 @@ $(document).ajaxComplete(function() {
     day = day.length > 1 ? day : '0' + day;
     var newdate = day + '/' + month + '/' + year;
     var dateheader = $(".date-box.today").attr("headers");
-    console.log("dateheader:"+dateheader);
-    if (dateheader){
+    console.log("newdate:"+newdate);
+    if (newdate){
       var text = " אירועים ביום "+dateheader+" - "+newdate;
       $(".text-empty h3").replaceWith(text);
     } else {
