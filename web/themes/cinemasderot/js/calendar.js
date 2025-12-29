@@ -87,9 +87,8 @@ $(document).ajaxComplete(function() {
     day = day.length > 1 ? day : '0' + day;
     var newdate = day + '/' + month + '/' + year;
     var text = " אירועים ביום " + newdate;
-    console.log("newdate"+  newdate)  ;
     $(".text-empty h3").replaceWith(text);
-    $(".view-grouping-header").replaceWith(text);
+    $(".view-grouping-header").html(text);
     if ($(".js-form-item-field-date-value-min input").attr("value")==""){
       $.each($('td.date-box'), function(i, val) { 
         if ((!$(this).hasClass("no-entry"))  && (!$(this).hasClass("empty"))) {
