@@ -86,14 +86,8 @@ $(document).ajaxComplete(function() {
     var day = date.getDate().toString();
     day = day.length > 1 ? day : '0' + day;
     var newdate = day + '/' + month + '/' + year;
-    var dateheader = $(".date-box.today").attr("headers");
-    console.log("newdate:"+newdate);
-    if (newdate){
-      var text = " אירועים ביום "+dateheader+" - "+newdate;
-      $(".text-empty h3").replaceWith(text);
-    } else {
-      $(".text-empty h3").replaceWith("");
-    }
+    var text = " אירועים ביום " + newdate;
+    $(".text-empty h3").replaceWith(text);
     if ($(".js-form-item-field-date-value-min input").attr("value")==""){
       $.each($('td.date-box'), function(i, val) { 
         if ((!$(this).hasClass("no-entry"))  && (!$(this).hasClass("empty"))) {
