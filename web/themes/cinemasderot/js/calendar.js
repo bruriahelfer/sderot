@@ -87,8 +87,12 @@ $(document).ajaxComplete(function() {
     day = day.length > 1 ? day : '0' + day;
     var newdate = day + '/' + month + '/' + year;
     var dateheader = $(".date-box.today").attr("headers");
-    var text = " אירועים ביום "+dateheader+" - "+newdate;
-    $(".text-empty h3").replaceWith(text);
+    if (dateheader){
+      var text = " אירועים ביום "+dateheader+" - "+newdate;
+      $(".text-empty h3").replaceWith(text);
+    } else {
+      $(".text-empty h3").replaceWith("");
+    }
     if ($(".js-form-item-field-date-value-min input").attr("value")==""){
       $.each($('td.date-box'), function(i, val) { 
         if ((!$(this).hasClass("no-entry"))  && (!$(this).hasClass("empty"))) {
