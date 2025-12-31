@@ -120,16 +120,18 @@
         .owl-controls{
             position: absolute;
             left: 45px;
+            top: 0!important;
+            height: 100%;
+            display: flex;
+            align-items: center;
             @include res(width){
                 left: 4.8vw;
             }
             @include res(l){
                 left: 30px;
-                top: 90px!important;
             }
             @include res(s-m){
                 left: 10px;
-                top: 90px!important;
             }
             .owl-dots{
                 .owl-dot{
