@@ -26,12 +26,15 @@ class YouTube extends ProviderPluginBase {
         'autoplay' => $autoplay,
         'start' => $this->getTimeIndex(),
         'rel' => '0',
+        // Video needs to be muted if autoplay is set.
+        'mute' => $autoplay,
       ],
       '#attributes' => [
         'width' => $width,
         'height' => $height,
         'frameborder' => '0',
         'allowfullscreen' => 'allowfullscreen',
+        'referrerpolicy' => 'strict-origin-when-cross-origin',
       ],
     ];
     if ($language = $this->getLanguagePreference()) {
@@ -59,12 +62,12 @@ class YouTube extends ProviderPluginBase {
   /**
    * Extract the language preference from the URL for use in closed captioning.
    *
-   * @return string|FALSE
+   * @return string|false
    *   The language preference if one exists or FALSE if one could not be found.
    */
   protected function getLanguagePreference() {
     preg_match('/[&\?]hl=(?<language>[a-z\-]*)/', $this->getInput(), $matches);
-    return isset($matches['language']) ? $matches['language'] : FALSE;
+    return $matches['language'] ?? FALSE;
   }
 
   /**
@@ -88,7 +91,7 @@ class YouTube extends ProviderPluginBase {
    */
   public static function getIdFromInput($input) {
     preg_match('/^https?:\/\/(www\.)?((?!.*list=)youtube\.com\/watch\?.*v=|youtu\.be\/)(?<id>[0-9A-Za-z_-]*)/', $input, $matches);
-    return isset($matches['id']) ? $matches['id'] : FALSE;
+    return $matches['id'] ?? FALSE;
   }
 
 }

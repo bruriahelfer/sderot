@@ -4,8 +4,8 @@ namespace Drupal\video_embed_field\Plugin\Field\FieldFormatter;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Field\FieldDefinitionInterface;
-use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Session\AccountInterface;
@@ -72,7 +72,7 @@ class Video extends FormatterBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static(
+    return new self(
       $plugin_id,
       $plugin_definition,
       $configuration['field_definition'],
@@ -181,7 +181,8 @@ class Video extends FormatterBase implements ContainerFactoryPluginInterface {
    * {@inheritdoc}
    */
   public function settingsSummary() {
-    $dimensions = $this->getSetting('responsive') ? $this->t('Responsive') : $this->t('@widthx@height', ['@width' => $this->getSetting('width'), '@height' => $this->getSetting('height')]);
+    $dimensions = $this->getSetting('responsive') ? $this->t('Responsive') : $this->t('@widthx@height',
+      ['@width' => $this->getSetting('width'), '@height' => $this->getSetting('height')]);
     $summary[] = $this->t('Embedded Video (@dimensions@autoplay).', [
       '@dimensions' => $dimensions,
       '@autoplay' => $this->getSetting('autoplay') ? $this->t(', autoplaying') : '',

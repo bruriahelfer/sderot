@@ -9,6 +9,12 @@ use Drupal\Core\Template\Attribute;
  * Providers an element design for embedding iframes.
  *
  * @RenderElement("video_embed_iframe")
+ *
+ * Extending RenderElement is required for Drupal 9 compatibility.
+ *
+ * @see https://www.drupal.org/i/3562351
+ *
+ * @phpstan-ignore-next-line
  */
 class VideoEmbedIFrame extends RenderElement {
 

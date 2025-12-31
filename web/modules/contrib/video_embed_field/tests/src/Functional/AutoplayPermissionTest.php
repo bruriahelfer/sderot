@@ -1,6 +1,7 @@
 <?php
 
 namespace Drupal\Tests\video_embed_field\Functional;
+
 use Drupal\Tests\BrowserTestBase;
 
 /**
@@ -17,6 +18,9 @@ class AutoplayPermissionTest extends BrowserTestBase {
    */
   protected $defaultTheme = 'stark';
 
+  /**
+   * {@inheritdoc}
+   */
   protected static $modules = [
     'video_embed_field',
     'node',

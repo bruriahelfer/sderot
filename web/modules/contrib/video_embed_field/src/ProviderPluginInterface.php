@@ -1,6 +1,7 @@
 <?php
 
 namespace Drupal\video_embed_field;
+
 use Drupal\Component\Plugin\PluginInspectionInterface;
 
 /**
@@ -49,7 +50,7 @@ interface ProviderPluginInterface extends PluginInspectionInterface {
   /**
    * Get the URL to the local thumbnail.
    *
-   * This method does not gartunee that the file will exist, only that it will
+   * This method does not guarantee that the file will exist, only that it will
    * be the location of the thumbnail after the download thumbnail method has
    * been called.
    *

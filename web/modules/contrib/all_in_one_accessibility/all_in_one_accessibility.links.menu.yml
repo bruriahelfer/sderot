@@ -1,0 +1,5 @@
+all_in_one_accessibility.admin.allinoneaccessiblity:
+  title: 'All in One Accessibility'
+  description: 'Web Accessibility Solution for WCAG & ADA Compliance'
+  parent: system.admin_config_development
+  route_name: all_in_one_accessibility.admin.allinoneaccessiblity

@@ -17,6 +17,7 @@
     "require": {
         "composer/installers": "^2.0",
         "drupal/admin_toolbar": "^3.6",
+        "drupal/all_in_one_accessibility": "^1.5",
         "drupal/antibot": "^2.0",
         "drupal/backup_migrate": "^5.1",
         "drupal/bartik": "1.1",

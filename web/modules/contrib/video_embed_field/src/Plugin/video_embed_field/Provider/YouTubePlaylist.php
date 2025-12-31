@@ -61,7 +61,7 @@ class YouTubePlaylist extends ProviderPluginBase {
    */
   protected static function getUrlComponent($input, $component) {
     preg_match('/^https?:\/\/(?:www\.)?youtube\.com\/watch\?(?=.*v=(?<video_id>[0-9A-Za-z_-]*))(?=.*list=(?<id>[A-Za-z0-9_-]*))/', $input, $matches);
-    return isset($matches[$component]) ? $matches[$component] : FALSE;
+    return $matches[$component] ?? FALSE;
   }
 
 }

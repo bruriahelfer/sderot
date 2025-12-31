@@ -47,7 +47,7 @@ class InstallationTest extends BrowserTestBase {
    */
   protected function assertInstallationStatus($installed) {
     $this->drupalGet('admin/modules');
-    // @todo, add video_embed_media once infrastructure places version
+    // @todo add video_embed_media once infrastructure places version
     // information in module info files.
     foreach (['video_embed_field', 'video_embed_wysiwyg'] as $module) {
       $this->assertSession()->{$installed ? 'checkboxChecked' : 'checkboxNotChecked'}('modules[' . $module . '][enable]');

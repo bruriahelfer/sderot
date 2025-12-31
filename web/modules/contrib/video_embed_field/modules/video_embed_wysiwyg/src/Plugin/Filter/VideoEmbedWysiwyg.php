@@ -4,13 +4,13 @@ namespace Drupal\video_embed_wysiwyg\Plugin\Filter;
 
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+use Drupal\Core\Render\RendererInterface;
 use Drupal\Core\Session\AccountProxyInterface;
 use Drupal\filter\FilterProcessResult;
 use Drupal\filter\Plugin\FilterBase;
 use Drupal\video_embed_field\Plugin\Field\FieldFormatter\Video;
 use Drupal\video_embed_field\ProviderManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Render\RendererInterface;
 
 /**
  * The filter to turn tokens inserted into the WYSIWYG into videos.
@@ -72,7 +72,7 @@ class VideoEmbedWysiwyg extends FilterBase implements ContainerFactoryPluginInte
    * {@inheritdoc}
    */
   public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static($configuration, $plugin_id, $plugin_definition, $container->get('video_embed_field.provider_manager'), $container->get('renderer'), $container->get('current_user'));
+    return new self($configuration, $plugin_id, $plugin_definition, $container->get('video_embed_field.provider_manager'), $container->get('renderer'), $container->get('current_user'));
   }
 
   /**

@@ -2,8 +2,8 @@
 
 namespace Drupal\Tests\video_embed_media\Kernel;
 
-use Drupal\media\Entity\Media;
 use Drupal\Tests\media\Kernel\MediaKernelTestBase;
+use Drupal\media\Entity\Media;
 
 /**
  * Test the media bundle default names.
@@ -22,7 +22,7 @@ class DefaultNameTest extends MediaKernelTestBase {
   /**
    * The created media type.
    *
-   * @var \Drupal\media\Entity\MediaType;
+   * @var \Drupal\media\Entity\MediaType
    */
   protected $entityType;
 

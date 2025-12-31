@@ -64,7 +64,7 @@ class EmbedDialogTest extends WebDriverTestBase {
       'filters[video_embed_wysiwyg][status]' => TRUE,
       'filters[filter_html_escape][status]' => FALSE,
       'editor[settings][toolbar][button_groups]' => '[[{"name":"Group","items":["video_embed","Source"]}]]',
-    ], t('Save configuration'));
+    ], 'Save configuration');
 
     // Visit the modal again.
     $this->drupalGet('video-embed-wysiwyg/dialog/plain_text');

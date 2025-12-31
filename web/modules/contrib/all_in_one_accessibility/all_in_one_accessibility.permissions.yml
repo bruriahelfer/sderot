@@ -1,0 +1,4 @@
+all_in_one_accessibility_settings:
+  title: 'Add ADA Tool/Script all over the site'
+  description: 'Users who have this permission can add and remove the ADA Tool/Script from the site.'
+  restrict access: TRUE

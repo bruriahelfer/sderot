@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * @file
+ * Contains the implementation of various hooks for the AIOA module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function all_in_one_accessibility_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.all_in_one_accessibility':
+      $output = '<h2>' . t('About') . '</h2>';
+      $output .= '<p>' . t('This module provides accessibility options to users') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_library_info_build().
+ */
+function all_in_one_accessibility_library_info_build() {
+
+  $allinone_userid = \Drupal::config('all_in_one_accessibility.userid.settings')->get();
+  $libraries = [];
+
+  if (!\Drupal::service('router.admin_context')->isAdminRoute()) {
+
+    if (!isset($allinone_userid["colorcode"])) {
+      $allinone_userid["colorcode"] = "";
+    }
+    if (!isset($allinone_userid["userid"])) {
+      $allinone_userid["userid"] = "";
+    }
+    if (!isset($allinone_userid["position"])) {
+      $allinone_userid["position"] = "bottom_right";
+    }
+    if (!isset($allinone_userid["statement_link"]) || empty($allinone_userid["statement_link"])) {
+      $allinone_userid["statement_link"] = "";
+    }
+    if (!isset($allinone_userid["widget_size"]) || empty($allinone_userid["widget_size"])) {
+      $allinone_userid["widget_size"] = "regularsize";
+    }
+    if (!isset($allinone_userid["aioa_icon_type"]) || empty($allinone_userid["aioa_icon_type"])) {
+      $allinone_userid["aioa_icon_type"] = "aioa-icon-type-1";
+    }
+    if (!isset($allinone_userid["aioa_icon_size"]) || empty($allinone_userid["aioa_icon_size"])) {
+      $allinone_userid["aioa_icon_size"] = "aioa-default-icon";
+    }
+    if (!isset($allinone_userid["aioa_icon_sizes"]) || empty($allinone_userid["aioa_icon_sizes"])) {
+      $allinone_userid["aioa_icon_sizes"] = "aioa-default-icon";
+    }
+    if (!isset($allinone_userid["is_widget_custom_size"]) || empty($allinone_userid["is_widget_custom_size"])) {
+      $allinone_userid["is_widget_custom_size"] = "0";
+    }
+    if (!isset($allinone_userid["is_widget_custom_size_mobile"]) || empty($allinone_userid["is_widget_custom_size_mobile"])) {
+      $allinone_userid["is_widget_custom_size_mobile"] = "0";
+    }
+    if (!isset($allinone_userid["is_widget_custom_position"]) || empty($allinone_userid["is_widget_custom_position"])) {
+      $allinone_userid["is_widget_custom_position"] = "0";
+    }
+    if (!isset($allinone_userid["widget_icon_size_custom_mobile"]) || empty($allinone_userid["widget_icon_size_custom_mobile"])) {
+      $allinone_userid["widget_icon_size_custom_mobile"] = "";
+    }
+    if (!isset($allinone_userid["widget_icon_size_custom"]) || empty($allinone_userid["widget_icon_size_custom"])) {
+      $allinone_userid["widget_icon_size_custom"] = "";
+    }
+    if (!isset($allinone_userid["widget_position_left"]) || empty($allinone_userid["widget_position_left"])) {
+      $allinone_userid["widget_position_left"] = "";
+    }
+    if (!isset($allinone_userid["widget_position_bottom"]) || empty($allinone_userid["widget_position_bottom"])) {
+      $allinone_userid["widget_position_bottom"] = "";
+    }
+    if (!isset($allinone_userid["widget_position_right"]) || empty($allinone_userid["widget_position_right"])) {
+      $allinone_userid["widget_position_right"] = "";
+    }
+    if (!isset($allinone_userid["widget_position_top"]) || empty($allinone_userid["widget_position_top"])) {
+      $allinone_userid["widget_position_top"] = "";
+    }
+
+    $baseURL = "https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js";
+    if (strpos($_SERVER['HTTP_USER_AGENT'], "Chrome-Lighthouse") === FALSE) {
+      $libraries['ada_lib'] = [
+        'js' => [
+          $baseURL . '?colorcode=' . $allinone_userid["colorcode"] . "&token=" . $allinone_userid["userid"] . "&t=" . rand(9999, 9999999) . "&position=" . $allinone_userid["position"] . "." . $allinone_userid["aioa_icon_type"] . "." . $allinone_userid["aioa_icon_size"] . "." . $allinone_userid["aioa_icon_sizes"] . "." . $allinone_userid["widget_size"] . "." . $allinone_userid["is_widget_custom_size"] . "." . $allinone_userid["is_widget_custom_size_mobile"] . "." . $allinone_userid["is_widget_custom_position"] . "." . $allinone_userid["widget_icon_size_custom"] . "." . $allinone_userid["widget_position_left"] . "." . $allinone_userid["widget_position_bottom"] . "." . $allinone_userid["widget_position_right"] . "." . $allinone_userid["widget_icon_size_custom_mobile"] . "." . $allinone_userid["widget_position_top"] . "." . $allinone_userid["statement_link"] => [
+            "attributes" => ['id' => 'aioa-adawidget'],
+             'type' => 'external',
+          ],
+        ],
+      ];
+    }
+  }
+  return $libraries;
+}
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Attaches the accessibility library to pages.
+ */
+function all_in_one_accessibility_page_attachments(array &$attachments) {
+  $attachments['#attached']['library'][] =
+    'all_in_one_accessibility/ada_lib';
+}

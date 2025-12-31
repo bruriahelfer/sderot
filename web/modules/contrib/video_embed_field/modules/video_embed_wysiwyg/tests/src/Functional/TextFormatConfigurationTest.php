@@ -51,7 +51,7 @@ class TextFormatConfigurationTest extends BrowserTestBase {
     // Setup the filter to have an editor.
     $this->getSession()->getPage()->find('css', '[name="editor[editor]"]')->setValue('ckeditor');
     $this->getSession()->getPage()->find('css', 'input[name="editor_configure"]')->click();
-    $this->submitForm([], t('Save configuration'));
+    $this->submitForm([], 'Save configuration');
   }
 
   /**
@@ -63,21 +63,21 @@ class TextFormatConfigurationTest extends BrowserTestBase {
     $this->submitForm([
       'filters[video_embed_wysiwyg][status]' => TRUE,
       'editor[settings][toolbar][button_groups]' => '[]',
-    ], t('Save configuration'));
+    ], 'Save configuration');
     $this->assertSession()->pageTextContains('To embed videos, make sure you have enabled the "Video Embed WYSIWYG" filter and dragged the video icon into the WYSIWYG toolbar.');
 
     $this->drupalGet($this->formatUrl);
     $this->submitForm([
       'filters[video_embed_wysiwyg][status]' => FALSE,
       'editor[settings][toolbar][button_groups]' => '[[{"name":"Group","items":["video_embed"]}]]',
-    ], t('Save configuration'));
+    ], 'Save configuration');
     $this->assertSession()->pageTextContains('To embed videos, make sure you have enabled the "Video Embed WYSIWYG" filter and dragged the video icon into the WYSIWYG toolbar.');
 
     $this->drupalGet($this->formatUrl);
     $this->submitForm([
       'filters[video_embed_wysiwyg][status]' => TRUE,
       'editor[settings][toolbar][button_groups]' => '[[{"name":"Group","items":["video_embed"]}]]',
-    ], t('Save configuration'));
+    ], 'Save configuration');
     $this->assertSession()->pageTextContains('The text format Plain text has been updated.');
 
     // Test the messages aren't triggered if they are in the second row.
@@ -85,7 +85,7 @@ class TextFormatConfigurationTest extends BrowserTestBase {
     $this->submitForm([
       'filters[video_embed_wysiwyg][status]' => TRUE,
       'editor[settings][toolbar][button_groups]' => '[[{"name":"Foo","items":["NumberedList"]}],[{"name":"Bar","items":["video_embed"]}]]',
-    ], t('Save configuration'));
+    ], 'Save configuration');
     $this->assertSession()->pageTextContains('The text format Plain text has been updated.');
   }
 
@@ -125,7 +125,7 @@ class TextFormatConfigurationTest extends BrowserTestBase {
       'filters[filter_url][status]' => FALSE,
       'filters[video_embed_wysiwyg][status]' => TRUE,
       'editor[settings][toolbar][button_groups]' => '[[{"name":"Group","items":["video_embed"]}]]',
-      // Run WYSWIYG first then the HTML filter.
+      // Run WYSIWYG first then the HTML filter.
       'filters[video_embed_wysiwyg][weight]' => '-10',
       'filters[filter_html][weight]' => '10',
     ], 'Save configuration');
@@ -159,7 +159,7 @@ class TextFormatConfigurationTest extends BrowserTestBase {
       'editor[settings][plugins][video_embed][defaults][children][height]' => '456',
       'editor[settings][plugins][video_embed][defaults][children][responsive]' => FALSE,
       'editor[settings][plugins][video_embed][defaults][children][autoplay]' => FALSE,
-    ], t('Save configuration'));
+    ], 'Save configuration');
 
     // Ensure the configured defaults show up on the modal window.
     $this->drupalGet('video-embed-wysiwyg/dialog/plain_text');

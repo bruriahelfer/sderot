@@ -1,0 +1,7 @@
+all_in_one_accessibility.admin.allinoneaccessiblity:
+  path: '/admin/config/development/all-in-one-accessibility/ada_compliance'
+  defaults:
+    _form: '\Drupal\all_in_one_accessibility\Form\UseridForm'
+    _title: 'All in One Accessibility® Settings'
+  requirements:
+    _permission: 'all_in_one_accessibility_settings'

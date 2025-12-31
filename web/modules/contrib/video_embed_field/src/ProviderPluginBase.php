@@ -42,6 +42,8 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
   protected $httpClient;
 
   /**
+   * The file system service.
+   *
    * @var \Drupal\Core\File\FileSystemInterface
    */
   protected $fileSystem;
@@ -56,11 +58,13 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
    * @param array $plugin_definition
    *   The plugin definition.
    * @param \GuzzleHttp\ClientInterface $http_client
-   *    An HTTP client.
+   *   An HTTP client.
+   * @param \Drupal\Core\File\FileSystemInterface $file_system
+   *   The file system service.
    *
    * @throws \Exception
    */
-  public function __construct($configuration, $plugin_id, $plugin_definition, ClientInterface $http_client) {
+  final public function __construct($configuration, $plugin_id, $plugin_definition, ClientInterface $http_client, FileSystemInterface $file_system) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
     if (!static::isApplicable($configuration['input'])) {
       throw new \Exception('Tried to create a video provider plugin with invalid input.');
@@ -68,6 +72,20 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
     $this->input = $configuration['input'];
     $this->videoId = $this->getIdFromInput($configuration['input']);
     $this->httpClient = $http_client;
+    $this->fileSystem = $file_system;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
+    return new static(
+      $configuration,
+      $plugin_id,
+      $plugin_definition,
+      $container->get('http_client'),
+      $container->get('file_system'),
+    );
   }
 
   /**
@@ -87,9 +105,6 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
    *   The file system service.
    */
   protected function getFileSystem() {
-    if (!isset($this->fileSystem)) {
-      $this->fileSystem = \Drupal::service('file_system');
-    }
     return $this->fileSystem;
   }
 
@@ -161,15 +176,9 @@ abstract class ProviderPluginBase extends PluginBase implements ProviderPluginIn
   /**
    * {@inheritdoc}
    */
-  public static function create(ContainerInterface $container, array $configuration, $plugin_id, $plugin_definition) {
-    return new static($configuration, $plugin_id, $plugin_definition, $container->get('http_client'));
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getName() {
-    return $this->t('@provider Video (@id)', ['@provider' => $this->getPluginDefinition()['title'], '@id' => $this->getVideoId()]);
+    return $this->t('@provider Video (@id)',
+      ['@provider' => $this->getPluginDefinition()['title'], '@id' => $this->getVideoId()]);
   }
 
 }

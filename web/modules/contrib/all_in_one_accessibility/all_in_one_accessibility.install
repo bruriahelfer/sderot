@@ -1,0 +1,188 @@
+<?php
+
+/**
+ * @file
+ * Uninstall functions for all_in_one_accessibility module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function all_in_one_accessibility_uninstall() {
+  \Drupal::service('config.factory')
+    ->getEditable('all_in_one_accessibility.userid.settings')
+    ->delete();
+}
+
+/**
+ * Implements hook_update_N().
+ *
+ * Adding new configuration variables and updating current configuration
+ * in it to avoid conflict with any other module.
+ */
+function all_in_one_accessibility_update_8201() {
+  $allinone_userid = \Drupal::config('all_in_one_accessibility.userid.settings')->get();
+  if (isset($allinone_userid['userid'])) {
+    \Drupal::configFactory()
+      ->getEditable('all_in_one_accessibility.userid.settings')
+      ->set('scripts', $allinone_userid['userid'])
+      ->save();
+  }
+  \Drupal::service('config.factory')
+    ->getEditable('all_in_one_accessibility.userid.settings')
+    ->delete();
+}
+
+/**
+ * Implements hook_install().
+ */
+function all_in_one_accessibility_install() {
+
+  $config = \Drupal::config('system.site');
+  $site_name = $config->get('name');
+  $admin_email = $config->get('mail');
+
+  // Extract domain part using explode or strstr.
+  $domain_for_email = strstr($admin_email, '@');
+
+  // Build new email with 'no-reply' as the local part.
+  $new_email = "no-reply" . $domain_for_email;
+
+  $aioa_host_info = \Drupal::request()->getHost();
+
+  $package_type = "small-site";
+
+  $arr_details = [
+    'name'              => $site_name,
+    'email'             => $new_email,
+    'company_name'      => $site_name,
+    'website'           => base64_encode($aioa_host_info),
+    'package_type'      => $package_type,
+    'start_date'        => date('Y-m-d H:i:s'),
+    'end_date'          => '',
+    'price'             => '',
+    'discount_price'    => '0',
+    'platform'           => 'drupal',
+    'api_key'           => '',
+    'is_trial_period'   => '',
+    'is_free_widget'    => '1',
+    'bill_address'      => '',
+    'country'           => '',
+    'state'             => '',
+    'city'              => '',
+    'post_code'         => '',
+    'transaction_id'    => '',
+    'subscr_id'         => '',
+    'payment_source'    => '',
+  ];
+
+  // Call your API here.
+  $api_url = 'https://ada.skynettechnologies.us/api/add-user-domain';
+  $options = [
+    'form_params' => $arr_details,
+
+  ];
+
+  // Use Drupal's HTTP client to make the API request.
+  try {
+    $response = \Drupal::httpClient()->post($api_url, $options);
+    $response_data = $response->getBody()->getContents();
+    if (empty($response_data)) {
+      $package_type = "small-site";
+    }
+  }
+  catch (\Exception $e) {
+    $curl = curl_init();
+    curl_setopt_array($curl, [
+      CURLOPT_URL => 'https://ada.skynettechnologies.us/api/add-user-domain',
+      CURLOPT_RETURNTRANSFER => TRUE,
+      CURLOPT_ENCODING => '',
+      CURLOPT_MAXREDIRS => 10,
+      CURLOPT_TIMEOUT => 0,
+      CURLOPT_FOLLOWLOCATION => TRUE,
+      CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+      CURLOPT_CUSTOMREQUEST => 'POST',
+      CURLOPT_POSTFIELDS => $arr_details,
+    ]);
+    $response = curl_exec($curl);
+    curl_close($curl);
+  }
+}
+
+/**
+ * Post update callback.
+ */
+function all_in_one_accessibility_post_update_call_api(&$sandbox) {
+  $config = \Drupal::config('system.site');
+  $site_name = $config->get('name');
+  $admin_email = $config->get('mail');
+
+  // Extract domain part using explode or strstr.
+  $domain_for_email = strstr($admin_email, '@');
+
+  // Build new email with 'no-reply' as the local part.
+  $new_email = "no-reply" . $domain_for_email;
+
+  $aioa_host_info = \Drupal::request()->getHost();
+  $allinone_settings = \Drupal::config('all_in_one_accessibility.userid.settings');
+  $allinone_userid = $allinone_settings->get();
+
+  if (empty($allinone_userid['userid'])) {
+    $package_type = "small-site";
+
+    $arr_details = [
+      'name'              => $site_name,
+      'email'             => $new_email,
+      'company_name'      => $site_name,
+      'website'           => base64_encode($aioa_host_info),
+      'package_type'      => $package_type,
+      'start_date'        => date('Y-m-d H:i:s'),
+      'end_date'          => '',
+      'price'             => '',
+      'discount_price'    => '0',
+      'platform'           => 'drupal',
+      'api_key'           => '',
+      'is_trial_period'   => '',
+      'is_free_widget'    => '1',
+      'bill_address'      => '',
+      'country'           => '',
+      'state'             => '',
+      'city'              => '',
+      'post_code'         => '',
+      'transaction_id'    => '',
+      'subscr_id'         => '',
+      'payment_source'    => '',
+    ];
+
+    // Call your API here.
+    $api_url = 'https://ada.skynettechnologies.us/api/add-user-domain';
+    $options = [
+      'form_params' => $arr_details,
+    ];
+
+    // Use Drupal's HTTP client to make the API request.
+    try {
+      $response = \Drupal::httpClient()->post($api_url, $options);
+      $response_data = $response->getBody()->getContents();
+      if (empty($response_data)) {
+        $package_type = "small-site";
+      }
+    }
+    catch (\Exception $e) {
+      $curl = curl_init();
+      curl_setopt_array($curl, [
+        CURLOPT_URL => 'https://ada.skynettechnologies.us/api/add-user-domain',
+        CURLOPT_RETURNTRANSFER => TRUE,
+        CURLOPT_ENCODING => '',
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 0,
+        CURLOPT_FOLLOWLOCATION => TRUE,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => 'POST',
+        CURLOPT_POSTFIELDS => $arr_details,
+      ]);
+      $response = curl_exec($curl);
+      curl_close($curl);
+    }
+  }
+}
