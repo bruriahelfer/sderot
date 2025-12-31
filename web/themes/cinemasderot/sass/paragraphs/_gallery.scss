@@ -129,9 +129,11 @@
             }
             @include res(l){
                 left: 30px;
+                top: 90px!important;
             }
             @include res(s-m){
                 left: 10px;
+                top: 90px!important;
             }
             .owl-dots{
                 .owl-dot{
