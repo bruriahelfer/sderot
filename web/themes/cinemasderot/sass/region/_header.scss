@@ -282,6 +282,9 @@ header{
     .buttons{
         display: -webkit-box;
         display: flex;
+        .month{
+            margin-left: 50px;
+        }
         .calendar-icon, .calend-icon a{
             cursor: pointer;
             position: relative;

@@ -262,3 +262,9 @@ main{
     margin-top: 91px;
   }
 }
+
+#accessibility_settings_toggle{
+  @include res(s-m-l){
+    display: none!important;
+  }
+}
