@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * @file
+ * Primary hook implementations for CKEditor Media Resize.
+ */
+
+/**
+ * Implements hook_media_wysiwyg_filter_alter().
+ */
+function ckeditor_media_resize_media_wysiwyg_filter_alter(&$embed_metadata, $tag_info) {
+  if (!empty($tag_info['attributes']['style'])) {
+    $styles = explode(';', $tag_info['attributes']['style']);
+    if (!empty($styles)) {
+      foreach ($styles as $style) {
+        if (!empty($style) && strpos($style, ':') !== FALSE) {
+          [$attr, $value] = explode(':', $style);
+          if (!empty($attr) && !empty($value) && trim($attr) == 'width') {
+            $width = trim($value);
+            $embed_metadata['style'] = "width:{$width};";
+            $embed_metadata['class'][] = "media-embed-resized";
+            break;
+          }
+        }
+      }
+    }
+  }
+}

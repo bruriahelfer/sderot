@@ -26,6 +26,7 @@
         "drupal/calendar": "1.0.0-beta4",
         "drupal/ckeditor": "^1.0",
         "drupal/ckeditor_media_embed": "^2.0",
+        "drupal/ckeditor_media_resize": "^1.1",
         "drupal/classy": "2.0",
         "drupal/core-composer-scaffold": "^10.0",
         "drupal/core-project-message": "^10.0",

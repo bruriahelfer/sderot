@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * @file
+ * Various install/uninstall hook implementations for CKEditor MEdia Resize.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function ckeditor_media_resize_uninstall() {
+  // Remove the configuration entities created by the module.
+  $config_names = [
+    'core.entity_view_display.media.image.cke_media_resize_large',
+    'core.entity_view_display.media.image.cke_media_resize_medium',
+    'core.entity_view_display.media.image.cke_media_resize_small',
+    'core.entity_view_display.media.image.cke_media_resize_xl',
+    'core.entity_view_mode.media.cke_media_resize_large',
+    'core.entity_view_mode.media.cke_media_resize_medium',
+    'core.entity_view_mode.media.cke_media_resize_small',
+    'core.entity_view_mode.media.cke_media_resize_xl'
+  ];
+
+  // Loop through and delete the configurations.
+  foreach ($config_names as $config_name) {
+    $config = \Drupal::configFactory()->getEditable($config_name);
+    if ($config) {
+      $config->delete();
+    }
+  }
+}
