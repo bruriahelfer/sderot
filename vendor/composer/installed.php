@@ -3,7 +3,7 @@
         'name' => 'drupal/recommended-project',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'e1de005301c7b9e32177aec0367ce5254f4428c5',
+        'reference' => 'd9619009809a0859e4b10cf1500b52903d457cf5',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -451,6 +451,15 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'drupal/image_resize_filter' => array(
+            'pretty_version' => '1.2.0',
+            'version' => '1.2.0.0',
+            'reference' => '8.x-1.2',
+            'type' => 'drupal-module',
+            'install_path' => __DIR__ . '/../../web/modules/contrib/image_resize_filter',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'drupal/image_widget_crop' => array(
             'pretty_version' => '3.0.0',
             'version' => '3.0.0.0',
@@ -625,7 +634,7 @@
         'drupal/recommended-project' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'e1de005301c7b9e32177aec0367ce5254f4428c5',
+            'reference' => 'd9619009809a0859e4b10cf1500b52903d457cf5',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

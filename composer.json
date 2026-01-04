@@ -41,6 +41,7 @@
         "drupal/gin": "4.1",
         "drupal/google_analytics": "^4.0",
         "drupal/gtm": "^1.10",
+        "drupal/image_resize_filter": "^1.2",
         "drupal/image_widget_crop": "^3.0",
         "drupal/jquery_ui": "^1.8",
         "drupal/jquery_ui_datepicker": "^2.1",
