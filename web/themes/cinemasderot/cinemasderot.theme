@@ -22,6 +22,9 @@ function cinemasderot_preprocess_html(&$variables) {
 
 function cinemasderot_preprocess_views_view_unformatted(&$variables) {
   $variables['current_time'] = date('Y-m-d\TH:i:s');
+  $variables['#cache']['max-age'] = 0;
+  $variables['#cache']['contexts'][] = 'url.path';
+  $variables['#cache']['contexts'][] = 'url.query_args';
 }
 
 function cinemasderot_preprocess_node(&$variables) {
