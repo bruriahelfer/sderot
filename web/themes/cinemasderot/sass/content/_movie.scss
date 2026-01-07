@@ -26,12 +26,18 @@
                     iframe, img{
                         max-width: 100%;
                         border-radius: 0 0 0 200px;
+                        transition: all 0.5s;
                         @include res(s-m){
                             border-radius: 0 0 0 130px;
                         }
                     }
                     .withtrailer{
                         position: relative;
+                        .field--name-field-trailer:nth-child(1){
+                            iframe{
+                                border-radius: 0;
+                            }
+                        }
                         .field--name-field-image-horizontal{
                             position: absolute;
                             width: 100%;
@@ -72,9 +78,6 @@
                                 height: 100%;
                                 object-fit: cover;
                                 margin: 0;
-                            }
-                            @include res(s-m){
-                                display: none;
                             }
                         }
                     }
