@@ -249,7 +249,12 @@ form[id^=tickets-form-form]{
     }
     .form-disabled{
         > label{
-            color: #999;
+            color: #e1dddd;
+        }
+        .select2-selection__arrow{
+            b{
+                opacity: 0.2;
+            }
         }
     }
 }
