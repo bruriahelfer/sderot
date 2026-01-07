@@ -356,6 +356,7 @@
         }
     }
     .recomended-movie{
+        overflow: hidden;
         margin-bottom: 100px;
         .recomended-label{
             @include size-50;

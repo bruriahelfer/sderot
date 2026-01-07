@@ -283,7 +283,9 @@ header{
         display: -webkit-box;
         display: flex;
         .month{
-            margin-left: 50px;
+            @media (max-width: 1830px) {
+                margin-left: 50px;
+            }
         }
         .calendar-icon, .calend-icon a{
             cursor: pointer;
@@ -304,7 +306,7 @@ header{
             align-items: center;
             justify-content: center;
             &:hover{
-                background-color: $dark-red;
+                background-color: #000;
             }
             @include res(s-m-l){
                 margin-right: 0;
