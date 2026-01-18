@@ -91,7 +91,7 @@
   </div>
 
 </article>
-{% if "event" in content.field_type|field_value %}
+{% if "event" in content.field_type['#items']|column('value') %}
 
     <div class="recomended-movie">
       <div class="recomended-label width-wrapper">{{ "More Events"|t }}</div>
