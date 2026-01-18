@@ -91,7 +91,7 @@
   </div>
 
 </article>
-  {% if content.field_event|render %}
+  {% if content.field_type['#items'].value == "event"%}
     <div class="recomended-movie">
       <div class="recomended-label width-wrapper">{{ "More Events"|t }}</div>
       {{ drupal_view('movies', 'block_9') }} 
