@@ -91,15 +91,14 @@
   </div>
 
 </article>
-{% if "event" in content.field_type['#items']|column('value') %}
-
+{% if content.field_type['#items'] and "event" in content.field_type['#items']|column('value') %}
     <div class="recomended-movie">
       <div class="recomended-label width-wrapper">{{ "More Events"|t }}</div>
       {{ drupal_view('movies', 'block_9') }} 
     </div>
-  {% else %}
+{% else %}
     <div class="recomended-movie">
       <div class="recomended-label width-wrapper">{{ "Movies of the month"|t }}</div>
       {{ drupal_view('movies', 'block_5') }} 
     </div>
-  {% endif %}
+{% endif %}
