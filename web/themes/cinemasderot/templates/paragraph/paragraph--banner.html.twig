@@ -12,7 +12,7 @@
   <div{{ attributes.addClass(classes) }} style="background: url('{{ file_url(content.field_bg.0['#item'].entity.fileuri) }}') no-repeat; background-size: cover;">
     {% block content %}
         {% if content.field_all_banner_link|render %}
-            <a href="{{ content.field_all_banner_link['#items'].0.value }}">
+            <a href="{{ content.field_all_banner_link[0]['#url'] }}">
         {% endif %}
         <div class="width-wrapper">
             {{ content|without('field_bg', 'field_banner_height', 'field_all_banner_link') }}
