@@ -13,12 +13,12 @@
     {% block content %}
         {% if content.field_all_banner_link|render %}
             <a href="{{ content.field_all_banner_link[0]['#url'] }}">
-        {% endif %}
-        <div class="width-wrapper">
-            {{ content|without('field_bg', 'field_banner_height', 'field_all_banner_link') }}
-        </div>
-        {% if content.field_all_banner_link|render %}
+              <div class="width-wrapper">{{ content|without('field_bg', 'field_banner_height', 'field_all_banner_link','field_link') }}</div>
             </a>
+        {% else %}
+          <div class="width-wrapper">
+              {{ content|without('field_bg', 'field_banner_height', 'field_all_banner_link') }}
+          </div>
         {% endif %}
     {% endblock %}
   </div>
