@@ -5,14 +5,21 @@
     view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
     not paragraph.isPublished() ? 'paragraph--unpublished',
     'paragraph--id--' ~ paragraph.id(),
+    content.field_banner_height|render ? 'auto-banner',
   ]
 %}
 {% block paragraph %}
   <div{{ attributes.addClass(classes) }} style="background: url('{{ file_url(content.field_bg.0['#item'].entity.fileuri) }}') no-repeat; background-size: cover;">
     {% block content %}
+        {% if content.field_all_banner_link|render %}
+            <a href="{{ content.field_all_banner_link['#items'].0.value }}">
+        {% endif %}
         <div class="width-wrapper">
-            {{ content|without('field_bg') }}
+            {{ content|without('field_bg', 'field_banner_height', 'field_all_banner_link') }}
         </div>
+        {% if content.field_all_banner_link|render %}
+            </a>
+        {% endif %}
     {% endblock %}
   </div>
 {% endblock paragraph %}
