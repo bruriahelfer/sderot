@@ -9,7 +9,7 @@
   ]
 %}
 {% block paragraph %}
-  {% if content.content.field_banner_height|render %}
+  {% if content.field_banner_height|render %}
     <div{{ attributes.addClass(classes) }}>
     {{ content.field_bg}}
   {% else %}
