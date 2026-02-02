@@ -11,3 +11,9 @@
 [id*=tablefield-paste], [id*=tablefield-import]{
   display: none!important;
 }
+
+.ck-balloon-panel{
+  top: 50%!important;
+  left: 50%!important;
+  position: fixed!important;
+}
