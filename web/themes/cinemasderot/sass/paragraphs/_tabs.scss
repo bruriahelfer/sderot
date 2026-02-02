@@ -138,3 +138,11 @@
         }
     }
 }
+
+.paragraph--type--link{
+    .field--name-field-link{
+        a{
+            @include simple-button;
+        }
+    }
+}
