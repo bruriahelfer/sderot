@@ -143,6 +143,9 @@
     .field--name-field-link{
         a{
             @include simple-button;
+            padding: 10px 30px;
+            display: inline-block;
+            margin: 10px 0;
         }
     }
 }
