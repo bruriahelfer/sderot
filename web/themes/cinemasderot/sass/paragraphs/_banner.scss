@@ -14,8 +14,9 @@
             padding-bottom: 50px;
         }
         @include res(s-m){
-            padding-top: 40px;
-            padding-bottom: 40px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            align-items: flex-end;
         }
         .field{
             &.field--name-field-title{
