@@ -59,7 +59,7 @@ if ($("body").hasClass("path-calendar")){
       var dateParam = urlParams.get('date');
       if (dateParam) {
         function waitForDateCell() {
-          var $td = $('td[date-date="' + dateParam + '"]');
+          var $td = $('td[data-date="' + dateParam + '"]');
           if ($td.length) {
             $td.click();
             $td.addClass('active');
