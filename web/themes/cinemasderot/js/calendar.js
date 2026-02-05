@@ -61,8 +61,10 @@ if ($("body").hasClass("path-calendar")){
         function waitForDateCell() {
           var $td = $('td[data-date="' + dateParam + '"]');
           if ($td.length) {
-            $td.click();
-            $td.addClass('active');
+            if (!$td.hasClass('active')) {
+              $td.click();
+              $td.addClass('active');
+            }
           } else {
             setTimeout(waitForDateCell, 100);
           }
