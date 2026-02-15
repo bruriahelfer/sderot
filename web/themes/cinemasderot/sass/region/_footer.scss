@@ -190,3 +190,10 @@ footer{
         }
     }
 }
+
+.paragraph--type--logos-grid{
+    .field--name-field-logos{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
