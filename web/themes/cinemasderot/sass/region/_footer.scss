@@ -198,7 +198,9 @@ footer{
         flex-wrap: wrap;
         justify-content: center;
         .field__item{
-            margin: 0 10px;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
         }
     }
 }
