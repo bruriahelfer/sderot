@@ -17,3 +17,7 @@
   left: 50%!important;
   position: fixed!important;
 }
+
+.table-file-multiple-widget td{
+  height: auto!important;
+}
