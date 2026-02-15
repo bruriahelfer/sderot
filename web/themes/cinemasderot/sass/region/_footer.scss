@@ -192,13 +192,13 @@ footer{
 }
 
 .paragraph--type--logos-grid{
-    margin: 20px 0;
+    margin: 20px 0 0;
     .field--name-field-logos{
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         .field__item{
-            margin: 0 20px;
+            margin: 0 20px 20px;
             display: flex;
             align-items: center;
         }
