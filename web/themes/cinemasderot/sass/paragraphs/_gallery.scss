@@ -17,9 +17,15 @@
     }
     .field--name-field-galeries-items:not(.owl-carousel){
         .field--name-field-image-horizontal, .field--name-field-background{
+            position: relative;
             &:after{
                 background: url(/themes/cinemasderot/images/gallery-1.png) no-repeat;
                 background-size: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
             }
         }
     }
