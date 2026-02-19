@@ -15,6 +15,14 @@
             }
         }
     }
+    .field--name-field-galeries-items:not(.owl-carousel){
+        .field--name-field-image-horizontal, .field--name-field-background{
+            &:after{
+                background: url(/themes/cinemasderot/images/gallery-1.png) no-repeat;
+                background-size: cover;
+            }
+        }
+    }
     .field--name-field-galeries-items{
         .paragraph .field--name-field-movie > .field__item, .paragraph.paragraph--type--custom-gallery-item{
             position: relative;
