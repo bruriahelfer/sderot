@@ -19,6 +19,7 @@
         .field--name-field-image-horizontal, .field--name-field-background{
             position: relative;
             &:after{
+                content: '';
                 background: url(/themes/cinemasderot/images/gallery-1.png) no-repeat;
                 background-size: cover;
                 position: absolute;
