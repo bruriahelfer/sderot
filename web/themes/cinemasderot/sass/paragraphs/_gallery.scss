@@ -4,7 +4,7 @@
     @include res(s-m-l){
         padding: 12px 0 40px;
     }
-    .field--name-field-galeries-items{
+    .field--name-field-galeries-items.owl-carousel{
         > .paragraph{
             display: none!important;
             &:first-child{
