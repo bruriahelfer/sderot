@@ -2,6 +2,15 @@
     position: relative;
     text-align: center;
     background-position: center center!important;
+    &.field--name-field-bg-mobile{
+        display: none;
+        @include res(s-m){
+            display: block;
+        }
+        + .field--name-field-bg{
+            display: none;
+        }
+    }
     .width-wrapper{
         position: relative;
         padding-top: 100px;
@@ -19,15 +28,6 @@
             align-items: flex-end;
         }
         .field{
-            &.field--name-field-bg-mobile{
-                display: none;
-                @include res(s-m){
-                    display: block;
-                }
-                + .field--name-field-bg{
-                    display: none;
-                }
-            }
             &.field--name-field-title{
                 font-size: 2.8em;
                 font-weight: bold;
