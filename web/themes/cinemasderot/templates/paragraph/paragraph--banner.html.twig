@@ -11,6 +11,7 @@
 {% block paragraph %}
   {% if content.field_banner_height|render %}
     <div{{ attributes.addClass(classes) }}>
+    {{ content.field_bg_mobile }}
     {{ content.field_bg}}
     <div class="wrapper-absolute">
   {% else %}
@@ -23,7 +24,7 @@
             </a>
         {% else %}
           <div class="width-wrapper">
-              {{ content|without('field_bg', 'field_banner_height', 'field_all_banner_link') }}
+              {{ content|without('field_bg', 'field_bg_mobile', 'field_banner_height', 'field_all_banner_link', 'field_link') }}
           </div>
         {% endif %}
     {% endblock %}
