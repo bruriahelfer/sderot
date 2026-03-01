@@ -2,7 +2,7 @@
     position: relative;
     text-align: center;
     background-position: center center!important;
-    &.field--name-field-bg-mobile{
+    .field--name-field-bg-mobile{
         display: none;
         @include res(s-m){
             display: block;
