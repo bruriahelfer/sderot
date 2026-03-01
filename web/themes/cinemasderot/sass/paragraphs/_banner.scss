@@ -8,7 +8,9 @@
             display: block;
         }
         + .field--name-field-bg{
-            display: none;
+            @include res(s-m){
+                display: none;
+            }
         }
     }
     .width-wrapper{
