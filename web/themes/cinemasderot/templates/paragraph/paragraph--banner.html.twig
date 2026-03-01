@@ -20,11 +20,11 @@
     {% block content %}
         {% if content.field_all_banner_link|render %}
             <a href="{{ content.field_all_banner_link[0]['#url'] }}">
-              <div class="width-wrapper">{{ content|without('field_bg', 'field_banner_height', 'field_all_banner_link','field_link') }}</div>
+              <div class="width-wrapper">{{ content|without('field_bg', 'field_bg_mobile', 'field_banner_height', 'field_all_banner_link','field_link') }}</div>
             </a>
         {% else %}
           <div class="width-wrapper">
-              {{ content|without('field_bg', 'field_bg_mobile', 'field_banner_height', 'field_all_banner_link', 'field_link') }}
+              {{ content|without('field_bg', 'field_banner_height', 'field_all_banner_link','field_bg_mobile') }}
           </div>
         {% endif %}
     {% endblock %}
