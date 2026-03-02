@@ -154,7 +154,8 @@ function cinemasderot_views_pre_render(Drupal\views\ViewExecutable $view) {
 }
 
 function cinemasderot_views_post_execute($view) {
-  if ($view->id() == 'calendar' && $view->getDisplay()->display['id'] == 'block_2') {
+    if ($view->id() == 'calendar' && $view->current_display == 'block_2') {
+
     $seen = [];
     foreach ($view->result as $key => $row) {
       // Debug - remove after fixing
