@@ -153,9 +153,17 @@ function cinemasderot_views_pre_render(Drupal\views\ViewExecutable $view) {
   }
 }
 
-function cinemasderot_views_query_alter($view, $query) {
+function cinemasderot_views_post_execute($view) {
   if ($view->id() == 'calendar' && $view->getDisplay()->display['id'] == 'block_2') {
-    $query->distinct = TRUE;
+    $seen = [];
+    foreach ($view->result as $key => $row) {
+      $nid = $row->nid;
+      if (in_array($nid, $seen)) {
+        unset($view->result[$key]);
+      } else {
+        $seen[] = $nid;
+      }
+    }
   }
 }
 ?>
