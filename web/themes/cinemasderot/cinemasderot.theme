@@ -160,7 +160,7 @@ function cinemasderot_views_post_execute($view) {
       // Debug - remove after fixing
       \Drupal::logger('debug')->notice('<pre>' . print_r($row, TRUE) . '</pre>');
       
-      $nid = $row->nid;
+$nid = $row->_entity->id();
       if (in_array($nid, $seen)) {
         unset($view->result[$key]);
       } else {
