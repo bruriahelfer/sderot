@@ -153,4 +153,9 @@ function cinemasderot_views_pre_render(Drupal\views\ViewExecutable $view) {
   }
 }
 
+function cinemasderot_views_query_alter($view, $query) {
+  if ($view->id() == 'calendar' && $view->getDisplay()->display['id'] == 'block_2') {
+    $query->distinct = TRUE;
+  }
+}
 ?>
