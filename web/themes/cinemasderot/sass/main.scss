@@ -271,7 +271,18 @@ main{
 
 .popup-wrapper{
   display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   &.open{
-    
+  }
+  .popup{
+    width: 500px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    background-color: #fff;
   }
 }

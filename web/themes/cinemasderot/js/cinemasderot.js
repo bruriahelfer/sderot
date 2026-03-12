@@ -7,6 +7,14 @@
 
 // popup
 const popupWrapper = $(".popup-wrapper");
+const popupClosedTime = localStorage.getItem('popupClosedTime');
+const oneHour = 60 * 60 * 1000;
+
+// Clear storage if more than 1 hour has passed
+if (popupClosedTime && (Date.now() - parseInt(popupClosedTime)) > oneHour) {
+    localStorage.removeItem('popupClosed');
+    localStorage.removeItem('popupClosedTime');
+}
 
 if (!localStorage.getItem('popupClosed')) {
     popupWrapper.addClass("open");
@@ -15,6 +23,7 @@ if (!localStorage.getItem('popupClosed')) {
 $(".popup-wrapper .close").unbind('click').bind('click', function (e) {
     popupWrapper.removeClass("open");
     localStorage.setItem('popupClosed', 'true');
+    localStorage.setItem('popupClosedTime', Date.now());
 });
 
 // Tabs
