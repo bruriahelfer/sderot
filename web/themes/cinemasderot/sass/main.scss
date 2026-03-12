@@ -268,3 +268,10 @@ main{
     display: none!important;
   }
 }
+
+.popup-wrapper{
+  display: none;
+  &.open{
+    
+  }
+}

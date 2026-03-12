@@ -5,6 +5,17 @@
   Drupal.behaviors.my_custom_behavior = {
     attach: function (context, settings) {
 
+// popup
+const popupWrapper = $(".popup-wrapper");
+
+if (!localStorage.getItem('popupClosed')) {
+    popupWrapper.addClass("open");
+}
+
+$(".popup-wrapper .close").unbind('click').bind('click', function (e) {
+    popupWrapper.removeClass("open");
+    localStorage.setItem('popupClosed', 'true');
+});
 
 // Tabs
 
