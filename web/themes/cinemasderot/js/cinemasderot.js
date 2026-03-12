@@ -20,10 +20,21 @@ if (!localStorage.getItem('popupClosed')) {
     popupWrapper.addClass("open");
 }
 
-$(".popup-wrapper .close").unbind('click').bind('click', function (e) {
+function closePopup() {
     popupWrapper.removeClass("open");
     localStorage.setItem('popupClosed', 'true');
     localStorage.setItem('popupClosedTime', Date.now());
+}
+
+$(".popup-wrapper .close").unbind('click').bind('click', function (e) {
+    closePopup();
+});
+
+// Close when clicking the wrapper but not the inner .popup
+$(".popup-wrapper").unbind('click').bind('click', function (e) {
+    if (!$(e.target).closest(".popup").length) {
+        closePopup();
+    }
 });
 
 // Tabs
