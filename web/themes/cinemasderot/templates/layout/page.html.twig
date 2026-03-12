@@ -155,12 +155,14 @@
   {% endif %}
 {% endif %}
 
-<div class="popup-wrapper">
-  <div class="popup">
-    <div class="close"></div>
-    {{ page.popup }}
+{% if page.popup %}
+  <div class="popup-wrapper">
+    <div class="popup">
+      <div class="close"></div>
+      {{ page.popup }}
+    </div>
   </div>
-</div>
+{% endif %}
 
 <style>
   .view.movie-slide .owl-controls .owl-prev, .view.movie-slide .owl-controls .owl-next {
