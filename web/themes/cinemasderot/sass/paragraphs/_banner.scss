@@ -4,6 +4,10 @@
     background-position: center center!important;
     .field--name-field-bg-mobile{
         display: none;
+        img{
+            width: 100%;
+            height: auto;
+        }
         @include res(s-m){
             display: block;
         }
@@ -11,6 +15,12 @@
             @include res(s-m){
                 display: none;
             }
+        }
+    }
+    .field--name-field-bg{
+        img{
+            width: 100%;
+            height: auto;
         }
     }
     .width-wrapper{
