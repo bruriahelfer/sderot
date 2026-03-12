@@ -3,5 +3,8 @@ field.widget.third_party.media_library_edit:
   label: 'Media library edit settings'
   mapping:
     show_edit:
-      type: string
+      type: boolean
       label: 'Show edit button'
+    edit_form_mode:
+      type: string
+      label: 'Edit form mode'
