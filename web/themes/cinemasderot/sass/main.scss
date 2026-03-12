@@ -295,7 +295,7 @@ main{
   }
   .popup{
     width: 500px;
-    max-width: 90%;
+    max-width: calc(90% - 50px);
     max-height: 90%;
     background-color: #fff;
     border-radius: 10px;
@@ -303,6 +303,9 @@ main{
     .region-popup{
       border-radius: 10px;
       padding: 30px 50px;
+      @include res(s-m){
+        padding: 10px 20px;
+      }
     }
   }
 }
