@@ -10,9 +10,12 @@
         @include res(s-m-l){
             display: block;
         }
-         > .views-row > a{
-            flex-direction: column;
+         > .views-row{
             display: flex;
+            > a{
+                flex-direction: column;
+                display: flex;
+            }
          }
         > .paragraph, > .views-row{
             width: calc(33.3333% - 24px);
