@@ -219,6 +219,7 @@
 
 body:not(.path-frontpage) {
     .paragraph--type--movies-grid.black_red{
+        margin-top: 50px;
         background: none;
         padding: 0 !important;
         width: auto !important;
@@ -241,6 +242,9 @@ body:not(.path-frontpage) {
                 &:nth-child(1) > div > .field__item a > .text > .content .link .link-text:hover{
                     color: $red;
                 }
+            }
+            .views-row:nth-child(1) > a > .text > .content .link .link-text:hover{
+                color: $red;
             }
         }
         .field--name-field-grid-link{
