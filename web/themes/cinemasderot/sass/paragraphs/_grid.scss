@@ -224,7 +224,7 @@ body:not(.path-frontpage) {
         width: auto !important;
         .wrapper{
             padding: 0;
-            .paragraph{
+            .paragraph, .views-row a{
                 .text{
                     .content{
                         color: $default;
