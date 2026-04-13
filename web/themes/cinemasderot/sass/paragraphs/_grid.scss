@@ -152,7 +152,7 @@
                     }
                 }
         }
-        > .paragraph:nth-child(3n+1){
+        > .paragraph:nth-child(3n+1), > .views-row:nth-child(3n+1){
             margin-left: 0;
         }
     }
