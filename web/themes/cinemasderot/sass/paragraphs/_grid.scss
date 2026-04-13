@@ -217,15 +217,12 @@
     }
 }
 
-.paragraph--type--paragraph{
+body:not(.path-frontpage) {
     .paragraph--type--movies-grid.black_red{
         background: none;
         padding: 0 !important;
         width: auto !important;
-        .field--name-field-title{
-            display: none;
-        }
-        .field--name-field-grid-items{
+        .wrapper{
             padding: 0;
             .paragraph{
                 .text{
