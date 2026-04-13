@@ -98,7 +98,7 @@
         }
         > .paragraph:nth-child(1), > .views-row:nth-child(1){
                 width: 100%;
-                > div > .field__item a{
+                > div > .field__item a, > a{
                     display: flex;
                     justify-content: space-between;
                     flex-direction: row;
