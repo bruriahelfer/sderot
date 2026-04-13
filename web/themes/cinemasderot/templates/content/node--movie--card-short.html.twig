@@ -7,7 +7,7 @@
     </div>
     <div class="text">
         {% set text = label|render|striptags|truncate(43, true, '...') %}
-        <div class="title">{{ label|render|striptags }}</div>
+        <div class="title">{{ label|render|striptags|raw }}</div>
         <div class="tags">
             {{ content.field_genre }}
         </div>
