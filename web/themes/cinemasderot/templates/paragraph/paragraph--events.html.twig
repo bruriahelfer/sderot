@@ -52,12 +52,12 @@
 {% if drupal_view_result('movies', 'block_8')|length > 0 %} 
   {% block paragraph %}
     <div{{ attributes.addClass(classes) }}>
-      <div class="width-wrapper">
+      <div class="width-wrapper"><div class="wrapper">
         {% block content %}
           {{ content.field_title }}
           {{ drupal_view('movies', 'block_8') }} 
         {% endblock %}
-      </div>
+      </div></div>
     </div>
   {% endblock paragraph %}
 {% endif %}
