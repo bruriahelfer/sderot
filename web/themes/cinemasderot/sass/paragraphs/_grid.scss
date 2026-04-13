@@ -4,7 +4,7 @@
         font-weight: 800;
         padding-bottom: 15px;
     }
-    .field--name-field-grid-items, > .view-content{
+    .field--name-field-grid-items, > .view-content, .view-movies.view-display-id-block_8 > .view-content{
         display: flex;
         flex-wrap: wrap;
         @include res(s-m-l){
@@ -96,7 +96,7 @@
                 }
             }
         }
-        > .paragraph:nth-child(1){
+        > .paragraph:nth-child(1), > .views-row:nth-child(1){
                 width: 100%;
                 > div > .field__item a{
                     display: flex;
