@@ -21,6 +21,9 @@
              > a{
                 > div{
                     height: 100%;
+                    &.image{
+                        height: auto;
+                    }
                     > .field__item{
                         display: flex;
                         flex-direction: column;
