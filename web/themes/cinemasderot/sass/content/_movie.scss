@@ -309,6 +309,11 @@
                 @include res(s-m){
                     font-size: 0.8em;
                 }
+                .field--name-field-translation{
+                    .field__item{
+                        padding: 0;
+                    }
+                }
                 .field--name-field-genre{
                     display: flex;
                     > div{
