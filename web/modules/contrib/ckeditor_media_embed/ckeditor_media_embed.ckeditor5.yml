@@ -4,8 +4,8 @@ ckeditor_media_embed_embed_media:
   # Configuration that will be sent to CKEditor 5 JavaScript plugins.
   ckeditor5:
     plugins:
-      - mediaEmbed.MediaEmbed
-      # - mediaEmbed.AutoMediaEmbed
+      - mediaEmbed.MediaEmbedEditing
+      - mediaEmbed.MediaEmbedUI
     # *Additional configuration properties*
     # config: data sent to the constructor of any CKEditor 5 plugin
     #   editorPluginName:
