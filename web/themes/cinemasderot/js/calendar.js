@@ -30,7 +30,7 @@ $("#views-exposed-form-calendar-block-2 input.js-form-submit").click(function() 
 });
 }
 
-$("#views-exposed-form-calendar-block-23 input.js-form-submit").click(function() {
+$("input.js-form-submit").click(function() {
   var newdate = $("td.today").attr("value");
   alert (newdate);
   var newdate = "hihi";
