@@ -355,11 +355,7 @@
                     display: block;
                 }
                 .field__label{
-                    width: 90px;
                     padding: 0;
-                    @include res(s){
-                        width: 100%;
-                    }
                 }
             }
         }
