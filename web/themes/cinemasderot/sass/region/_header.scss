@@ -83,6 +83,7 @@ header{
     }
     .region-menu{
         margin-right: 30px;
+        width: 100%;
         @include res(s-m-l){
             margin-right: 0;
             position: fixed;
@@ -116,8 +117,12 @@ header{
                 list-style: none;
                 font-size: 1.15em;
                 padding-left: 70px;
-                @include res(xl-xxl){
+                @include res(xxl){
                     font-size: 0.9em;
+                    padding-left: 30px;
+                }
+                @include res(xl){
+                    font-size: 0.8em;
                     padding-left: 30px;
                 }
                 @include res(s-m-l){
@@ -138,6 +143,10 @@ header{
                 }
                 .field--name-link a.active{
                     color: $red;
+                }
+                &.program-print{
+                    margin-right: auto;
+                    margin-left: 20px;
                 }
                 &:hover{
                     .field--name-link{
@@ -327,7 +336,7 @@ header{
                 font-size: 1em;
             }
             @include res(xl){
-                width: 140px;
+                width: 130px;
                 font-size: 0.8em;
             }
             @include res(s-m-l){
