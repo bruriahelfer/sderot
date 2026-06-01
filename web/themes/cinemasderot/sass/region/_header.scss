@@ -88,6 +88,7 @@ header{
         justify-content: space-between;
         align-items: center;
         @include res(s-m-l){
+            display: block;
             margin-right: 0;
             position: fixed;
             width: 75%;
@@ -108,8 +109,19 @@ header{
         }
         .block-block-content-file{
             margin-left: 10px;
+            .file{
+                padding: 0;
+            }
             .file--application-pdf {
                 background: none;
+            }
+            @include res(xl-xxl){
+                font-size: 0.8em;
+            }
+            a{
+                @include res(s-m-l){
+                    color: #fff;
+                }
             }
         }
         .block > ul{
