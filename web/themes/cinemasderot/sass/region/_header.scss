@@ -84,6 +84,9 @@ header{
     .region-menu{
         margin-right: 30px;
         width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         @include res(s-m-l){
             margin-right: 0;
             position: fixed;
@@ -101,6 +104,12 @@ header{
                 padding-top: 100px;
                 right: -100%;
                 width: 100%;
+            }
+        }
+        .block-block-content-file{
+            margin-left: 10px;
+            .file--application-pdf {
+                background: none;
             }
         }
         .block > ul{
