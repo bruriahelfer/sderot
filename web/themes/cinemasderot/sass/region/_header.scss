@@ -118,6 +118,15 @@ header{
             @include res(xl-xxl){
                 font-size: 0.8em;
             }
+            @include res(l){
+                font-size: 1.1em;
+            }
+            @include res(m){
+                font-size: 1.1em;
+            }
+            @include res(s){
+                font-size: 1em;
+            }
             a{
                 @include res(s-m-l){
                     color: #fff;
