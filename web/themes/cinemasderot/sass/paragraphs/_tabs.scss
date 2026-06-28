@@ -28,8 +28,10 @@
             }
             @include res(s-m-l){
                 width: 100%;
-                display: flex;
-                justify-content: space-between;
+                .titles-wrapper{
+                    display: flex;
+                    justify-content: space-between;
+                }
                 svg{
                     max-height: 25px;
                     @include res(s){
@@ -78,6 +80,13 @@
                             margin-left: 5px;
                         }
                     }
+                }
+            }
+            .field--name-field-text-after-tabs{
+                margin-right: 40px;
+                @include res(s-m-l){
+                    margin: 0 20px;
+                    text-align: center;
                 }
             }
         }
