@@ -28,6 +28,8 @@
             }
             @include res(s-m-l){
                 width: 100%;
+                display: flex;
+                flex-direction: column-reverse;
                 .titles-wrapper{
                     display: flex;
                     justify-content: space-between;
