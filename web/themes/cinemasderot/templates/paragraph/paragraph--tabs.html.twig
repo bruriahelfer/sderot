@@ -12,15 +12,18 @@
     {% block content %}
     <div class="wrapper">
         <div class="tabs-titles">
-            {% for item in content.field_tabs['#items'] %}
-                {% set paragraph = item.entity %}
-                {% set paragraph_id = paragraph.id() %}
-                <div class="tab {% if loop.index == 1 %} active{% endif %}">
-                    <div class="tab-id-{{ paragraph_id }}">
-                        {{ drupal_entity('paragraph', paragraph_id, 'title') }}
+            <div class="titles-wrapper">
+                {% for item in content.field_tabs['#items'] %}
+                    {% set paragraph = item.entity %}
+                    {% set paragraph_id = paragraph.id() %}
+                    <div class="tab {% if loop.index == 1 %} active{% endif %}">
+                        <div class="tab-id-{{ paragraph_id }}">
+                            {{ drupal_entity('paragraph', paragraph_id, 'title') }}
+                        </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            {{ content.field_text_after_tabs }}
         </div>
         <div class="tabs-content">
             {% for item in content.field_tabs['#items'] %}
