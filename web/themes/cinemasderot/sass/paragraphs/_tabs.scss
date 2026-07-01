@@ -152,6 +152,15 @@
 
 .paragraph--type--link{
     .field--name-field-link{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        > .field__item{
+            margin-left: 20px;
+            &:last-child{
+                margin-left: 0;
+            }
+        }
         a{
             @include simple-button;
             padding: 10px 30px;
