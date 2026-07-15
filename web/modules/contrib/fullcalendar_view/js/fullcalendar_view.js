@@ -42,7 +42,7 @@
     let eventListTitleEle = info.el.getElementsByClassName('fc-list-item-title');
     if(eventListTitleEle.length > 0) {
       if (info.event.url) {
-        eventListTitleEle[0].innerHTML = '<a href="' + encodeURI(info.event.url) + '">' + Drupal.checkPlain(info.event.title) + '</a>';
+        eventListTitleEle[0].innerHTML = '<a href="' + encodeURI(info.event.url) + '">' + info.event.title + '</a>';
       }
       else {
         eventListTitleEle[0].innerHTML = info.event.title;

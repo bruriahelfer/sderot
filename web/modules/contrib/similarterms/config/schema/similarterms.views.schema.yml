@@ -10,6 +10,9 @@ views.argument.similar_terms_arg:
     include_args:
       type: boolean
       label: 'Include argument node(s) in results'
+    min_match_percentage:
+      type: integer
+      label: 'Minimum similarity match percentage'
 
 views.field.similar_terms_field:
   type: views_field
@@ -21,3 +24,14 @@ views.field.similar_terms_field:
     percent_suffix:
       type: boolean
       label: 'Append % when showing percentage'
+    weight_suffix:
+      type: string
+      label: 'Suffix for weight display'
+
+views.sort.similar_terms_sort:
+  type: views_sort
+  label: 'Similar terms sort'
+  mapping:
+    sort_method:
+      type: string
+      label: 'Sort method'

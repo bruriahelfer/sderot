@@ -1,0 +1,101 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - similarterms
+    - user
+id: test_similar_terms
+label: 'Test Similar Terms'
+module: views
+description: 'Test view for Similar Terms module'
+tag: 'test'
+base_table: node
+base_field: nid
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Similar Content'
+      fields:
+        nid:
+          id: nid
+          table: node
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: field
+          label: 'Node ID'
+        title:
+          id: title
+          table: node
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: field
+          label: Title
+        similarterms:
+          id: similarterms
+          table: node
+          field: similarterms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: similar_terms_field
+          label: Similarity
+          count_type: 1
+          percent_suffix: true
+      sorts:
+        similarterms:
+          id: similarterms
+          table: node
+          field: similarterms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: similar_terms_sort
+          order: DESC
+      arguments:
+        similar_nid:
+          id: similar_nid
+          table: node
+          field: similar_nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: similar_terms_arg
+          default_action: empty
+          exception:
+            value: all
+            title_enable: false
+          title_enable: false
+          default_argument_type: fixed
+          vocabularies: []
+          include_args: false
+      filters:
+        status:
+          id: status
+          table: node
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          value: '1'
+          expose:
+            operator: ''
+      pager:
+        type: none
+        options:
+          offset: 0

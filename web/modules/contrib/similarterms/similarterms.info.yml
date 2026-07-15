@@ -7,7 +7,7 @@ dependencies:
   - drupal:taxonomy
   - drupal:views
 
-# Information added by Drupal.org packaging script on 2024-08-05
-version: '8.x-1.9'
+# Information added by Drupal.org packaging script on 2026-07-14
+version: '8.x-1.10'
 project: 'similarterms'
-datestamp: 1722872730
+datestamp: 1784045587

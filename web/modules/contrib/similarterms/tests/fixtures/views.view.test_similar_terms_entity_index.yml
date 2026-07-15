@@ -1,0 +1,75 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_test
+    - similarterms
+id: test_similar_terms_entity_index
+label: 'Test Similar Terms Entity Index'
+module: views
+description: 'Test view for Similar Terms on non-node entities via taxonomy_entity_index'
+tag: 'test'
+base_table: entity_test
+base_field: id
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Similar Content'
+      fields:
+        id:
+          id: id
+          table: entity_test
+          field: id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: entity_test
+          entity_field: id
+          plugin_id: field
+          label: 'ID'
+        similarterms:
+          id: similarterms
+          table: entity_test
+          field: similarterms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: similar_terms_field
+          label: Similarity
+          count_type: 0
+          percent_suffix: false
+      sorts:
+        similarterms:
+          id: similarterms
+          table: entity_test
+          field: similarterms
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: similar_terms_sort
+          order: DESC
+      arguments:
+        similar_id:
+          id: similar_id
+          table: entity_test
+          field: similar_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: similar_terms_arg
+          default_action: empty
+          exception:
+            value: all
+            title_enable: false
+          title_enable: false
+          default_argument_type: fixed
+          vocabularies: []
+          include_args: false
+      pager:
+        type: none
+        options:
+          offset: 0

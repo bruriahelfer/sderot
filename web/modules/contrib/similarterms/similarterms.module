@@ -24,3 +24,74 @@ function similarterms_help($route_name, RouteMatchInterface $route_match) {
     default:
   }
 }
+
+/**
+ * Implements hook_views_data_alter().
+ *
+ * {@inheritdoc}
+ */
+function similarterms_views_data_alter(&$data): void {
+  if (\Drupal::moduleHandler()->moduleExists('taxonomy_entity_index')) {
+    // When taxonomy_entity_index is enabled, its index covers term references
+    // on any entity type, so expose the handlers for all content entity
+    // types.
+    $entity_types = \Drupal::entityTypeManager()->getDefinitions();
+    foreach ($entity_types as $entity_type) {
+      $base_table = $entity_type->getBaseTable();
+      if ($entity_type->getGroup() != 'content' || empty($base_table) || !$entity_type->getKey('id')) {
+        continue;
+      }
+
+      $data[$base_table]['similarterms'] = [
+        'group' => t('Similar by terms'),
+        'title' => t('Similarity'),
+        'help' => t('Percentage/count of terms which @type has in common with @type given as argument.', ['@type' => $entity_type->getLabel()]),
+        'field' => [
+          'id' => 'similar_terms_field',
+        ],
+        'sort' => [
+          'id' => 'similar_terms_sort',
+        ],
+      ];
+
+      $data[$base_table]['similar_' . $entity_type->getKey('id')] = [
+        'title' => t('@type ID', ['@type' => $entity_type->getLabel()]),
+        'group' => t('Similar by terms'),
+        'help' => t('ID of @type item(s).', ['@type' => $entity_type->getLabel()]),
+        'argument' => [
+          'id' => 'similar_terms_arg',
+          'name field' => 'title',
+          'numeric' => TRUE,
+          'validate type' => $entity_type->getKey('id'),
+        ],
+      ];
+    }
+  }
+  else {
+    // Without taxonomy_entity_index only nodes are indexed (core
+    // taxonomy_index).
+    $data['node']['similarterms'] = [
+      'group' => t('Similar by terms'),
+      'title' => t('Similarity'),
+      'help' => t('Percentage/count of terms which node has in common with node given as argument.'),
+      'field' => [
+        'id' => 'similar_terms_field',
+      ],
+      'sort' => [
+        'id' => 'similar_terms_sort',
+      ],
+    ];
+
+    $data['node']['similar_nid'] = [
+      'title' => t('Nid'),
+      'group' => t('Similar by terms'),
+      'help' => t('ID of content item(s).'),
+      'argument' => [
+        'id' => 'similar_terms_arg',
+        'name field' => 'title',
+        'numeric' => TRUE,
+        'validate type' => 'nid',
+      ],
+    ];
+  }
+}

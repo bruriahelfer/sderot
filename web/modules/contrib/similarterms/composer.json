@@ -1,0 +1,14 @@
+{
+    "name": "drupal/similarterms",
+    "description": "Displays similar content based on shared taxonomy terms.",
+    "type": "drupal-module",
+    "license": "GPL-2.0-or-later",
+    "homepage": "https://www.drupal.org/project/similarterms",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/similarterms",
+        "source": "https://git.drupalcode.org/project/similarterms"
+    },
+    "require-dev": {
+        "drupal/taxonomy_entity_index": "*"
+    }
+}
