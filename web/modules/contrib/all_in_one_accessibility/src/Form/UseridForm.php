@@ -88,9 +88,8 @@ class UseridForm extends ConfigFormBase {
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, FALSE);
     curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, TRUE);
+    curl_setopt($curl, CURLOPT_FORBID_REUSE, TRUE);
     $resp = curl_exec($curl);
-    // Close the cURL resource.
-    curl_close($curl);
     $resp = json_decode($resp);
 
     $form['allinone']['userid'] = [
@@ -423,7 +422,7 @@ class UseridForm extends ConfigFormBase {
                 border: 2px solid gray;
                 border-radius: 3px;
             }
-    
+
             #edit-aioa-icon-type,
             #edit-aioa-icon-size,
             #edit-aioa-icon-sizes {
@@ -458,7 +457,7 @@ class UseridForm extends ConfigFormBase {
   }
 
   .all-in-one-accessibility {
-  font-size: 18px; 
+  font-size: 18px;
 }
 
 .all-in-one-accessibility label,
@@ -513,10 +512,9 @@ class UseridForm extends ConfigFormBase {
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => 'POST',
       CURLOPT_POSTFIELDS => $postdata,
+      CURLOPT_FORBID_REUSE => TRUE,
     ]);
     $resp = curl_exec($curl);
-    // Close the cURL resource.
-    curl_close($curl);
     // Fixed: pass $resp instead of $curl.
     $resp = json_decode($resp);
 
@@ -708,9 +706,9 @@ class UseridForm extends ConfigFormBase {
       CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
       CURLOPT_CUSTOMREQUEST => 'POST',
       CURLOPT_POSTFIELDS => $post_field,
+      CURLOPT_FORBID_REUSE => TRUE,
     ]);
     curl_exec($curl);
-    curl_close($curl);
   }
 
 }
