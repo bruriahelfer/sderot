@@ -113,6 +113,7 @@
                 .price{
                     font-weight: 500;
                     font-size: 1.5em;
+                    flex-wrap: wrap;
                     @include res(xl-xxl){
                         font-size: 1em;
                     }
