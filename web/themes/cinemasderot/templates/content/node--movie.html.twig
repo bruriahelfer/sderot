@@ -60,6 +60,9 @@
             {% if content.field_subscribe['#items'].value==1 %}
               <div class="subscribe">{{ content.field_subscribe }}</div>
             {% endif %}
+            {% if content.field_full_price['#items'].value==1 %}
+              <div class="full-price">{{ content.field_full_price }}</div>
+            {% endif %}
         </div>
         {% if content.field_tab['#items'].value==1 %}
           <div class="tab-free">{{ content.field_tab }}</div>
