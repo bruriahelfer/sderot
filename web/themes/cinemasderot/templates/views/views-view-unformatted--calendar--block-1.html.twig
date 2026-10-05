@@ -13,11 +13,17 @@
                 {% set now = current_time  %}
                 {% set movietime = row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_date_2 }}'] %}
                 {% set type = row.content['#row']._entity.type.0.target_id %}
-                {% set entity = row.content['#row']._entity %}
-                {{ entity.field_text_no_activities.value }}
+
+
+                {% set index = row.content['#row'].index %}
+                {% set tokens = row.content['#view'].style_plugin.render_tokens[index] %}
+                {% set noActivityTitle = tokens['{{ field_text_no_activities }}'] %}
+
+
                 {% if type!="movie" %}
+                {{ noActivityTitle }}
                     <div class="no-activities">
-                        <div class="views-field-title"><div class="title">{{ noActivityTitle }}</div></div>
+                        <div class="views-field-title"><div class="title">{{ "No activitie"|t }}</div></div>
                     </div>
                 {% else %}
                     {{- row.content -}}
