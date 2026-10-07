@@ -317,6 +317,7 @@
                 }
                 .field--name-field-genre{
                     display: flex;
+                    flex-wrap: wrap;
                     > div{
                         position: relative;
                         &:after{
