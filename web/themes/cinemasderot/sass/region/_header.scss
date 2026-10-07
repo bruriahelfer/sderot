@@ -146,14 +146,12 @@ header{
             > li{
                 list-style: none;
                 font-size: 1em;
-                padding-left: 70px;
+                padding-left: 30px;
                 @include res(xxl){
                     font-size: 0.8em;
-                    padding-left: 30px;
                 }
                 @include res(xl){
                     font-size: 0.8em;
-                    padding-left: 30px;
                 }
                 @include res(s-m-l){
                     padding-left: 0;
