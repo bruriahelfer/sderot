@@ -227,6 +227,7 @@
                     font-size: 0.9em;
                     .field--name-field-genre{
                         display: flex;
+                        flex-wrap: wrap;
                         > .field__item{
                             &:not(:last-child):after{
                                 content: ",";
