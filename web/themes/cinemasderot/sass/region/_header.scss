@@ -329,7 +329,7 @@ header{
             position: relative;
             width: 170px;
             background-color: $red;
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: bold;
             color: #fff;
             border-radius: 250px;
@@ -439,12 +439,6 @@ body.open-menu{
                 @include res(s-m-l){
                     width: 100%;
                 }
-            }
-        }
-        .calendar-icon, .calend-icon a{
-            padding: 10px 18px;
-            @include res(s-m-l){
-                padding: 7px 4px;
             }
         }
     }
