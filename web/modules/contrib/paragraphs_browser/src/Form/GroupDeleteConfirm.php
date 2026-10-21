@@ -31,7 +31,7 @@ class GroupDeleteConfirm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, BrowserTypeInterface $paragraphs_browser_type = null, $group_machine_name = '') {
+  public function buildForm(array $form, FormStateInterface $form_state, ?BrowserTypeInterface $paragraphs_browser_type = NULL, $group_machine_name = '') {
     $this->entity = $paragraphs_browser_type;
 
     $form['id'] = array('#type' => 'hidden', '#value' => $group_machine_name);

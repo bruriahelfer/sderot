@@ -19,8 +19,8 @@ use Drupal\paragraphs\Plugin\Field\FieldWidget\ParagraphsWidget;
  *
  * @FieldWidget(
  *   id = "paragraphs_browser",
- *   label = @Translation("Paragraphs Browser EXPERIMENTAL"),
- *   description = @Translation("An experimental paragraphs inline form widget with a previewer."),
+ *   label = @Translation("Paragraphs Browser (stable)"),
+ *   description = @Translation("A paragraphs inline form widget with a previewer."),
  *   field_types = {
  *     "entity_reference_revisions"
  *   }

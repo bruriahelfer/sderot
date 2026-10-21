@@ -1,0 +1,24 @@
+{
+    "comment": [
+        "The CKEditor 5 Media embed plugin must be built against the same CKEditor 5",
+        "version Drupal core bundles, or the editor fails with",
+        "ckeditor-duplicated-modules. This module supports several core majors, which",
+        "bundle different CKEditor 5 versions, so it cannot pin the library itself.",
+        "Read core's version from web/core/core.libraries.yml (the ckeditor5: entry)",
+        "and require the matching tag in the project or recipe that pins the core",
+        "version. CKEditor 5 releases from 47.7.0 on are the Long Term Support",
+        "edition, which is commercial-licence only and must not be shipped in a",
+        "GPL-2.0-or-later distribution; 47.6.2 is the last GPL dual-licensed release",
+        "of that line."
+    ],
+    "require": {
+        "vardot/ckeditor5-media-embed-drupal": "~47.6.2"
+    },
+    "extra": {
+        "installer-paths": {
+            "web/libraries/ckeditor5/plugins/media-embed": [
+                "vardot/ckeditor5-media-embed-drupal"
+            ]
+        }
+    }
+}

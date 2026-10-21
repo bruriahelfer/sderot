@@ -15,14 +15,14 @@
 }
 
 .ck .drupal-media {
-  margin-left: 0;
-  margin-right: 0;
   max-width: none;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .ck-content .drupal-media-style-align-center {
-  margin-left: auto;
   margin-right: auto;
+  margin-left: auto;
 }
 
 figure.align-left,

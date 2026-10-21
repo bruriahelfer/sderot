@@ -24,9 +24,32 @@ use Psr\Container\ContainerInterface;
  */
 class FilterResizeMedia extends FilterBase implements ContainerFactoryPluginInterface {
 
+  /**
+   * The entity type manager.
+   *
+   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   */
   protected EntityTypeManagerInterface $entityTypeManager;
+
+  /**
+   * The CKEditor5 plugin manager.
+   *
+   * @var \Drupal\ckeditor5\Plugin\CKEditor5PluginManagerInterface
+   */
   protected CKEditor5PluginManagerInterface $ckeditor5PluginManager;
+
+  /**
+   * The current route match service.
+   *
+   * @var \Drupal\Core\Routing\CurrentRouteMatch
+   */
   protected CurrentRouteMatch $routeMatch;
+
+  /**
+   * The width attribute.
+   *
+   * @var string
+   */
   protected string $resizeWidthAttribute;
 
   /**
@@ -85,7 +108,7 @@ class FilterResizeMedia extends FilterBase implements ContainerFactoryPluginInte
     if (!$processing_in_editor) {
       [
         $width,
-        $attribute_value
+        $attribute_value,
       ] = $this->getStyleAttributeFromNode($node);
       $node->setAttribute('style', $attribute_value);
 

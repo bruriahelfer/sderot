@@ -37,7 +37,7 @@ class GroupEditForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, BrowserTypeInterface $paragraphs_browser_type = null, $group_machine_name = '') {
+  public function buildForm(array $form, FormStateInterface $form_state, ?BrowserTypeInterface $paragraphs_browser_type = NULL, $group_machine_name = '') {
     /** @var BrowserType $paragraphs_browser_type */
     $this->entity = $paragraphs_browser_type;
     /** @var BrowserGroupList $groups */

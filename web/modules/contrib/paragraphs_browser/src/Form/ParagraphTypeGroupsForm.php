@@ -76,7 +76,7 @@ class ParagraphTypeGroupsForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, ParagraphsTypeInterface $paragraphs_type = null) {
+  public function buildForm(array $form, FormStateInterface $form_state, ?ParagraphsTypeInterface $paragraphs_type = NULL) {
     $paragraph_browser_type_ids = $this->entityTypeManager->getStorage('paragraphs_browser_type')->getQuery()->accessCheck(TRUE)->execute();
     //@todo: on unsaved change, hide links to configuration forms.
     if(!$paragraph_browser_type_ids) {
@@ -139,11 +139,12 @@ class ParagraphTypeGroupsForm extends FormBase {
     $paragraph_type = $build_info['paragraph_type'];
 
     $mapping = $form_state->getValue('paragraph_browser_type');
-    $mapping = array_combine(array_keys($mapping), array_column($mapping, 'group'));
-    $mapping = array_filter($mapping, function($v, $k) {
-      return $v != '_na';
-    }, ARRAY_FILTER_USE_BOTH);
-
+    if (isset($mapping) && is_array($mapping)) {
+      $mapping = array_combine(array_keys($mapping), array_column($mapping, 'group'));
+      $mapping = array_filter($mapping, function($v, $k) {
+        return $v != '_na';
+      }, ARRAY_FILTER_USE_BOTH);
+    }
 
     foreach($paragraph_browser_types as $paragraph_browser_type_id => $paragraph_browser_type) {
       $paragraph_browser_type->removeGroupMap($paragraph_type->id());

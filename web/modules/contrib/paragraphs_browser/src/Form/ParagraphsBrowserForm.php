@@ -10,16 +10,17 @@ namespace Drupal\paragraphs_browser\Form;
 use Drupal\Component\Utility\Html;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\CloseModalDialogCommand;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Cache\CacheableMetadata;
 use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Extension\ModuleHandlerInterface;
 use Drupal\Core\File\FileUrlGeneratorInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Session\AccountInterface;
 use Drupal\field\Entity\FieldConfig;
 use Drupal\paragraphs_browser\Ajax\AddParagraphTypeCommand;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\Core\Session\AccountInterface;
 
 /**
  * Class CleanupUrlAliases.
@@ -67,18 +68,20 @@ class ParagraphsBrowserForm extends FormBase {
   protected $fileUrlGenerator;
 
   /**
-   * Constructs a new ParagraphsTypeDeleteConfirm object.
+   * Constructs a new ParagraphsBrowserForm object.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-   *
+   *   The entity type manager.
    * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info
-   *
+   *   The entity type bundle info.
    * @param \Drupal\Core\Extension\ModuleHandlerInterface $module_handler
-   *   The module handler service.
+   *   The module handler.
    * @param \Drupal\Core\Session\AccountInterface $current_user
    *   The current user.
+   * @param \Drupal\Core\File\FileUrlGeneratorInterface|null $file_url_generator
+   *   The file URL generator.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, EntityTypeBundleInfoInterface $entity_type_bundle_info, ModuleHandlerInterface $module_handler, AccountInterface $current_user, FileUrlGeneratorInterface $file_url_generator = NULL) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, EntityTypeBundleInfoInterface $entity_type_bundle_info, ModuleHandlerInterface $module_handler, AccountInterface $current_user, ?FileUrlGeneratorInterface $file_url_generator = NULL) {
     $this->entityTypeManager = $entity_type_manager;
     $this->entityTypeBundleInfo = $entity_type_bundle_info;
     $this->moduleHandler = $module_handler;
@@ -109,7 +112,7 @@ class ParagraphsBrowserForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function buildForm(array $form, FormStateInterface $form_state, FieldConfig $field_config = null, $paragraphs_browser_type = null, $uuid = null) {
+  public function buildForm(array $form, FormStateInterface $form_state, ?FieldConfig $field_config = null, $paragraphs_browser_type = null, $uuid = null) {
     $form_state->addBuildInfo('uuid', $uuid);
 
     $form['#attached']['library'][] = 'paragraphs_browser/modal';
@@ -138,16 +141,31 @@ class ParagraphsBrowserForm extends FormBase {
       $target_bundles = array_diff($all_paragraph_types, $target_bundles);
     }
 
+    $target_bundles_drag_drop = isset($handler_settings['target_bundles_drag_drop']) ? $handler_settings['target_bundles_drag_drop'] : [];
+    // Sort target_bundles_drag_drop by weight if setting exists.
+    array_multisort(array_column($target_bundles_drag_drop, 'weight'), SORT_ASC, $target_bundles_drag_drop);
+    foreach ($target_bundles_drag_drop as $target_bundle_drag_drop => $paragraph_item) {
+      if (in_array($target_bundle_drag_drop, $target_bundles)) {
+        $sorted_target_bundles[] = $target_bundle_drag_drop;
+      }
+    }
+    // Use sorted target bundles list if it exists.
+    $target_bundles = !empty($sorted_target_bundles) ? $sorted_target_bundles : $target_bundles;
+
     $paragraphs_types = $paragraph_type_storage->loadMultiple($target_bundles);
 
     // Check for permission.
-    if ($this->moduleHandler->moduleExists('paragraphs_type_permissions')){
-      foreach ($target_bundles as $key => $bundle) {
-        if (!$this->currentUser->hasPermission('create paragraph content ' . $bundle) && !$this->currentUser->hasPermission('bypass paragraphs type content access')) {
-          unset($target_bundles[$key]);
-        }
+    $access_control_handler = $this->entityTypeManager
+      ->getAccessControlHandler('paragraph');
+    $access_result_cacheability = CacheableMetadata::createFromRenderArray($form);
+    foreach ($target_bundles as $key => $bundle) {
+      $access_result = $access_control_handler->createAccess($bundle, NULL, [], TRUE);
+      $access_result_cacheability->addCacheableDependency($access_result);
+      if (!$access_result->isAllowed()) {
+        unset($target_bundles[$key]);
       }
     }
+    $access_result_cacheability->applyTo($form);
 
     $groups = $paragraphs_browser_type->groupManager()->getDisplayGroups();
 

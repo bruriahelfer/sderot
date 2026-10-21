@@ -53,14 +53,18 @@ getDirectories('./js/ckeditor5_plugins').forEach((dir) => {
       // However, that requires knowing the location of that file relative to
       // where your module code is located.
       new webpack.DllReferencePlugin({
-        manifest: require('./node_modules/ckeditor5/build/ckeditor5-dll.manifest.json'), // eslint-disable-line global-require, import/no-unresolved
+        // eslint-disable-line global-require, import/no-unresolved
+        manifest: require('./node_modules/ckeditor5/build/ckeditor5-dll.manifest.json'),
         scope: 'ckeditor5/src',
         name: 'CKEditor5.dll',
       }),
     ],
     module: {
       rules: [
-        { test: /\.svg$/, use: 'raw-loader' },
+        {
+          test: /\.svg$/,
+          use: 'raw-loader'
+        },
         {
           test: /\.css$/i,
           use: ["style-loader", "css-loader"],

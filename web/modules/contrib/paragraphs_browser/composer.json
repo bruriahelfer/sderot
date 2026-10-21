@@ -9,7 +9,7 @@
     "source": "https://git.drupalcode.org/project/paragraphs_browser"
   },
   "require": {
-    "drupal/core": "^9.3 | ^10 | ^11",
+    "drupal/core": "^10.2 || ^11",
     "drupal/paragraphs": "*"
   }
 }

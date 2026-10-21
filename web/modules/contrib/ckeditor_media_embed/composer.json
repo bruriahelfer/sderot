@@ -11,6 +11,9 @@
     "require": {
         "drupal/core": "^10.3 || ^11"
     },
+    "suggest": {
+        "vardot/ckeditor5-media-embed-drupal": "The CKEditor 5 Media embed plugin library, as a drupal-library. Require the tag matching the CKEditor 5 version Drupal core bundles: ~47.6.2 for core 11.4.x. See composer.libraries.json."
+    },
     "extra": {
         "drush": {
             "services": {

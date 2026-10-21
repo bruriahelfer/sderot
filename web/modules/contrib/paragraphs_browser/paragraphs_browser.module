@@ -92,7 +92,7 @@ function paragraphs_browser_form_paragraphs_type_edit_form_validate(&$form, Form
   if (\Drupal::moduleHandler()->moduleExists('file')) {
     // Handle file uploads.
 
-    $validators = array('file_validate_extensions' => array('png gif jpg jpeg apng svg'));
+    $validators = ['FileExtension' => ['extensions' => 'png gif jpg jpeg apng svg']];
 
     // Check for a new uploaded logo.
     $file = file_save_upload('paragraphs_browser', $validators, FALSE, 0);

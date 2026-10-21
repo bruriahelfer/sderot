@@ -18,7 +18,7 @@ function ckeditor_media_resize_uninstall() {
     'core.entity_view_mode.media.cke_media_resize_large',
     'core.entity_view_mode.media.cke_media_resize_medium',
     'core.entity_view_mode.media.cke_media_resize_small',
-    'core.entity_view_mode.media.cke_media_resize_xl'
+    'core.entity_view_mode.media.cke_media_resize_xl',
   ];
 
   // Loop through and delete the configurations.

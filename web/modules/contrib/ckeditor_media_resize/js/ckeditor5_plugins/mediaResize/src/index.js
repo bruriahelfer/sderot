@@ -11,7 +11,6 @@ import { Plugin } from 'ckeditor5/src/core';
 import MediaResizeButtons from './mediaresizebuttons';
 import MediaResizeEditing from './mediaresizeediting';
 import MediaResizeHandles from './mediaresizehandles';
-
 import '../theme/mediaresize_editor.css';
 
 /**
@@ -22,11 +21,12 @@ import '../theme/mediaresize_editor.css';
  * @extends module:core/plugin~Plugin
  */
 class MediaResize extends Plugin {
+
   /**
    * @inheritDoc
    */
   static get requires() {
-    return [ MediaResizeEditing, MediaResizeHandles, MediaResizeButtons ];
+    return [MediaResizeEditing, MediaResizeHandles, MediaResizeButtons];
   }
 
   /**
@@ -35,6 +35,7 @@ class MediaResize extends Plugin {
   static get pluginName() {
     return 'MediaResize';
   }
+
 }
 
 export default {
@@ -46,14 +47,14 @@ export default {
  *
  * Determines the size unit applied to the resized image.
  *
- *		ClassicEditor
- *			.create( editorElement, {
- *				image: {
- *					resizeUnit: 'px'
- *				}
- *			} )
- *			.then( ... )
- *			.catch( ... );
+ *    ClassicEditor
+ *      .create(editorElement, {
+ *        image: {
+ *          resizeUnit: 'px'
+ *        }
+ *      })
+ *      .then( ... )
+ *      .catch( ... );
  *
  *
  * This option is used by the {@link module:image/imageresize~ImageResize} feature.
@@ -81,26 +82,28 @@ export default {
  * to one of the options. The `:original` token is not mandatory, you can call it anything you wish, but it must reflect
  * in the standalone buttons configuration for the image toolbar.
  *
- *		ClassicEditor
- *			.create( editorElement, {
- *				image: {
- *					resizeUnit: "%",
- *					resizeOptions: [ {
- *						name: 'resizeMediaImage:original',
- *						value: null
- *					},
- *					{
- *						name: 'resizeMediaImage:50',
- *						value: '50'
- *					},
- *					{
- *						name: 'resizeMediaImage:75',
- *						value: '75'
- *					} ]
- *				}
- *			} )
- *			.then( ... )
- *			.catch( ... );
+ *    ClassicEditor
+ *      .create(editorElement, {
+ *        image: {
+ *          resizeUnit: '%',
+ *          resizeOptions: [
+ *            {
+ *              name: 'resizeMediaImage:original',
+ *              value: null
+ *            },
+ *            {
+ *              name: 'resizeMediaImage:50',
+ *              value: '50'
+ *            },
+ *            {
+ *              name: 'resizeMediaImage:75',
+ *              value: '75'
+ *            }
+ *          ]
+ *        }
+ *      })
+ *      .then( ... )
+ *      .catch( ... );
  *
  * **Resizing images using a dropdown**
  *
@@ -108,27 +111,29 @@ export default {
  * For the dropdown, you need to pass only the `resizeMediaImage` token to the
  {@link module:image/image~ImageConfig#toolbar `config.image.toolbar`}. The dropdown contains all defined options by default:
  *
- *		ClassicEditor
- *			.create( editorElement, {
- *				image: {
- *					resizeUnit: "%",
- *					resizeOptions: [ {
- *						name: 'resizeMediaImage:original',
- *						value: null
- *					},
- *					{
- *						name: 'resizeMediaImage:50',
- *						value: '50'
- *					},
- *					{
- *						name: 'resizeMediaImage:75',
- *						value: '75'
- *					} ],
- *					toolbar: [ 'resizeMediaImage', ... ],
- *				}
- *			} )
- *			.then( ... )
- *			.catch( ... );
+ *    ClassicEditor
+ *      .create(editorElement, {
+ *        image: {
+ *          resizeUnit: '%',
+ *          resizeOptions: [
+ *            {
+ *              name: 'resizeMediaImage:original',
+ *              value: null
+ *            },
+ *            {
+ *              name: 'resizeMediaImage:50',
+ *              value: '50'
+ *            },
+ *            {
+ *              name: 'resizeMediaImage:75',
+ *              value: '75'
+ *            }
+ *          ],
+ *          toolbar: ['resizeMediaImage', ...],
+ *        }
+ *      })
+ *      .then( ... )
+ *      .catch( ... );
  *
  * **Resizing images using individual buttons**
  *
@@ -137,35 +142,43 @@ export default {
  * that this time **you must define the additional
  * {@link module:image/imageresize/mediaresizebuttons~ImageResizeOption `icon` property}**:
  *
- *		ClassicEditor
- *			.create( editorElement, {
- *				image: {
- *					resizeUnit: "%",
- *					resizeOptions: [ {
- *						name: 'resizeMediaImage:original',
- *						value: null,
- *						icon: 'original'
- *					},
- *					{
- *						name: 'resizeMediaImage:25',
- *						value: '25',
- *						icon: 'small'
- *					},
- *					{
- *						name: 'resizeMediaImage:50',
- *						value: '50',
- *						icon: 'medium'
- *					},
- *					{
- *						name: 'resizeMediaImage:75',
- *						value: '75',
- *						icon: 'large'
- *					} ],
- *					toolbar: [ 'resizeMediaImage:25', 'resizeMediaImage:50', 'resizeMediaImage:75', 'resizeMediaImage:original', ... ],
- *				}
- *			} )
- *			.then( ... )
- *			.catch( ... );
+ *    ClassicEditor
+ *      .create(editorElement, {
+ *        image: {
+ *          resizeUnit: '%',
+ *          resizeOptions: [
+ *            {
+ *              name: 'resizeMediaImage:original',
+ *              value: null,
+ *              icon: 'original'
+ *            },
+ *            {
+ *              name: 'resizeMediaImage:25',
+ *              value: '25',
+ *              icon: 'small'
+ *            },
+ *            {
+ *              name: 'resizeMediaImage:50',
+ *              value: '50',
+ *              icon: 'medium'
+ *            },
+ *            {
+ *              name: 'resizeMediaImage:75',
+ *              value: '75',
+ *              icon: 'large'
+ *            }
+ *          ],
+ *          toolbar: [
+ *            'resizeMediaImage:25',
+ *            'resizeMediaImage:50',
+ *            'resizeMediaImage:75',
+ *            'resizeMediaImage:original',
+ *            ...
+ *          ],
+ *        }
+ *      })
+ *      .then( ... )
+ *      .catch( ... );
  *
  * **Customizing resize button labels**
  *
@@ -174,60 +187,61 @@ export default {
  * * When using the **dropdown**, the labels are displayed on the list of all options when you open the dropdown.
  * * When using **standalone buttons**, the labels will are displayed as tooltips when a user hovers over the button.
  *
- *		ClassicEditor
- *			.create( editorElement, {
- *				image: {
- *					resizeUnit: "%",
- *					resizeOptions: [ {
- *						name: 'resizeMediaImage:original',
- *						value: null,
- *						label: 'Original size'
- *						// Note: add the "icon" property if you're configuring a standalone button.
- *					},
- *					{
- *						name: 'resizeMediaImage:50',
- *						value: '50',
- *						label: 'Medium size'
- *						// Note: add the "icon" property if you're configuring a standalone button.
- *					},
- *					{
- *						name: 'resizeMediaImage:75',
- *						value: '75',
- *						label: 'Large size'
- *						// Note: add the "icon" property if you're configuring a standalone button.
- *					} ]
- *				}
- *			} )
- *			.then( ... )
- *			.catch( ... );
+ *    ClassicEditor
+ *      .create(editorElement, {
+ *        image: {
+ *          resizeUnit: '%',
+ *          resizeOptions: [
+ *            {
+ *              name: 'resizeMediaImage:original',
+ *              value: null,
+ *              label: 'Original size'
+ *              // Note: add the "icon" property if you're configuring a standalone button.
+ *            },
+ *            {
+ *              name: 'resizeMediaImage:50',
+ *              value: '50',
+ *              label: 'Medium size'
+ *              // Note: add the "icon" property if you're configuring a standalone button.
+ *            },
+ *            {
+ *              name: 'resizeMediaImage:75',
+ *              value: '75',
+ *              label: 'Large size'
+ *              // Note: add the "icon" property if you're configuring a standalone button.
+ *            }
+ *          ]
+ *        }
+ *      })
+ *      .then( ... )
+ *      .catch( ... );
  *
  * **Default value**
  *
  * The following configuration is used by default:
  *
- *		resizeOptions = [
- *			{
- *				name: 'resizeMediaImage:original',
- *				value: null,
- *				icon: 'original'
- *			},
- *			{
- *				name: 'resizeMediaImage:25',
- *				value: '25',
- *				icon: 'small'
- *			},
- *			{
- *				name: 'resizeMediaImage:50',
- *				value: '50',
- *				icon: 'medium'
- *			},
- *			{
- *				name: 'resizeMediaImage:75',
- *				value: '75',
- *				icon: 'large'
- *			}
- *		];
+ *    resizeOptions = [
+ *      {
+ *        name: 'resizeMediaImage:original',
+ *        value: null,
+ *        icon: 'original'
+ *      },
+ *      {
+ *        name: 'resizeMediaImage:25',
+ *        value: '25',
+ *        icon: 'small'
+ *      },
+ *      {
+ *        name: 'resizeMediaImage:50',
+ *        value: '50',
+ *        icon: 'medium'
+ *      },
+ *      {
+ *        name: 'resizeMediaImage:75',
+ *        value: '75',
+ *        icon: 'large'
+ *      }
+ *    ];
  *
  * @member {Array.<module:image/imageresize/mediaresizebuttons~ImageResizeOption>} module:image/image~ImageConfig#resizeOptions
  */
-
