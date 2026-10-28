@@ -139,3 +139,15 @@
         }
     }
 }
+
+
+.field--name-field-media-oembed-video {
+  width: 100%;
+  max-width: 900px;
+  iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border: 0;
+  }
+}
